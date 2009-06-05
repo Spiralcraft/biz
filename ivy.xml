@@ -9,6 +9,7 @@
     
   <dependencies>
     <dependency org="spiralcraft" name="core" rev="latest.integration"/>
+    <dependency org="spiralcraft" name="pim" rev="latest.integration"/>
 
     <exclude artifact="spiralcraft-core-test"/>
 

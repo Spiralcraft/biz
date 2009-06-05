@@ -1,0 +1,3 @@
+<project name="spiralcraft-biz-publish" basedir="." default="share">
+  <import file="build.xml"/>
+</project>
