@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0">
+  <info organisation="spiralcraft" module="biz">
+  </info> 
+  
+  <publications>
+    <artifact name="spiralcraft-biz" type="jar" ext="jar"/>
+  </publications> 
+    
+  <dependencies>
+    <dependency org="spiralcraft" name="core" rev="latest.integration"/>
+
+    <exclude artifact="spiralcraft-core-test"/>
+
+  </dependencies>
+</ivy-module>
