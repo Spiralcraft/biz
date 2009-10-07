@@ -1,0 +1,68 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  >
+  
+  <fields>
+    
+    <meta:SequenceField>
+      <name>invoiceId</name>
+      <type><Integer.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>lineNumber</name>
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>sectionId
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>clientCategoryId
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>quantity
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>unitId
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>rate
+      </name>
+      
+      <type><bizm:Money.type/>
+      </type>
+      
+    </meta:Field>
+    
+  </fields>
+
+  
+</meta:Type>

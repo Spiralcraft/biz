@@ -1,0 +1,131 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  >
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>invoiceId</name>
+      <type><Integer.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>invoiceNumber</name>
+      <type><String.type/></type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>issueDate</name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>dueDate</name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>facetId</name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>billToId</name>
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>shipToId</name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>invoiceNetAmount
+      </name>
+      <type><Money.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>previousBalance
+      </name>
+      <type><Money.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>paymentTermsId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>paymentMethodId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>facet
+      </name>
+      
+      <fieldList>facetId
+      </fieldList>
+      
+      <foreignType><bizm:Business.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+
+          <unique>true
+          </unique>
+          
+          <fieldList>facetId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
+
+
+    <meta:Key>
+      <name>paymentTerms
+      </name>
+      
+      <fieldList>paymentTermsId
+      </fieldList>
+      
+      <foreignType><bizm:PaymentTerms.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+
+          <unique>true
+          </unique>
+          
+          <fieldList>paymentTermsId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

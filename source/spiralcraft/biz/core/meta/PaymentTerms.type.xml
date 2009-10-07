@@ -1,0 +1,48 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  >
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>paymentTermsId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>displayName
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>paymentPeriod</name>
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
+    
+    
+    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>paymentTerms
+      </name>
+      
+      <primary>true
+      </primary>
+      
+      <fieldList>paymentTermsId
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>
