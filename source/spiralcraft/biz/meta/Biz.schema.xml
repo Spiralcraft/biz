@@ -1,0 +1,27 @@
+<meta:Schema
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizc="class:/spiralcraft/biz/meta/"
+  >
+  <entities>
+    <meta:Entity>
+      <name>Invoice</name>
+      <type><bizc:Invoice.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <name>InvoiceLine</name>
+      <type><bizc:InvoiceLine.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <name>Facet</name>
+      <type><bizc:Facet.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <name>PaymentTerms</name>
+      <type><bizc:PaymentTerms.type/>
+      </type>
+    </meta:Entity>    
+  </entities>
+</meta:Schema>

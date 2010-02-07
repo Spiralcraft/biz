@@ -1,0 +1,6 @@
+<BigDecimal.type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  >
+  <precision>2
+  </precision>
+</BigDecimal.type>

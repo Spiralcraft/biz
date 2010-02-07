@@ -1,6 +1,6 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
   >
   
   <fields>

@@ -1,6 +1,6 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
   >
   
   <fields>
@@ -13,7 +13,8 @@
   
     <meta:Field>
       <name>invoiceNumber</name>
-      <type><String.type/></type>
+      <type><String.type/>
+      </type>
     </meta:Field>
     
     <meta:Field>
@@ -49,14 +50,14 @@
     <meta:Field>
       <name>invoiceNetAmount
       </name>
-      <type><Money.type/>
+      <type><bizm:Money.type/>
       </type>
     </meta:Field>
 
     <meta:Field>
       <name>previousBalance
       </name>
-      <type><Money.type/>
+      <type><bizm:Money.type/>
       </type>
     </meta:Field>
     
@@ -85,7 +86,7 @@
       <fieldList>facetId
       </fieldList>
       
-      <foreignType><bizm:Business.type/>
+      <foreignType><bizm:Facet.type/>
       </foreignType>
       
       <importedKey>
