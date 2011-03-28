@@ -1,0 +1,14 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <!-- 
+    A ControlAccount is a general ledger summary account which tracks a subset
+      of entries of for a given RootAccount. 
+  -->
+  <basetype><bizm:Account.type/>
+  </basetype>
+  
+</meta:Type>

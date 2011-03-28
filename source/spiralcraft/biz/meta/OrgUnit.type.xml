@@ -1,0 +1,63 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  xmlns:postal="class:/spiralcraft/archetype/postal/"
+  >
+  
+  <!-- 
+    One of multiple identities of an organization. Typically associated
+      with a specific business activity and/or a brand that shares a common
+      accounting dataset with the rest of the organization.
+  -->
+  <archetype><entity:Organization.type/>
+  </archetype>
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>orgUnitId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:SequenceField>
+    
+    <!-- taxId is a placeholder- need to provide for multiple
+      authorities
+    -->
+    <meta:Field>
+      <name>taxId
+      </name>
+      <type><String.type/>
+      </type>
+      <description>Tax identification number provided to counterparties
+      </description>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>postalAddress
+      </name>
+      <type><postal:Address.type/>
+      </type>
+      <description>The primary postal address for this organizational unit.
+      </description>
+    </meta:Field>
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>orgUnitId
+      </name>
+      
+      <primary>true
+      </primary>
+      
+      <fieldList>orgUnitId
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

@@ -4,22 +4,26 @@
   >
   <entities>
     <meta:Entity>
-      <name>Invoice</name>
+      <type><bizc:Customer.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizc:Contact.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
       <type><bizc:Invoice.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <name>InvoiceLine</name>
-      <type><bizc:InvoiceLine.type/>
+      <type><bizc:InvoiceDetail.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <name>Facet</name>
-      <type><bizc:Facet.type/>
+      <type><bizc:OrgUnit.type/>
       </type>
     </meta:Entity>    
     <meta:Entity>
-      <name>PaymentTerms</name>
       <type><bizc:PaymentTerms.type/>
       </type>
     </meta:Entity>    

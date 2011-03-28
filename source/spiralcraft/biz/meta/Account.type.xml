@@ -1,0 +1,100 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <!-- 
+    Accumulates transactions and balances across all types of
+      financial activity. 
+  -->
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>accountId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>displayName
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>parentId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>parent
+      </name>
+      <type><bizm:Account.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>children
+      </name>
+      <type><bizm:Account.list.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>credit
+      </name>
+      <type><Boolean.type/>
+      </type>
+      <description>Indicates whether this is a CREDIT account, as opposed to
+        a DEBIT account. CREDIT accounts represent depletion and when entered as
+        positive numbers are assigned a negative value in a transaction.
+        Assets and Expenses are DEBIT accounts, Liabilities, Equities and Sales
+        are CREDIT accounts.
+      </description>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>scope
+      </name>
+      <type><Integer.type/>
+      </type>
+      <description>Accounts for forecasting. Accounts representing actual
+        transactions have a scope of 0. All other scopes represent forecasting
+        or budgeting accounts. By convention, a scope of 1 represents unbooked
+        commitments and a scope of 2 represents budget accounts.
+      </description>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>hasJournal
+      </name>
+      <type><Boolean.type/>
+      </type>
+      <description>Whether this account accepts individual transactions.
+      </description>
+    </meta:Field>
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>accountId
+      </name>
+      
+      <primary>true
+      </primary>
+      
+      <fieldList>accountId
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

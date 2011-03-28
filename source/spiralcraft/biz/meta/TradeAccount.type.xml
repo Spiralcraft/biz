@@ -1,0 +1,52 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <!-- 
+    An accounts associated with sales and receipts
+  -->
+  <baseType><bizm:Account.type/>
+  </baseType>
+  
+  <fields>
+  
+    <meta:Field>
+      <name>contactId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>contact
+      </name>
+      
+      <fieldList>contactId
+      </fieldList>
+      
+      <foreignType><bizm:Contact.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+
+          <unique>true
+          </unique>
+          
+          <fieldList>contactId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

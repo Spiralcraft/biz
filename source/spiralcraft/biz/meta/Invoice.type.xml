@@ -7,7 +7,7 @@
   
     <meta:SequenceField>
       <name>invoiceId</name>
-      <type><Integer.type/>
+      <type><String.type/>
       </type>
     </meta:SequenceField>
   
@@ -19,18 +19,33 @@
     
     <meta:Field>
       <name>issueDate</name>
-      <type><Date.type/>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
       </type>
     </meta:Field>
     
+    
     <meta:Field>
       <name>dueDate</name>
-      <type><Date.type/>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
       </type>
     </meta:Field>
 
     <meta:Field>
-      <name>facetId</name>
+      <name>orgUnitId</name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>customerId</name>
       <type><String.type/>
       </type>
     </meta:Field>
@@ -48,19 +63,30 @@
     </meta:Field>
 
     <meta:Field>
-      <name>invoiceNetAmount
+      <name>netAmount
       </name>
       <type><bizm:Money.type/>
       </type>
     </meta:Field>
 
     <meta:Field>
-      <name>previousBalance
+      <name>priorBalance
       </name>
       <type><bizm:Money.type/>
       </type>
     </meta:Field>
-    
+
+    <meta:Field>
+      <name>priorDueDate
+      </name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+        
     <meta:Field>
       <name>paymentTermsId
       </name>
@@ -80,13 +106,13 @@
 
   <keys>
     <meta:Key>
-      <name>facet
+      <name>orgUnit
       </name>
       
-      <fieldList>facetId
+      <fieldList>orgUnitId
       </fieldList>
       
-      <foreignType><bizm:Facet.type/>
+      <foreignType><bizm:OrgUnit.type/>
       </foreignType>
       
       <importedKey>
@@ -95,13 +121,35 @@
           <unique>true
           </unique>
           
-          <fieldList>facetId
+          <fieldList>orgUnitId
           </fieldList>
         </meta:Key>
       </importedKey>
       
     </meta:Key>
 
+    <meta:Key>
+      <name>customer
+      </name>
+      
+      <fieldList>customerId
+      </fieldList>
+      
+      <foreignType><bizm:Customer.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+
+          <unique>true
+          </unique>
+          
+          <fieldList>accountId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
 
     <meta:Key>
       <name>paymentTerms
@@ -126,6 +174,25 @@
       
     </meta:Key>
 
+    <meta:Key>
+      <name>detail
+      </name>
+      
+      <fieldList>invoiceId
+      </fieldList>
+      
+      <foreignType><bizm:InvoiceDetail.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+          
+          <fieldList>invoiceId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
 
   </keys>
   

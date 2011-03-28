@@ -7,7 +7,7 @@
     
     <meta:SequenceField>
       <name>invoiceId</name>
-      <type><Integer.type/>
+      <type><String.type/>
       </type>
     </meta:SequenceField>
   
