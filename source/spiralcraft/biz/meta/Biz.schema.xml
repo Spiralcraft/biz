@@ -1,30 +1,47 @@
 <meta:Schema
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:bizc="class:/spiralcraft/biz/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:social="class:/spiralcraft/archetype/social/"
   >
   <entities>
     <meta:Entity>
-      <type><bizc:Customer.type/>
+      <type><bizm:CustomerAccount.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizc:Contact.type/>
+      <type><social:Contact.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizc:Invoice.type/>
+      <type><bizm:Invoice.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizc:InvoiceDetail.type/>
+      <type><bizm:InvoiceDetail.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizc:OrgUnit.type/>
+      <type><bizm:OrgUnit.type/>
       </type>
     </meta:Entity>    
     <meta:Entity>
-      <type><bizc:PaymentTerms.type/>
+      <type><bizm:PaymentTerms.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:PaymentMethod.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:CustomerProject.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:Product.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:ProductUnit.type/>
       </type>
     </meta:Entity>    
   </entities>

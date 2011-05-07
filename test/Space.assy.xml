@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data:Space
+  xmlns:data-xml="class:/spiralcraft/data/xml/"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  >
+  <stores>
+    <data-xml:XmlStore>
+      <baseResourceURI>context:/out/data/
+      </baseResourceURI>
+      
+      <schema dataURI="bizm:Biz.schema.xml"/>
+      
+    </data-xml:XmlStore>
+
+  </stores>
+  
+</data:Space>

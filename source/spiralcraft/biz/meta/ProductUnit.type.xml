@@ -1,0 +1,49 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:time="class:/spiralcraft/time/"
+  >
+  
+  <description>A unit of measure for a product or service
+  </description>
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>displayName
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>abbreviation
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+       
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <primary>true
+      </primary>
+      
+      <fieldList>id
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

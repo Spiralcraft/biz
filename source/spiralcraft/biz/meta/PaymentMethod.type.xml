@@ -1,0 +1,40 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:time="class:/spiralcraft/time/"
+  >
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>displayName
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+   
+    
+  </fields>
+ 
+  <keys>
+    <meta:Key>      
+      <primary>true
+      </primary>
+      
+      <fieldList>id
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

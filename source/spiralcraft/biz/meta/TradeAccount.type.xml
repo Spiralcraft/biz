@@ -2,6 +2,7 @@
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:entity="class:/spiralcraft/archetype/entity/"
+  xmlns:social="class:/spiralcraft/archetype/social/"
   >
   
   <!-- 
@@ -15,38 +16,60 @@
     <meta:Field>
       <name>contactId
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:Field>
     
-    
-  </fields>
-
-  <keys>
-    <meta:Key>
+    <meta:RelativeField>
       <name>contact
       </name>
       
+      <type><social:Contact.type/>
+      </type>
+      
       <fieldList>contactId
       </fieldList>
+    </meta:RelativeField>
+        
+    <meta:Field>
+      <name>repId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>rep
+      </name>
       
-      <foreignType><bizm:Contact.type/>
-      </foreignType>
+      <type><social:Contact.type/>
+      </type>
       
-      <importedKey>
-        <meta:Key>
+      <fieldList>repId
+      </fieldList>
+    </meta:RelativeField>
 
-          <unique>true
-          </unique>
-          
-          <fieldList>contactId
-          </fieldList>
-        </meta:Key>
-      </importedKey>
+
+    <meta:Field>
+      <name>entityId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+        
+    <meta:RelativeField>
+      <name>entity
+      </name>
       
-    </meta:Key>
+      <type><entity:Actor.type/>
+      </type>
+      
+      <fieldList>entityId
+      </fieldList>
+    </meta:RelativeField>
 
 
-  </keys>
-  
+
+  </fields>
+ 
 </meta:Type>

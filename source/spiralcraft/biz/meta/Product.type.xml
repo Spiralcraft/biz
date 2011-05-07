@@ -1,0 +1,64 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:time="class:/spiralcraft/time/"
+  >
+  
+  <description>An item or service that is sold and/or purchased
+  </description>
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>displayName
+      </name>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
+       
+    <meta:Field>
+      <name>unitId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+      
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>unit
+      </name>
+      
+      <type><bizm:ProductUnit.type/>
+      </type>
+      
+      <fieldList>unitId
+      </fieldList>
+    </meta:RelativeField>
+
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <primary>true
+      </primary>
+      
+      <fieldList>id
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

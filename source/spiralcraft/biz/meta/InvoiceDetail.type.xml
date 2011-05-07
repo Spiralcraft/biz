@@ -7,7 +7,7 @@
     
     <meta:SequenceField>
       <name>invoiceId</name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:SequenceField>
   
@@ -16,9 +16,9 @@
       <type><Integer.type/>
       </type>
     </meta:Field>
-    
+      
     <meta:Field>
-      <name>sectionId
+      <name>customerProjectId
       </name>
       
       <type><String.type/>
@@ -27,19 +27,31 @@
     </meta:Field>
     
     <meta:Field>
-      <name>clientCategoryId
+      <name>productId
       </name>
       
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
       
     </meta:Field>
+    
+    <meta:RelativeField>
+      <name>product
+      </name>
+      
+      <type><bizm:Product.type/>
+      </type>
+    
+      <fieldList>productId
+      </fieldList>
+    </meta:RelativeField>
+
     
     <meta:Field>
       <name>quantity
       </name>
       
-      <type><String.type/>
+      <type><Double.type/>
       </type>
       
     </meta:Field>
@@ -48,19 +60,43 @@
       <name>unitId
       </name>
       
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
       
     </meta:Field>
     
+    <meta:RelativeField>
+      <name>unit
+      </name>
+      
+      <type><bizm:ProductUnit.type/>
+      </type>
+      
+      <fieldList>unitId
+      </fieldList>
+      
+    </meta:RelativeField>    
+    
     <meta:Field>
-      <name>rate
+      <name>unitPrice
       </name>
       
       <type><bizm:Money.type/>
       </type>
       
     </meta:Field>
+    
+    <meta:CalculatedField>
+      <name>extendedPrice
+      </name>
+      
+      <type><bizm:Money.type/>
+      </type>
+      
+      <expression>unitPrice * quantity
+      </expression>
+    
+    </meta:CalculatedField>
     
   </fields>
 

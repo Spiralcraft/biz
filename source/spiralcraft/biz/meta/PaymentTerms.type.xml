@@ -1,6 +1,8 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:bizm="class:/spiralcraft/biz/core/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:time="class:/spiralcraft/time/"
   >
   
   <fields>
@@ -20,7 +22,7 @@
     </meta:Field>
     
     <meta:Field>
-      <name>paymentPeriod</name>
+      <name>daysUntilDue</name>
       <type><Integer.type/>
       </type>
     </meta:Field>
@@ -29,6 +31,31 @@
     
   </fields>
 
+  <methods>
+    <meta:Method>
+      <name>dueDate
+      </name>
+      
+      <parameterTypes>
+        <ju:Date.type/>
+      </parameterTypes>
+      
+      <returnType>
+        <ju:Date.type/>
+      </returnType>
+      
+      <contextX>{ invoiceDate:[@ju:Date] }      
+      </contextX>
+      
+      <x>[@time:Calendar].@DEFAULT.add
+          ([@time:Instant].@fromDate(invoiceDate)
+          ,[@time:Duration].([bizm:PaymentTerms].daysUntilDue,[@time:Chronom].@DAY)
+          ).toDate()
+          
+      </x>
+    </meta:Method>
+  </methods>
+  
   <keys>
     <meta:Key>
       <name>paymentTerms

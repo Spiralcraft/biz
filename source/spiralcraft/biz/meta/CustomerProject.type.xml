@@ -1,0 +1,67 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <description>A Customer-defined grouping for billable items
+  </description>
+  
+  <fields>
+
+    <meta:SequenceField>
+      <name>id
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+    
+    <meta:Field>
+      <name>customerId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>customer
+      </name>
+      
+      <type><bizm:CustomerAccount.type/>
+      </type>
+      
+      <fieldList>customerId
+      </fieldList>
+      
+    </meta:RelativeField>
+    
+    
+    <meta:Field>
+    
+      <name>displayName
+      </name>
+
+      <type><String.type/>
+      </type>
+
+    </meta:Field>
+    
+  </fields>
+  
+  
+  <keys>
+  
+    <meta:Key>
+      <fieldList>id
+      </fieldList>
+      
+      <primary>true
+      </primary>
+    </meta:Key>
+    
+  </keys>
+  
+  
+</meta:Type>

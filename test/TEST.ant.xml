@@ -1,0 +1,22 @@
+<project name="spiraldev-corporate-books" basedir="." default="test">
+
+  <import file="../build.xml"/>
+    
+  <target name="test" depends="loadSpace"/>
+      
+  <target name="loadSpace">
+    <delete dir="out/data"/>
+    <mkdir dir="out/data"/>
+    <devtask
+      codebase=".."
+      exec
+        ="class:/spiralcraft/task/TaskRunner
+         --serviceURI ./Space
+         class:/spiralcraft/task/Eval
+         --x [:class:/spiralcraft/data/Space]
+         "
+    />
+  </target>
+
+                
+</project>
