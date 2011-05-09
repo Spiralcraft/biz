@@ -25,12 +25,18 @@
     </meta:Field>
     
     <meta:Field>
-      <name>abbreviation
+      <name>pluralAbbreviation
       </name>
       <type><String.type/>
       </type>
     </meta:Field>
        
+    <meta:Field>
+      <name>singularAbbreviation
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
   </fields>
 
   <keys>
