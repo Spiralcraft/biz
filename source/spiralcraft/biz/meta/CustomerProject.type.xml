@@ -37,7 +37,6 @@
       
     </meta:RelativeField>
     
-    
     <meta:Field>
     
       <name>displayName
@@ -46,6 +45,14 @@
       <type><String.type/>
       </type>
 
+    </meta:Field>
+    
+    <meta:Field>
+      <name>active
+      </name>
+      
+      <type><Boolean.type/>
+      </type>
     </meta:Field>
     
   </fields>
