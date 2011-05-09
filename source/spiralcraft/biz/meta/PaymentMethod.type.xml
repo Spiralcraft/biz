@@ -10,7 +10,7 @@
     <meta:SequenceField>
       <name>id
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:SequenceField>
   

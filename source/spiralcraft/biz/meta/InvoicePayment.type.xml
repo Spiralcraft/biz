@@ -1,0 +1,78 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:social="class:/spiralcraft/archetype/social/"
+  >
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+    
+    <meta:Field>
+      <name>invoiceId</name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>invoice
+      </name>
+      
+      <type><bizm:Invoice.type/>
+      </type>
+      
+      <fieldList>invoiceId
+      </fieldList>
+      
+      <referencedFieldList>invoiceId
+      </referencedFieldList>
+    </meta:RelativeField>
+  
+    <meta:Field>
+      <name>amount
+      </name>
+      <type><bizm:Money.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>receiptDate</name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>posted
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    
+
+  </fields>
+
+  <keys>
+    <meta:Key>
+
+      
+      <fieldList>id
+      </fieldList>
+      
+      <primary>true
+      </primary>
+
+    </meta:Key>
+
+  </keys>
+  
+</meta:Type>

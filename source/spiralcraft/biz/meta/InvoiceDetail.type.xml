@@ -5,11 +5,11 @@
   
   <fields>
     
-    <meta:SequenceField>
+    <meta:Field>
       <name>invoiceId</name>
       <type><LSID.type/>
       </type>
-    </meta:SequenceField>
+    </meta:Field>
   
     <meta:Field>
       <name>lineNumber</name>
@@ -25,6 +25,18 @@
       </type>
       
     </meta:Field>
+
+    <meta:RelativeField>
+      <name>customerProject
+      </name>
+      
+      <type><bizm:CustomerProject.type/>
+      </type>
+      
+      <fieldList>customerProjectId
+      </fieldList>
+      
+    </meta:RelativeField>
     
     <meta:Field>
       <name>productId
@@ -98,6 +110,13 @@
     
     </meta:CalculatedField>
     
+    <meta:Field>
+      <name>notes
+      </name>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
   </fields>
 
   

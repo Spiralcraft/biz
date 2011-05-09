@@ -177,9 +177,27 @@
       </type>
     </meta:Field>
 
+    <meta:RelativeField>
+      <name>payments
+      </name>
+      
+      <type><bizm:InvoicePayment.type/>
+      </type>
+            
+      <referencedFieldList>invoiceId
+      </referencedFieldList>
+      
+    </meta:RelativeField>
   </fields>
 
   <keys>
+    <meta:Key>
+      <fieldList>invoiceId
+      </fieldList>
+      <primary>true
+      </primary>
+    </meta:Key>
+    
     <meta:Key>
       <name>orgUnit
       </name>

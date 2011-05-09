@@ -8,9 +8,9 @@
   <fields>
   
     <meta:SequenceField>
-      <name>paymentTermsId
+      <name>id
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:SequenceField>
   
@@ -64,7 +64,7 @@
       <primary>true
       </primary>
       
-      <fieldList>paymentTermsId
+      <fieldList>id
       </fieldList>
       
     </meta:Key>

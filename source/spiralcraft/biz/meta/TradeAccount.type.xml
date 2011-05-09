@@ -6,7 +6,7 @@
   >
   
   <!-- 
-    An accounts associated with sales and receipts
+    An account associated with sales and receipts
   -->
   <baseType><bizm:Account.type/>
   </baseType>
