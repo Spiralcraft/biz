@@ -117,6 +117,15 @@
       <type><String.type/>
       </type>
     </meta:Field>
+
+    <meta:Field>
+      <name>billedInAdvance
+      </name>
+      
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+
   </fields>
 
   
