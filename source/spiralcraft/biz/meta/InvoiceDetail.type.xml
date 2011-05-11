@@ -1,6 +1,7 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:jm="class:/java/math/"
   >
   
   <fields>
@@ -105,7 +106,7 @@
       <type><bizm:Money.type/>
       </type>
       
-      <expression>unitPrice * quantity
+      <expression>( unitPrice * quantity ).setScale(2,[@jm:RoundingMode].@HALF_DOWN)
       </expression>
     
     </meta:CalculatedField>

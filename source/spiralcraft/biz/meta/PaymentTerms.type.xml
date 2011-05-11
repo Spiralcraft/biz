@@ -47,7 +47,10 @@
       <contextX>{ invoiceDate:[@ju:Date] }      
       </contextX>
       
-      <x>[@time:Calendar].@DEFAULT.add
+      <x>
+        [bizm:PaymentTerms].daysUntilDue==null
+        ?null
+        :[@time:Calendar].@DEFAULT.add
           ([@time:Instant].@fromDate(invoiceDate)
           ,[@time:Duration].([bizm:PaymentTerms].daysUntilDue,[@time:Chronom].@DAY)
           ).toDate()
