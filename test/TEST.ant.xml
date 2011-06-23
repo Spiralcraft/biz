@@ -1,4 +1,4 @@
-<project name="spiraldev-corporate-books" basedir="." default="test">
+<project name="spiraldev-modules-biz-test" basedir="." default="test">
 
   <import file="../build.xml"/>
     
