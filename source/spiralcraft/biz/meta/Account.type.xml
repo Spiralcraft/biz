@@ -5,7 +5,7 @@
   >
   
   <!-- 
-    Accumulates transactions and balances across all types of
+    Accumulates transactions and balances for many types of
       financial activity. 
   -->
   
@@ -76,7 +76,7 @@
       </name>
       <type><Boolean.type/>
       </type>
-      <description>Whether this account accepts individual transactions.
+      <description>Whether this account directly accepts transactions.
       </description>
     </meta:Field>
   </fields>
