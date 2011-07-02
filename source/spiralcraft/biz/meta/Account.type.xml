@@ -5,7 +5,7 @@
   >
   
   <!-- 
-    Accumulates transactions and balances for many types of
+    Tracks transactions and balances for many types of
       financial activity. 
   -->
   
@@ -14,7 +14,7 @@
     <meta:SequenceField>
       <name>accountId
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:SequenceField>
   
@@ -28,7 +28,7 @@
     <meta:Field>
       <name>parentId
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:Field>
     
@@ -57,6 +57,8 @@
         Assets and Expenses are DEBIT accounts, Liabilities, Equities and Sales
         are CREDIT accounts.
       </description>
+      <required>true
+      </required>
     </meta:Field>
     
     <meta:Field>

@@ -1,0 +1,72 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <!-- 
+    A component of a Transaction
+  -->
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>entryId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+    
+    <meta:Field>
+      <name>transactionId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>accountId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+
+    <meta:Field>
+      <name>amount
+      </name>
+      <type><bizm:Money.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>credit
+      </name>
+      <type><Boolean.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+
+    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>entryId
+      </name>
+      
+      <primary>true
+      </primary>
+      
+      <fieldList>entryId
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>

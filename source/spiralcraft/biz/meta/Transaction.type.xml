@@ -1,0 +1,65 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  >
+  
+  <!-- 
+    A set of entries 
+  -->
+  
+  <fields>
+    
+    <meta:SequenceField>
+      <name>transactionId
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:SequenceField>
+    
+    <meta:Field>
+      <name>ownerId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>timestamp
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+      
+    <meta:Field>
+      <name>scope
+      </name>
+      <type><Integer.type/>
+      </type>
+      <description>Accounts for forecasting. Accounts representing actual
+        transactions have a scope of 0. By convention, a scope of 1 represents a 
+        forecast and a scope of 2 represents budget accounts.
+      </description>
+    </meta:Field>
+    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <name>transactionId
+      </name>
+      
+      <primary>true
+      </primary>
+      
+      <fieldList>transactionId
+      </fieldList>
+      
+    </meta:Key>
+
+
+  </keys>
+  
+</meta:Type>
