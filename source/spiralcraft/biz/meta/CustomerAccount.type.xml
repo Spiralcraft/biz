@@ -5,7 +5,7 @@
   >
   
   <!-- 
-    An account associated with sales and receipts
+    An asset account associated with customer receivables
   -->
   <baseType><bizm:TradeAccount.type/>
   </baseType>
