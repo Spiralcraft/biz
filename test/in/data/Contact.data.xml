@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<social:Contact.list xmlns:social="class:/spiralcraft/archetype/social/"
+  xmlns:postal="class:/spiralcraft/archetype/postal/"
+  >
+  <social:Contact>
+    <id>1
+    </id>
+    
+    <actorId>100
+    </actorId>
+    
+    <purpose>hq
+    </purpose>
+    
+    <knownAs>Joey deBoss
+    </knownAs>
+    
+    <attentionName>Joseph Owner
+    </attentionName>
+    
+    <organizationName>TestCo, Inc.
+    </organizationName>
+    
+    <postalAddress>
+      <postal:Address>
+        <streetAddress>123 Test St.
+        </streetAddress>
+        <locator>STE A
+        </locator>
+        <locality>Anytown
+        </locality>
+        <region>NJ
+        </region>
+        <postalCode>07645
+        </postalCode>
+      </postal:Address>
+    </postalAddress>
+    
+    <email>joey.deBoss@example.com
+    </email>
+    
+    <phone>(555) 555-5555
+    </phone>
+  </social:Contact>
+  
+  <social:Contact>
+    <id>100
+    </id>
+    
+    <knownAs>Frank BigDeals
+    </knownAs>
+    
+    <attentionName>Franklin Architect
+    </attentionName>
+    
+    <organizationName>BigDeals Integration, Inc
+    </organizationName>
+    
+    <postalAddress>
+      <postal:Address xmlns:postal="class:/spiralcraft/archetype/postal/">
+        <streetAddress>100 Customer Row
+        </streetAddress>
+        <locator>#300
+        </locator>
+        <locality>Anytown
+        </locality>
+        <region>CA
+        </region>
+        <postalCode>94115
+        </postalCode>
+      </postal:Address>
+    </postalAddress>
+  </social:Contact>
+  
+  <social:Contact>
+    <id>101
+    </id>
+    
+    <knownAs>Tom
+    </knownAs>
+    
+    <attentionName>Thomas Frugal
+    </attentionName>
+    
+    <organizationName>One Tiny App, Inc
+    </organizationName>
+    
+    <postalAddress>
+      <postal:Address xmlns:postal="class:/spiralcraft/archetype/postal/">
+        <streetAddress>200 Customer Row
+        </streetAddress>
+        <locality>Anytown
+        </locality>
+        <region>CA
+        </region>
+        <postalCode>94103
+        </postalCode>
+      </postal:Address>
+    </postalAddress>
+  </social:Contact> 
+  
+  <social:Contact>
+    <id>102
+    </id>
+    
+    <knownAs>Sarah
+    </knownAs>
+    
+    <attentionName>Sarah N. Support
+    </attentionName>
+    
+    <organizationName>Running On Support, Inc
+    </organizationName>
+    
+    <postalAddress>
+      <postal:Address xmlns:postal="class:/spiralcraft/archetype/postal/">
+        <streetAddress>300 Customer Row
+        </streetAddress>
+        <locator>Ste 80
+        </locator>
+        <locality>Alameda
+        </locality>
+        <region>CA
+        </region>
+        <postalCode>94501
+        </postalCode>
+      </postal:Address>
+    </postalAddress>
+  </social:Contact>     
+  
+  <social:Contact>
+    <id>103
+    </id>
+    
+    <knownAs>Cube Mate
+    </knownAs>
+    
+    <organizationName>Share My Stuff, Inc.
+    </organizationName>
+    
+    
+    <postalAddress>
+      <postal:Address xmlns:postal="class:/spiralcraft/archetype/postal/">
+        <streetAddress>456 Rack Lane
+        </streetAddress>
+        <locality>Emeryville
+        </locality>
+        <region>CA
+        </region>
+        <postalCode>94658
+        </postalCode>
+      </postal:Address>
+    </postalAddress>
+  </social:Contact>    
+</social:Contact.list>

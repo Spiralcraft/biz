@@ -1,0 +1,84 @@
+<test:TestGroup
+  xmlns:test="class:/spiralcraft/test/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:data="class:/spiralcraft/data/"
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:fn="class:/spiralcraft/lang/functions/"
+  >
+
+  <name>spiralcraft-biz:smoke
+  </name>
+      
+  <sequence>
+           
+    <test:Assertion>
+      <name>Space is available
+      </name>
+      
+      <subjectX>[data:Space]
+      </subjectX>
+      
+      <testX>.!=null
+      </testX>
+    </test:Assertion>
+    
+    <test:Assertion>
+      <name>Invoice check
+      </name>
+      
+      <subjectX>
+        [*dtask:Fetch{[@bizm:SalesInvoice.list]}].()
+        #{ .detail$[ (.unitPrice * .quantity).[*fn:Sum] ]  - .netAmount }
+        [.!=0]
+      </subjectX>
+      
+      <testX>
+        @empty
+      </testX>
+    </test:Assertion>
+
+    <test:Assertion>
+      <name>Create invoice for order
+      </name>
+      
+      <subjectX>
+        [@bizm:SalesInvoice].@create
+          ([*dtask:Fetch{ [@bizm:SalesOrder],[{`id:="200"`}] }].()
+          )
+      </subjectX>
+      
+      <testX>true
+      </testX>
+    </test:Assertion>
+
+    <test:Assertion>
+      <name>Invoice check 2
+      </name>
+      
+      <subjectX>
+        [*dtask:Fetch{[@bizm:SalesInvoice.list]}].()
+        #{ .detail$[ (.unitPrice * .quantity).[*fn:Sum] ]  - .netAmount }
+        [.!=0]
+      </subjectX>
+      
+      <testX>
+        @empty
+      </testX>
+    </test:Assertion>
+
+    <test:Assertion>
+      <name>Reorder
+      </name>
+      
+      <subjectX>
+        [*dtask:Fetch{ [@bizm:SalesOrder],[{`id:="200"`}] }].()
+          .reorder()
+      </subjectX>
+      
+      <testX>true
+      </testX>
+    </test:Assertion>
+  </sequence>
+
+</test:TestGroup>

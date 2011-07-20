@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:Product.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:Product>
+    <id>DISCOVERY
+    </id>
+    
+    <displayName>Discovery
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>PLANNING
+    </id>
+    
+    <displayName>Planning
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+
+  <meta:Product>
+    <id>DESIGN
+    </id>
+    
+    <displayName>Design
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>IMPLEMENTATION
+    </id>
+    
+    <displayName>Implementation
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>  
+
+  <meta:Product>
+    <id>TOOLING
+    </id>
+    
+    <displayName>Tooling
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>QE
+    </id>
+    
+    <displayName>Quality Engineering
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>CAP
+    </id>
+    
+    <displayName>Capacity Planning
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>CONSULT
+    </id>
+    
+    <displayName>Consultation
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>DEPLOYMENT
+    </id>
+    
+    <displayName>Deployment
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>MAINTENANCE
+    </id>
+    
+    <displayName>Maintenance
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>DEVSUPPORT
+    </id>
+    
+    <displayName>Development Support
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>SUPPORT
+    </id>
+    
+    <displayName>Priority Support
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>SERVERSUPPORT
+    </id>
+    
+    <displayName>Server Support
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>  
+  
+  <meta:Product>
+    <id>MANAGEDSERVER-DEDICATED
+    </id>
+    
+    <displayName>Managed Dedicated Server
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>  
+  
+  <meta:Product>
+    <id>MANAGEDSLICE-RS-PICO
+    </id>
+    
+    <displayName>Managed RS Cloud Slice - Pico
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>  
+
+  <meta:Product>
+    <id>MANAGEDSLICE-RS-SMALL
+    </id>
+    
+    <displayName>Managed RS Cloud Slice - Small
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>  
+  
+  <meta:Product>
+    <id>MANAGEDSLICE-RS-MEDIUM
+    </id>
+    
+    <displayName>Managed RS Cloud Slice - Medium
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>
+
+  <meta:Product>
+    <id>DATAXFER-RS-OUTBOUND
+    </id>
+    
+    <displayName>Outgoing RS Data Transfer
+    </displayName>
+    
+    <unitId>GB
+    </unitId>
+  </meta:Product>
+
+  <meta:Product>
+    <id>SERVERMANAGEMENT
+    </id>
+    
+    <displayName>Server Management
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>COLOCATION
+    </id>
+    
+    <displayName>Colocation
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>
+  
+  <meta:Product>
+    <id>SERVERSUPPORT-STANDARD
+    </id>
+    
+    <displayName>Server Support - Standard
+    </displayName>
+    
+    <unitId>MONTH
+    </unitId>
+  </meta:Product>    
+
+  <meta:Product>
+    <id>SW-ADVANCE
+    </id>
+    
+    <displayName>Software Development Advance Deposit
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>    
+  
+  <meta:Product>
+    <id>SW-ADVANCE-APPLIED
+    </id>
+    
+    <displayName>Credit Software Development Advance Deposit
+    </displayName>
+    
+    <unitId>HOURS
+    </unitId>
+  </meta:Product>   
+</meta:Product.list>

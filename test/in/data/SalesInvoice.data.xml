@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:SalesInvoice.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  
+  <meta:SalesInvoice>
+    <id>200
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>BD-2011-05
+    </invoiceNumber>
+    
+    <issueDate>2011-05-10
+    </issueDate>
+    
+    <customerId>100
+    </customerId>
+    
+    <billToId>100
+    </billToId>
+    
+    <netAmount>1466.00
+    </netAmount>
+    
+    <priorBalance>2076.92
+    </priorBalance>
+
+    <priorDueDate>2011-05-15
+    </priorDueDate>
+    
+    <paymentTermsId>1
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-05-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-06-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-04-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>  
+  
+  
+  <meta:SalesInvoice>
+    <id>201
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>OTA-2011-05
+    </invoiceNumber>
+    
+    <issueDate>2011-05-10
+    </issueDate>
+    
+    <customerId>101
+    </customerId>
+    
+    <billToId>101
+    </billToId>
+    
+    <netAmount>136.94
+    </netAmount>
+        
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-05-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-06-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-04-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>  
+  
+  <meta:SalesInvoice>
+    <id>202
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>ROS-2011-05
+    </invoiceNumber>
+    
+    <issueDate>2011-05-12
+    </issueDate>
+    
+    <customerId>102
+    </customerId>
+    
+    <billToId>102
+    </billToId>
+    
+    <netAmount>1227.50
+    </netAmount>
+        
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+
+    <priorBalance>1135.00
+    </priorBalance>
+    
+    <priorDueDate>2011-05-05
+    </priorDueDate>
+    
+    <advancePeriodStartDate>2011-05-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-06-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-04-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>  
+  
+  <meta:SalesInvoice>
+    <id>203
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>SMS-2011-Q1
+    </invoiceNumber>
+    
+    <issueDate>2011-05-10
+    </issueDate>
+    
+    <customerId>103
+    </customerId>
+    
+    <billToId>103
+    </billToId>
+    
+    <netAmount>1020.00
+    </netAmount>
+        
+    <paymentTermsId>3
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-04-01
+    </advancePeriodStartDate>
+    
+    <arrearsPeriodStartDate>2011-01-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>  
+  
+  <meta:SalesInvoice>
+    <id>204
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>BD-2011-06
+    </invoiceNumber>
+    
+    <issueDate>2011-06-06
+    </issueDate>
+    
+    <customerId>100
+    </customerId>
+    
+    <billToId>100
+    </billToId>
+    
+    <netAmount>9916.94
+    </netAmount>
+    
+    <priorBalance>1196.00
+    </priorBalance>
+
+    <priorDueDate>2011-06-09
+    </priorDueDate>
+    
+    <paymentTermsId>1
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>   
+  
+  <meta:SalesInvoice>
+    <id>205
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>OTA-2011-06
+    </invoiceNumber>
+    
+    <issueDate>2011-06-06
+    </issueDate>
+    
+    <customerId>101
+    </customerId>
+    
+    <billToId>101
+    </billToId>
+    
+    <netAmount>136.94
+    </netAmount>
+        
+    <priorBalance>136.94
+    </priorBalance>
+
+    <priorDueDate>2011-05-31
+    </priorDueDate>
+            
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>    
+  
+  <meta:SalesInvoice>
+    <id>206
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <invoiceNumber>ROS-2011-06
+    </invoiceNumber>
+    
+    <issueDate>2011-06-06
+    </issueDate>
+    
+    <customerId>102
+    </customerId>
+    
+    <billToId>102
+    </billToId>
+    
+    <netAmount>1315.00
+    </netAmount>
+        
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+  </meta:SalesInvoice>
+  
+</meta:SalesInvoice.list>

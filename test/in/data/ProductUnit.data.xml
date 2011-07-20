@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:ProductUnit.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:ProductUnit>
+    <id>MONTH
+    </id>
+    
+    <displayName>Month
+    </displayName>
+    
+    <singularAbbreviation>mo.
+    </singularAbbreviation>
+
+    <pluralAbbreviation>mos.
+    </pluralAbbreviation>
+  </meta:ProductUnit>
+  
+  <meta:ProductUnit>
+    <id>HOUR
+    </id>
+    
+    <displayName>Hours
+    </displayName>
+    
+    <singularAbbreviation>hr.
+    </singularAbbreviation>
+
+    <pluralAbbreviation>hrs.
+    </pluralAbbreviation>
+  </meta:ProductUnit>
+  
+  <meta:ProductUnit>
+    <id>GB
+    </id>
+    
+    <displayName>Gigabytes
+    </displayName>
+    
+    <singularAbbreviation>GB
+    </singularAbbreviation>
+
+    <pluralAbbreviation>GB
+    </pluralAbbreviation>
+  </meta:ProductUnit>
+  
+</meta:ProductUnit.list>

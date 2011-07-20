@@ -24,7 +24,7 @@
       <name>invoice
       </name>
       
-      <type><bizm:Invoice.type/>
+      <type><bizm:SalesInvoice.type/>
       </type>
       
       <fieldList>invoiceId

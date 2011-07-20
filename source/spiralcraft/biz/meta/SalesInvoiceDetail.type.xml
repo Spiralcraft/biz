@@ -1,0 +1,33 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:jm="class:/java/math/"
+  >
+  
+  <archetype><bizm:SalesBillDetail.type/>
+  </archetype>
+  
+  <fields>
+    
+    <meta:Field>
+      <name>salesInvoiceId</name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <fieldList>salesInvoiceId,lineNumber
+      </fieldList>
+      <primary>true
+      </primary>
+    </meta:Key>
+    
+    <meta:Key>
+      <fieldList>salesInvoiceId
+      </fieldList>
+    </meta:Key>
+
+  </keys>
+</meta:Type>

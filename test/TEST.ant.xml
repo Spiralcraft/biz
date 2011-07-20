@@ -7,13 +7,15 @@
   <target name="loadSpace">
     <delete dir="out/data"/>
     <mkdir dir="out/data"/>
+    <copy todir="out/data">
+      <fileset dir="in/data"/>
+    </copy>
     <devtask
       codebase=".."
       exec
         ="class:/spiralcraft/task/TaskRunner
          --serviceURI ./Space
-         class:/spiralcraft/task/Eval
-         --x [:class:/spiralcraft/data/Space]
+         Test
          "
     />
   </target>

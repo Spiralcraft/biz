@@ -1,0 +1,121 @@
+<dtask:Session
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:editor="class:/spiralcraft/data/editor/"
+  xmlns:time="class:/spiralcraft/time/"
+  >
+  <contextX>
+    { 
+      [#context]
+      order:=[bizm:SalesOrder]
+      ,calendar:=[@time:Calendar].@DEFAULT
+    }
+  </contextX>
+  
+  <transactional>true
+  </transactional>
+
+  <sequence>
+    <dtask:Edit>
+    
+      <alias>masterEditor
+      </alias>
+      
+      <type><bizm:SalesOrder.type/>
+      </type>
+      
+      <autoCreate>true
+      </autoCreate>
+      
+      
+      <sequence>
+        <task:Eval>
+          <x>
+            @{ 
+              .orgUnitId=[context].order.orgUnitId
+              ,.customerId=[context].order.customerId
+              ,.billToId=[context].order.billToId
+              ,.shipToId=[context].order.shipToId
+              ,.netAmount=[context].order.netAmount
+              ,.paymentTermsId=[context].order.paymentTermsId
+              ,.paymentMethodId=[context].order.paymentMethodId
+              ,.arrearsPeriodStartDate
+                =[context].calendar.add
+                  ([context].order.arrearsPeriodStartDate
+                  ,[context].order.period
+                  )
+              ,.advancePeriodStartDate
+                 =[context].calendar.add
+                  ([context].order.advancePeriodStartDate
+                  ,[context].order.period
+                  )
+              ,.advancePeriodEndDate
+                 =[context].calendar.add
+                  ([context].order.advancePeriodEndDate
+                  ,[context].order.period
+                  )
+              ,.
+            }
+          </x>
+          
+          <sequence>
+            <dtask:Edit>
+            
+              <alias>detailEditor
+              </alias>
+              
+              <x>.detail
+              </x>
+              
+              <autoKey>true
+              </autoKey>
+
+              <sequence>
+                <task:Batch>
+                  <source>[context].order.detail[.recurring]
+                  </source>
+                  
+                  <sequence>
+                    <task:Eval>
+                      <x>
+                        { [#original]
+                          detail:=..
+                          ,[editor:AggregateEditor].addNew.()
+                            { 
+                              .lineNumber=[original].detail.lineNumber
+                              ,.quantity=[original].detail.quantity
+                              ,.unitPrice=[original].detail.unitPrice
+                              ,.customerProjectId=[original].detail.customerProjectId
+                              ,.productId=[original].detail.productId
+                              ,.unitId=[original].detail.unitId
+                              ,.notes=[original].detail.notes
+                              ,.billedInAdvance=[original].detail.billedInAdvance
+                              ,.recurring=[original].detail.recurring
+                              ,.
+                            }
+                        }
+                      </x>
+                    </task:Eval>
+                  </sequence>
+                </task:Batch>
+                <task:Eval>
+                  <x>
+                    { 
+                      [masterEditor].editor.save.()
+                      ,[detailEditor].editor.save.()
+                    }
+                  </x>
+                
+                </task:Eval>
+                
+              </sequence>
+              
+            </dtask:Edit>
+          </sequence>
+        </task:Eval>
+      </sequence>
+    </dtask:Edit>
+  </sequence>
+</dtask:Session>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<spi:Sequence.list xmlns:spi="class:/spiralcraft/data/spi/">
+  <spi:Sequence tx="1311134756043" v="2">
+    <uri>class:/spiralcraft/biz/meta/SalesInvoice#id</uri>
+    <nextValue>1000</nextValue>
+    <increment>100</increment>
+  </spi:Sequence>
+  <spi:Sequence tx="1311134756042" v="1">
+    <uri>class:/spiralcraft/biz/meta/SalesOrder#id</uri>
+    <nextValue>1000</nextValue>
+    <increment>100</increment>
+  </spi:Sequence>
+</spi:Sequence.list>

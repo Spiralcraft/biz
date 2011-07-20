@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:SalesInvoiceDetail.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>BIGDEALS-TINYCO
+    </customerProjectId>
+    <productId>IMPLEMENTATION
+    </productId>
+    <quantity>6.25
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130
+    </unitPrice>
+    <notes>Implement secure protocol in mail system
+    </notes>
+  </meta:SalesInvoiceDetail>  
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>BIGDEALS-APPCUST
+    </customerProjectId>
+    <productId>DEPLOYMENT
+    </productId>
+    <quantity>1.75
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130
+    </unitPrice>
+    <notes>Update timing and QA addresses for regular mail-out, stage 
+      latest version
+    </notes>
+  </meta:SalesInvoiceDetail>  
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>3
+    </lineNumber>
+    <customerProjectId>BIGDEALS-EARLYSTAGE
+    </customerProjectId>
+    <productId>DISCOVERY
+    </productId>
+    <quantity>1
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130
+    </unitPrice>
+    <notes>Initial project review
+    </notes>
+  </meta:SalesInvoiceDetail>  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>4
+    </lineNumber>
+    <customerProjectId>BIGDEALS
+    </customerProjectId>
+    <productId>MANAGEDSERVER-DEDICATED
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>175
+    </unitPrice>
+    <notes>Dedicated server + 1Mbps CIR shared
+    </notes>
+  </meta:SalesInvoiceDetail>
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>5
+    </lineNumber>
+    <customerProjectId>BIGDEALS-ONEOFF
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-MEDIUM
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>107
+    </unitPrice>
+    <notes>Managed RS Cloud Slice 2048MB 
+    </notes>
+  </meta:SalesInvoiceDetail>  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>200
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>BIGDEALS-ONHOLD
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-PICO
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>14
+    </unitPrice>
+    <notes>Managed RS Cloud Server 256MB 
+    </notes>
+  </meta:SalesInvoiceDetail>    
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>201
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-SMALL
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>56.94
+    </unitPrice>
+    <notes>Managed RS Cloud Server 1024MB 
+    </notes>
+    <billedInAdvance>true
+    </billedInAdvance>
+    
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>201
+    </salesInvoiceId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+  </meta:SalesInvoiceDetail>      
+   
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>105.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+   
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>3
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>27.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>4
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+  </meta:SalesInvoiceDetail>      
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>5
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>7.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+  </meta:SalesInvoiceDetail>     
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SUPPORT
+    </productId>
+    <quantity>6.00
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>156.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Coverage for 5 weeks from beginning of period
+    </notes>
+  </meta:SalesInvoiceDetail>    
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>202
+    </salesInvoiceId>
+    <lineNumber>7
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SW-ADVANCE-APPLIED
+    </productId>
+    <quantity>-3.5
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>25.00
+    </unitPrice>
+    <notes>Unused deposit- no actionable business requirements at this time
+    </notes>
+  </meta:SalesInvoiceDetail>    
+    
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>203
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>COLOSHARE
+    </customerProjectId>
+    <productId>COLOCATION
+    </productId>
+    <quantity>3
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>340.00
+    </unitPrice>
+    <notes>7U of shared cabinet + shared 1mbps + 5A addl. power
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>BIGDEALS-APPCUST
+    </customerProjectId>
+    <productId>IMPLEMENTATION
+    </productId>
+    <quantity>64.25
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Workflow for incoming, outgoing and internal widget processes.
+      Add full text search capability for customer notes.
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>BIGDEALS-APPCUST
+    </customerProjectId>
+    <productId>PLANNING
+    </productId>
+    <quantity>3
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Deliverable and scheduling coordination, tracking system items
+      review
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>3
+    </lineNumber>
+    <customerProjectId>BIGDEALS-APPCUST
+    </customerProjectId>
+    <productId>TOOLING
+    </productId>
+    <quantity>1
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Build system upgrade
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>4
+    </lineNumber>
+    <customerProjectId>BIGDEALS-APPCUST
+    </customerProjectId>
+    <productId>DEPLOYMENT
+    </productId>
+    <quantity>0.5
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Stage update
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>5
+    </lineNumber>
+    <customerProjectId>BIGDEALS
+    </customerProjectId>
+    <productId>TOOLING
+    </productId>
+    <quantity>0.5
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Build system fix
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>BIGDEALS-TINYCO
+    </customerProjectId>
+    <productId>IMPLEMENTATION
+    </productId>
+    <quantity>2.25
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Fix issue #104: login failure after repeated logout
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>7
+    </lineNumber>
+    <customerProjectId>BIGDEALS-TINYCO
+    </customerProjectId>
+    <productId>DEPLOYMENT
+    </productId>
+    <quantity>2.25
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Stage refresh, tag release, production release
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>8
+    </lineNumber>
+    <customerProjectId>BIGDEALS-TINYCO
+    </customerProjectId>
+    <productId>DEVSUPPORT
+    </productId>
+    <quantity>0.75
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>130.00
+    </unitPrice>
+    <notes>Issue #112 
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>9
+    </lineNumber>
+    <customerProjectId>BIGDEALS
+    </customerProjectId>
+    <productId>MANAGEDSERVER-DEDICATED
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>175
+    </unitPrice>
+    <notes>Dedicated server + 1Mbps CIR shared
+    </notes>
+  </meta:SalesInvoiceDetail>
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>204
+    </salesInvoiceId>
+    <lineNumber>10
+    </lineNumber>
+    <customerProjectId>BIGDEALS-ONEOFF
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-SMALL
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>56.94
+    </unitPrice>
+    <notes>Managed RS Cloud Slice 1024MB 
+    </notes>
+  </meta:SalesInvoiceDetail>    
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>205
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-SMALL
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>56.94
+    </unitPrice>
+    <notes>Managed RS Cloud Server 1024MB 
+    </notes>
+    <billedInAdvance>true
+    </billedInAdvance>
+    
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>205
+    </salesInvoiceId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+  </meta:SalesInvoiceDetail>     
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>105.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+   
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>3
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>27.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>4
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+  </meta:SalesInvoiceDetail>      
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>5
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>7.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+  </meta:SalesInvoiceDetail>      
+
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+  </meta:SalesInvoiceDetail>     
+  
+  <meta:SalesInvoiceDetail>
+    <salesInvoiceId>206
+    </salesInvoiceId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SUPPORT
+    </productId>
+    <quantity>6.00
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>156.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Coverage for 5 weeks from beginning of period
+    </notes>
+  </meta:SalesInvoiceDetail>    
+  
+</meta:SalesInvoiceDetail.list>

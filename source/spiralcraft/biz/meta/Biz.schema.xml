@@ -13,11 +13,19 @@
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizm:Invoice.type/>
+      <type><bizm:SalesOrder.type/>
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizm:InvoiceDetail.type/>
+      <type><bizm:SalesOrderDetail.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizm:SalesInvoice.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizm:SalesInvoiceDetail.type/>
       </type>
     </meta:Entity>
     <meta:Entity>

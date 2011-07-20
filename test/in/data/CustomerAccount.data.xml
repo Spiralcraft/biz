@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:CustomerAccount.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:CustomerAccount>
+    <accountId>100
+    </accountId>
+    
+    <displayName>Big Deals
+    </displayName>
+    
+    <contactId>100
+    </contactId>
+    
+    <repId>1
+    </repId>
+  </meta:CustomerAccount>
+  
+  <meta:CustomerAccount>
+    <accountId>101
+    </accountId>
+    
+    <displayName>Tiny App
+    </displayName>
+
+    <contactId>101
+    </contactId>
+    
+    <repId>1
+    </repId>
+  </meta:CustomerAccount>  
+  
+  <meta:CustomerAccount>
+    <accountId>102
+    </accountId>
+    
+    <displayName>Sarah Support
+    </displayName>
+
+    <contactId>102
+    </contactId>
+    
+    <repId>1
+    </repId>
+  </meta:CustomerAccount>  
+  
+  <meta:CustomerAccount>
+    <accountId>103
+    </accountId>
+    
+    <displayName>Cube Mate
+    </displayName>
+
+    <contactId>103
+    </contactId>
+    
+    <repId>1
+    </repId>
+  </meta:CustomerAccount>    
+</meta:CustomerAccount.list>

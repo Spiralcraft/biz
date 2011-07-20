@@ -1,0 +1,133 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:social="class:/spiralcraft/archetype/social/"
+  >
+  
+  <archetype><bizm:SalesBill.type/>
+  </archetype>
+  
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id</name>
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+  
+    <meta:Field>
+      <name>invoiceNumber</name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>issueDate</name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>posted
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>dueDate</name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+
+
+    <meta:Field>
+      <name>priorBalance
+      </name>
+      <type><bizm:Money.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>priorDueDate
+      </name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+        
+
+    <meta:RelativeField>
+      <name>payments
+      </name>
+      
+      <type><bizm:SalesPayment.type/>
+      </type>
+            
+      <referencedFieldList>invoiceId
+      </referencedFieldList>
+      
+    </meta:RelativeField>
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <fieldList>id
+      </fieldList>
+      <primary>true
+      </primary>
+    </meta:Key>
+    
+    <meta:Key>
+      <name>detail
+      </name>
+      
+      <fieldList>id
+      </fieldList>
+      
+      <foreignType><bizm:SalesInvoiceDetail.type/>
+      </foreignType>
+      
+      <importedKey>
+        <meta:Key>
+          
+          <fieldList>salesInvoiceId
+          </fieldList>
+        </meta:Key>
+      </importedKey>
+      
+    </meta:Key>
+
+  </keys>
+  
+  <methods>
+    <meta:TaskMethod>
+      <name>create
+      </name>
+      
+      <static>true
+      </static>
+           
+      <parameterTypes>
+        <bizm:SalesOrder.type/>
+      </parameterTypes>
+      
+      <returnType>
+        <bizm:SalesInvoice.type/>
+      </returnType>
+    
+    </meta:TaskMethod>
+  </methods>
+  
+</meta:Type>

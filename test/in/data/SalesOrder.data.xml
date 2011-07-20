@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:SalesOrder.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:SalesOrder>
+    <id>200
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    
+    <customerId>100
+    </customerId>
+    
+    <billToId>100
+    </billToId>
+    
+    <netAmount>231.94
+    </netAmount>
+    
+    <paymentTermsId>1
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+    
+    <period>1M
+    </period>
+  </meta:SalesOrder> 
+  
+  <meta:SalesOrder>
+    <id>201
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <customerId>101
+    </customerId>
+    
+    <billToId>101
+    </billToId>
+    
+    <netAmount>136.94
+    </netAmount>
+                    
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+  </meta:SalesOrder>   
+
+  
+  <meta:SalesOrder>
+    <id>202
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+    
+    <customerId>102
+    </customerId>
+    
+    <billToId>102
+    </billToId>
+    
+    <netAmount>1135.00
+    </netAmount>
+        
+    <paymentTermsId>2
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+
+    
+    <advancePeriodStartDate>2011-06-01
+    </advancePeriodStartDate>
+
+    <advancePeriodEndDate>2011-07-01
+    </advancePeriodEndDate>
+    
+    <arrearsPeriodStartDate>2011-05-01
+    </arrearsPeriodStartDate>
+  </meta:SalesOrder>
+
+  <meta:SalesOrder>
+    <id>203
+    </id>
+    
+    <orgUnitId>100
+    </orgUnitId>
+
+    
+    <customerId>103
+    </customerId>
+    
+    <billToId>103
+    </billToId>
+    
+    <netAmount>1020.00
+    </netAmount>
+        
+    <paymentTermsId>3
+    </paymentTermsId>
+
+    <paymentMethodId>1
+    </paymentMethodId>
+    
+    <advancePeriodStartDate>2011-04-01
+    </advancePeriodStartDate>
+    
+    <arrearsPeriodStartDate>2011-01-01
+    </arrearsPeriodStartDate>
+  </meta:SalesOrder>   
+    
+</meta:SalesOrder.list>

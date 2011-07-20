@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:PaymentTerms.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:PaymentTerms>
+    <id>1
+    </id>
+    
+    <displayName>NET 30
+    </displayName>
+    
+    <daysUntilDue>30
+    </daysUntilDue>
+  
+  </meta:PaymentTerms>
+  
+  <meta:PaymentTerms>
+    <id>2
+    </id>
+    
+    <displayName>NET 21
+    </displayName>
+    
+    <daysUntilDue>21
+    </daysUntilDue>
+  
+  </meta:PaymentTerms>  
+  
+  <meta:PaymentTerms>
+    <id>3
+    </id>
+    
+    <displayName>On Receipt
+    </displayName>
+  
+  </meta:PaymentTerms>  
+</meta:PaymentTerms.list>

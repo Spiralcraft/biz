@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:OrgUnit.list 
+  xmlns:meta="class:/spiralcraft/biz/meta/"
+  xmlns:postal="class:/spiralcraft/archetype/postal/"
+  >
+  <meta:OrgUnit>
+    <id>100
+    </id>
+    <commonName>TestCo, Inc.
+    </commonName>
+    <taxId>99-5555555
+    </taxId>
+  </meta:OrgUnit>
+</meta:OrgUnit.list>

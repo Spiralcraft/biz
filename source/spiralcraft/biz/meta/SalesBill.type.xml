@@ -6,45 +6,6 @@
   
   <fields>
   
-    <meta:SequenceField>
-      <name>invoiceId</name>
-      <type><String.type/>
-      </type>
-    </meta:SequenceField>
-  
-    <meta:Field>
-      <name>invoiceNumber</name>
-      <type><String.type/>
-      </type>
-    </meta:Field>
-    
-    <meta:Field>
-      <name>issueDate</name>
-      <type>
-        <Date.type>
-          <dateFormat>yyyy-MM-dd
-          </dateFormat>
-        </Date.type>
-      </type>
-    </meta:Field>
-    
-    <meta:Field>
-      <name>posted
-      </name>
-      <type><Boolean.type/>
-      </type>
-    </meta:Field>
-    
-    <meta:Field>
-      <name>dueDate</name>
-      <type>
-        <Date.type>
-          <dateFormat>yyyy-MM-dd
-          </dateFormat>
-        </Date.type>
-      </type>
-    </meta:Field>
-
     <meta:Field>
       <name>orgUnitId</name>
       <type><String.type/>
@@ -86,24 +47,6 @@
       <name>netAmount
       </name>
       <type><bizm:Money.type/>
-      </type>
-    </meta:Field>
-
-    <meta:Field>
-      <name>priorBalance
-      </name>
-      <type><bizm:Money.type/>
-      </type>
-    </meta:Field>
-
-    <meta:Field>
-      <name>priorDueDate
-      </name>
-      <type>
-        <Date.type>
-          <dateFormat>yyyy-MM-dd
-          </dateFormat>
-        </Date.type>
       </type>
     </meta:Field>
         
@@ -177,26 +120,9 @@
       </type>
     </meta:Field>
 
-    <meta:RelativeField>
-      <name>payments
-      </name>
-      
-      <type><bizm:InvoicePayment.type/>
-      </type>
-            
-      <referencedFieldList>invoiceId
-      </referencedFieldList>
-      
-    </meta:RelativeField>
   </fields>
 
   <keys>
-    <meta:Key>
-      <fieldList>invoiceId
-      </fieldList>
-      <primary>true
-      </primary>
-    </meta:Key>
     
     <meta:Key>
       <name>orgUnit
@@ -244,26 +170,6 @@
       
     </meta:Key>
 
-
-    <meta:Key>
-      <name>detail
-      </name>
-      
-      <fieldList>invoiceId
-      </fieldList>
-      
-      <foreignType><bizm:InvoiceDetail.type/>
-      </foreignType>
-      
-      <importedKey>
-        <meta:Key>
-          
-          <fieldList>invoiceId
-          </fieldList>
-        </meta:Key>
-      </importedKey>
-      
-    </meta:Key>
 
   </keys>
   

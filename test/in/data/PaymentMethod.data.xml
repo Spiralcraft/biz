@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:PaymentMethod.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:PaymentMethod>
+    <id>1
+    </id>
+    
+    <displayName>CHECK
+    </displayName>
+  
+  </meta:PaymentMethod>
+</meta:PaymentMethod.list>

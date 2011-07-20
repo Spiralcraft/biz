@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:SalesOrderDetail.list xmlns:meta="class:/spiralcraft/biz/meta/">
+
+
+  
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>200
+    </salesOrderId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>BIGDEALS
+    </customerProjectId>
+    <productId>MANAGEDSERVER-DEDICATED
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>175
+    </unitPrice>
+    <notes>Dedicated server + 1Mbps CIR shared
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>200
+    </salesOrderId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>BIGDEALS-ONEOFF
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-SMALL
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>56.94
+    </unitPrice>
+    <notes>Managed RS Cloud Slice 1024MB 
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>    
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>201
+    </salesOrderId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>MANAGEDSLICE-RS-SMALL
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>56.94
+    </unitPrice>
+    <notes>Managed RS Cloud Server 1024MB 
+    </notes>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <recurring>true
+    </recurring>
+    
+  </meta:SalesOrderDetail>      
+
+  <meta:SalesOrderDetail>
+    <salesOrderId>201
+    </salesOrderId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>TINYAPP
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>     
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>105.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>      
+
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>2
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-1
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>      
+   
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>3
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>27.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>      
+
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>4
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Colo-3
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>      
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>5
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERMANAGEMENT
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>7.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>      
+
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SERVERSUPPORT-STANDARD
+    </productId>
+    <quantity>1.00
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>80.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Server Cloud-1
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>     
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>202
+    </salesOrderId>
+    <lineNumber>6
+    </lineNumber>
+    <customerProjectId>ROS
+    </customerProjectId>
+    <productId>SUPPORT
+    </productId>
+    <quantity>6.00
+    </quantity>
+    <unitId>HOUR
+    </unitId>
+    <unitPrice>126.00
+    </unitPrice>
+    <billedInAdvance>true
+    </billedInAdvance>
+    <notes>Coverage for 5 weeks from beginning of period
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>   
+  
+  <meta:SalesOrderDetail>
+    <salesOrderId>203
+    </salesOrderId>
+    <lineNumber>1
+    </lineNumber>
+    <customerProjectId>COLOSHARE
+    </customerProjectId>
+    <productId>COLOCATION
+    </productId>
+    <quantity>3
+    </quantity>
+    <unitId>MONTH
+    </unitId>
+    <unitPrice>340.00
+    </unitPrice>
+    <notes>7U of shared cabinet + shared 1mbps + 5A addl. power
+    </notes>
+    <recurring>true
+    </recurring>
+  </meta:SalesOrderDetail>   
+</meta:SalesOrderDetail.list>

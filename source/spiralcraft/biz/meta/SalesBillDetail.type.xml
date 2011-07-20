@@ -5,13 +5,6 @@
   >
   
   <fields>
-    
-    <meta:Field>
-      <name>invoiceId</name>
-      <type><LSID.type/>
-      </type>
-    </meta:Field>
-  
     <meta:Field>
       <name>lineNumber</name>
       <type><Integer.type/>

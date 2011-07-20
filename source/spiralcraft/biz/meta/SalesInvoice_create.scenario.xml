@@ -1,0 +1,104 @@
+<dtask:Session
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:editor="class:/spiralcraft/data/editor/"
+  >
+  <contextX>
+    { [#context]
+      order:[@bizm:SalesOrder]
+      ,issueDate:=[@ju:Date].()
+    }
+  </contextX>
+  
+  <transactional>true
+  </transactional>
+
+  <sequence>
+    <dtask:Edit>
+    
+      <alias>masterEditor
+      </alias>
+      
+      <type><bizm:SalesInvoice.type/>
+      </type>
+      
+      <autoCreate>true
+      </autoCreate>
+      
+      
+      <sequence>
+        <task:Eval>
+          <x>
+            @{ 
+              .orgUnitId=[context].order.orgUnitId
+              ,.customerId=[context].order.customerId
+              ,.billToId=[context].order.billToId
+              ,.shipToId=[context].order.shipToId
+              ,.netAmount=[context].order.netAmount
+              ,.paymentTermsId=[context].order.paymentTermsId
+              ,.paymentMethodId=[context].order.paymentMethodId
+              ,.arrearsPeriodStartDate=[context].order.arrearsPeriodStartDate
+              ,.advancePeriodStartDate=[context].order.advancePeriodStartDate
+              ,.advancePeriodEndDate=[context].order.advancePeriodEndDate
+              ,.issueDate=[context].issueDate
+              ,.
+            }
+          </x>
+          
+          <sequence>
+            <dtask:Edit>
+            
+              <alias>detailEditor
+              </alias>
+              
+              <x>.detail
+              </x>
+              
+              <autoKey>true
+              </autoKey>
+
+              <sequence>
+                <task:Batch>
+                  <source>[context].order.detail
+                  </source>
+                  
+                  <sequence>
+                    <task:Eval>
+                      <x>
+                        [editor:AggregateEditor].addNew.()
+                        { 
+                          .lineNumber=[bizm:SalesOrderDetail].lineNumber
+                          ,.quantity=[bizm:SalesOrderDetail].quantity
+                          ,.unitPrice=[bizm:SalesOrderDetail].unitPrice
+                          ,.customerProjectId=[bizm:SalesOrderDetail].customerProjectId
+                          ,.productId=[bizm:SalesOrderDetail].productId
+                          ,.unitId=[bizm:SalesOrderDetail].unitId
+                          ,.notes=[bizm:SalesOrderDetail].notes
+                          ,.billedInAdvance=[bizm:SalesOrderDetail].billedInAdvance
+                          ,.
+                        }
+                      </x>
+                    </task:Eval>
+                  </sequence>
+                </task:Batch>
+                <task:Eval>
+                  <x>
+                    { 
+                      [masterEditor].editor.save.()
+                      ,[detailEditor].editor.save.()
+                    }
+                  </x>
+                
+                </task:Eval>
+                
+              </sequence>
+              
+            </dtask:Edit>
+          </sequence>
+        </task:Eval>
+      </sequence>
+    </dtask:Edit>
+  </sequence>
+</dtask:Session>

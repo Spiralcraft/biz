@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meta:CustomerProject.list xmlns:meta="class:/spiralcraft/biz/meta/">
+  <meta:CustomerProject>
+    <id>BIGDEALS-APPCUST
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>App Cust
+    </displayName>
+
+    <active>true
+    </active>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS-HUGECO
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>Huge Co
+    </displayName>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS-TINYCO
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>Tiny Co
+    </displayName>
+
+    <active>true
+    </active>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS-EARLYSTAGE
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>Early Stage, Inc.
+    </displayName>
+    
+    <active>true
+    </active>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS-ONEOFF
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>One Off Company
+    </displayName>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS-ONHOLD
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>Not Ready Company
+    </displayName>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>BIGDEALS
+    </id>
+    
+    <customerId>100
+    </customerId>
+    
+    <displayName>Big Deals General
+    </displayName>
+    
+    <active>true
+    </active>
+  </meta:CustomerProject>
+
+  <meta:CustomerProject>
+    <id>TINYAPP
+    </id>
+    
+    <customerId>101
+    </customerId>
+    
+    <displayName>One Tiny App
+    </displayName>
+    
+    <active>true
+    </active>
+    
+  </meta:CustomerProject>
+  
+  <meta:CustomerProject>
+    <id>ROS
+    </id>
+    
+    <customerId>102
+    </customerId>
+    
+    <displayName>Running On Support
+    </displayName>
+    
+    <active>true
+    </active>
+    
+  </meta:CustomerProject>  
+  
+  <meta:CustomerProject>
+    <id>COLOSHARE
+    </id>
+    
+    <customerId>103
+    </customerId>
+    
+    <displayName>Colo Share
+    </displayName>
+    
+    <active>true
+    </active>
+    
+  </meta:CustomerProject>  
+  
+</meta:CustomerProject.list>
