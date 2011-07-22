@@ -24,6 +24,37 @@
       </type>
     </meta:Field>
 
+    <meta:Field>
+      <name>reorderId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>reorder
+      </name>
+      <type><bizm:SalesOrder.type/>
+      </type>
+      <fieldList>reorderId
+      </fieldList>
+    </meta:RelativeField>
+
+    <meta:Field>
+      <name>invoiceId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>invoice
+      </name>
+      <type><bizm:SalesInvoice.type/>
+      </type>
+      <fieldList>invoiceId
+      </fieldList>
+    </meta:RelativeField>
   </fields>
 
   <keys>

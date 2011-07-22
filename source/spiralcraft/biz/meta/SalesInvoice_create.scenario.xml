@@ -92,7 +92,18 @@
                   </x>
                 
                 </task:Eval>
-                
+                <dtask:Edit>
+                  <x>[context].order
+                  </x>
+                  <autoSave>true
+                  </autoSave>
+                  <sequence>
+                    <task:Eval>
+                      <x>invoiceId=[bizm:SalesInvoice].id
+                      </x>
+                    </task:Eval>
+                  </sequence>
+                </dtask:Edit>                
               </sequence>
               
             </dtask:Edit>

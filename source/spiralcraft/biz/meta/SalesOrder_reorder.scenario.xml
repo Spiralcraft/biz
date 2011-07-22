@@ -3,6 +3,7 @@
   xmlns:task="class:/spiralcraft/task/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:ju="class:/java/util/"
+  xmlns:j="class:/java/lang/"
   xmlns:editor="class:/spiralcraft/data/editor/"
   xmlns:time="class:/spiralcraft/time/"
   >
@@ -11,6 +12,7 @@
       [#context]
       order:=[bizm:SalesOrder]
       ,calendar:=[@time:Calendar].@DEFAULT
+      ,reorderId:[@j:String]
     }
   </contextX>
   
@@ -41,6 +43,7 @@
               ,.netAmount=[context].order.netAmount
               ,.paymentTermsId=[context].order.paymentTermsId
               ,.paymentMethodId=[context].order.paymentMethodId
+              ,.period=[context].order.period
               ,.arrearsPeriodStartDate
                 =[context].calendar.add
                   ([context].order.arrearsPeriodStartDate
@@ -105,10 +108,23 @@
                     { 
                       [masterEditor].editor.save.()
                       ,[detailEditor].editor.save.()
+                      ,[context].reorderId=[bizm:SalesOrder].id
                     }
                   </x>
                 
                 </task:Eval>
+                <dtask:Edit>
+                  <x>[context].order
+                  </x>
+                  <autoSave>true
+                  </autoSave>
+                  <sequence>
+                    <task:Eval>
+                      <x>reorderId=[context].reorderId
+                      </x>
+                    </task:Eval>
+                  </sequence>
+                </dtask:Edit>
                 
               </sequence>
               
