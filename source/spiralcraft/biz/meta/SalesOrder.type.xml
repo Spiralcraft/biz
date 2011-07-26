@@ -46,6 +46,13 @@
       <type><LSID.type/>
       </type>
     </meta:Field>
+    
+    <meta:Field>
+      <name>invoiceNumber
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>    
 
     <meta:RelativeField>
       <name>invoice
