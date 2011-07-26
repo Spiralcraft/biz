@@ -43,6 +43,7 @@
               ,.advancePeriodStartDate=[context].order.advancePeriodStartDate
               ,.advancePeriodEndDate=[context].order.advancePeriodEndDate
               ,.issueDate=[context].issueDate
+              ,.invoiceNumber=[context].order.invoiceNumber
               ,.
             }
           </x>
