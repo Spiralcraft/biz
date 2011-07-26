@@ -35,6 +35,8 @@
       <fieldList>customerId
       </fieldList>
       
+      <referencedFieldList>accountId
+      </referencedFieldList>
     </meta:RelativeField>
     
     <meta:Field>

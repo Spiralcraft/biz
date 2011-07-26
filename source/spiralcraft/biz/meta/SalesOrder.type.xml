@@ -55,6 +55,21 @@
       <fieldList>invoiceId
       </fieldList>
     </meta:RelativeField>
+    
+    <meta:RelativeField>
+      <name>detail
+      </name>
+      
+      <type><bizm:SalesOrderDetail.list.type/>
+      </type>
+      
+      <referencedFieldList>salesOrderId
+      </referencedFieldList>
+      
+      <child>true
+      </child>
+    </meta:RelativeField>
+    
   </fields>
 
   <keys>
@@ -65,25 +80,6 @@
       </primary>
     </meta:Key>
     
-    <meta:Key>
-      <name>detail
-      </name>
-      
-      <fieldList>id
-      </fieldList>
-      
-      <foreignType><bizm:SalesOrderDetail.type/>
-      </foreignType>
-      
-      <importedKey>
-        <meta:Key>
-          
-          <fieldList>salesOrderId
-          </fieldList>
-        </meta:Key>
-      </importedKey>
-      
-    </meta:Key>
 
   </keys>
   

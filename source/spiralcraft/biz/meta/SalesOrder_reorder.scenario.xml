@@ -59,6 +59,7 @@
                   ([context].order.advancePeriodEndDate
                   ,[context].order.period
                   )
+              ,lastLine=[context].order.lastLine
               ,.
             }
           </x>

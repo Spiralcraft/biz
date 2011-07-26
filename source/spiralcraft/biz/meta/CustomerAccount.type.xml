@@ -10,5 +10,17 @@
   <baseType><bizm:TradeAccount.type/>
   </baseType>
   
+  <fields>
+    <meta:RelativeField>
+      <name>projects
+      </name>
+      
+      <type><bizm:CustomerProject.list.type/>
+      </type>
+      
+      <referencedFieldList>customerId
+      </referencedFieldList>
+    </meta:RelativeField>
+  </fields>
   
 </meta:Type>
