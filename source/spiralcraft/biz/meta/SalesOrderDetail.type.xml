@@ -24,14 +24,7 @@
       
     </meta:Field>
     
-    <meta:Field>
-      <name>recurring
-      </name>
-      
-      <type><Boolean.type/>
-      </type>
-      
-    </meta:Field>     
+   
   </fields>
 
   <keys>

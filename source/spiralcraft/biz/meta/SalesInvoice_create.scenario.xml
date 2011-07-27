@@ -78,6 +78,7 @@
                           ,.unitId=[bizm:SalesOrderDetail].unitId
                           ,.notes=[bizm:SalesOrderDetail].notes
                           ,.billedInAdvance=[bizm:SalesOrderDetail].billedInAdvance
+                          ,.recurring=[bizm:SalesOrderDetail].recurring
                           ,.
                         }
                       </x>
