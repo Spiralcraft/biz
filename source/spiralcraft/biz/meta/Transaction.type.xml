@@ -5,7 +5,9 @@
   >
   
   <!-- 
-    A set of entries 
+    A set of JournalEntries that represents the financial aspect of a 
+      point-in-time event. A transaction consists of an equal sum of 
+      credits and debits to various ledger accounts.
   -->
   
   <fields>
@@ -44,6 +46,21 @@
       </description>
     </meta:Field>
     
+    <meta:RelativeField>
+      <name>entries
+      </name>
+
+      <description>The Journal entries that make up this Transaction
+      </description>
+
+      <type><bizm:JournalEntry.list.type/>
+      </type>
+      
+      <referencedFieldList>transactionId
+      </referencedFieldList>
+      
+    </meta:RelativeField>
+
   </fields>
 
   <keys>

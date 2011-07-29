@@ -130,16 +130,6 @@
         </Date.type>
       </type>
     </meta:Field>
-    
-    <meta:Field>
-      <name>lastLine
-      </name>
-      <type>
-        <Integer.type/>
-      </type>
-      <defaultExpression>0
-      </defaultExpression>
-    </meta:Field>
 
   </fields>
 
@@ -170,14 +160,5 @@
 
   </keys>
   
-  <methods>
-    <meta:Method>
-      <name>nextLine</name>
-      <returnType><Integer.type/>
-      </returnType>
-      <x>lastLine=lastLine+1
-      </x>
-    </meta:Method>
-  </methods>
   
 </meta:Type>

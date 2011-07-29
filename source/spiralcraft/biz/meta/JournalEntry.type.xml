@@ -5,7 +5,8 @@
   >
   
   <!-- 
-    A component of a Transaction
+    A component of a Transaction involving a credit or debit to a 
+      single ledger account
   -->
   
   <fields>

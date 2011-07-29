@@ -6,6 +6,7 @@
   xmlns:j="class:/java/lang/"
   xmlns:editor="class:/spiralcraft/data/editor/"
   xmlns:time="class:/spiralcraft/time/"
+  xmlns:fn="class:/spiralcraft/lang/functions/"
   >
   <contextX>
     { 
@@ -59,7 +60,6 @@
                   ([context].order.advancePeriodEndDate
                   ,[context].order.period
                   )
-              ,lastLine=[context].order.lastLine
               ,.
             }
           </x>
@@ -107,7 +107,8 @@
                 <task:Eval>
                   <x>
                     { 
-                      [masterEditor].editor.save.()
+                      [bizm:SalesOrder].netAmount=@[!.@tuple.delete]$[ .extendedPrice.[*fn:Sum] ]
+                      ,[masterEditor].editor.save.()
                       ,[detailEditor].editor.save.()
                       ,[context].reorderId=[bizm:SalesOrder].id
                     }

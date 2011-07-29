@@ -58,7 +58,13 @@
       </type>
     </meta:Field>
     
-
+    <meta:Field>
+      <name>checkNumber
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+      
   </fields>
 
   <keys>

@@ -5,8 +5,8 @@
   >
   
   <!-- 
-    Tracks transactions and balances for many types of
-      financial activity. 
+    A generic Ledger account. Tracks balances for many 
+      types of financial activities using Journal entries
   -->
   
   <fields>
