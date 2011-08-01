@@ -79,6 +79,21 @@
       <testX>true
       </testX>
     </test:Assertion>
+    
+    <!-- Requires method polymorphism (not yet implemented)
+    <test:Assertion>
+      <name>EquityRegister void
+      </name>
+      
+      <subjectX>
+        [*dtask:Fetch{ [@bizm:EquityRegister],[{`id:="100"`}] }].()
+          .void()
+      </subjectX>
+      
+      <testX>true
+      </testX>
+    </test:Assertion>    
+     -->
   </sequence>
 
 </test:TestGroup>

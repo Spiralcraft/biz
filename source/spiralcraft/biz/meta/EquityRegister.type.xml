@@ -1,0 +1,20 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:entity="class:/spiralcraft/archetype/entity/"
+  xmlns:data="class:/spiralcraft/data/"
+  >
+  <archetype><bizm:Register.type/>
+  </archetype>
+  
+  <fields>
+    <meta:RelativeField>
+      <name>detail
+      </name>
+    
+      <type><bizm:ShareRegister.list.type/>
+      </type>
+      
+    </meta:RelativeField>
+  </fields>
+</meta:Type>

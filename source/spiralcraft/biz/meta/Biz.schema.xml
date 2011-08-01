@@ -52,5 +52,13 @@
       <type><bizm:ProductUnit.type/>
       </type>
     </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:EquityRegister.type/>
+      </type>
+    </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:ShareRegister.type/>
+      </type>
+    </meta:Entity>    
   </entities>
 </meta:Schema>

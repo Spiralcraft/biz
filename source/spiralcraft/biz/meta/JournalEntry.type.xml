@@ -12,7 +12,7 @@
   <fields>
   
     <meta:SequenceField>
-      <name>entryId
+      <name>id
       </name>
       <type><LSID.type/>
       </type>
@@ -56,13 +56,13 @@
 
   <keys>
     <meta:Key>
-      <name>entryId
+      <name>id
       </name>
       
       <primary>true
       </primary>
       
-      <fieldList>entryId
+      <fieldList>id
       </fieldList>
       
     </meta:Key>

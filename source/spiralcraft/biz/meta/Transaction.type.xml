@@ -13,9 +13,9 @@
   <fields>
     
     <meta:SequenceField>
-      <name>transactionId
+      <name>id
       </name>
-      <type><String.type/>
+      <type><LSID.type/>
       </type>
     </meta:SequenceField>
     
@@ -36,6 +36,22 @@
     </meta:Field>
       
     <meta:Field>
+      <name>amount
+      </name>
+      <type><bizm:Money.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+          
+    <meta:Field>
+      <name>void
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
       <name>scope
       </name>
       <type><Integer.type/>
@@ -45,7 +61,14 @@
         forecast and a scope of 2 represents budget accounts.
       </description>
     </meta:Field>
-    
+
+    <meta:Field>
+      <name>sourceId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+        
     <meta:RelativeField>
       <name>entries
       </name>
@@ -65,13 +88,11 @@
 
   <keys>
     <meta:Key>
-      <name>transactionId
-      </name>
       
       <primary>true
       </primary>
       
-      <fieldList>transactionId
+      <fieldList>id
       </fieldList>
       
     </meta:Key>

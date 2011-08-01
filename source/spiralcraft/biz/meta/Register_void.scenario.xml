@@ -1,0 +1,47 @@
+<dtask:Session
+  xmlns:dtask="class:/spiralcraft/data/task/"
+  xmlns:task="class:/spiralcraft/task/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:tcmeta="class:/com/xigi/tc/meta/"
+  xmlns:ju="class:/java/util/"
+  xmlns:jm="class:/java/math/"
+  xmlns:editor="class:/spiralcraft/data/editor/"
+  xmlns:fn="class:/spiralcraft/lang/functions"
+  xmlns:math="class:/java/math/"
+  >
+  <transactional>true
+  </transactional>
+
+  <sequence>
+    <dtask:Edit>
+
+      
+      <x>[bizm:Register]
+      </x>
+      
+      <sequence>
+        <task:Batch>
+          <source>.detail
+          </source>
+              
+          <sequence>
+            <task:Eval>
+              <x>.void()
+              </x>
+            </task:Eval>                   
+          </sequence>
+        </task:Batch>
+        <task:Eval>
+          <x>
+            @{ 
+              .amount=0
+              ,.void=true                        
+              ,[dtask:Edit].save.()
+            }
+          </x>
+            
+        </task:Eval>              
+      </sequence>
+    </dtask:Edit>
+  </sequence>
+</dtask:Session>
