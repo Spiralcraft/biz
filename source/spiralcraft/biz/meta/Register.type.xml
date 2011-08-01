@@ -103,6 +103,22 @@
       <child>true
       </child>
     </meta:RelativeField>    
+
+    <meta:RelativeField>
+      <name>master
+      </name>
+      
+      <type><bizm:Register.type/>
+      </type>
+      
+      <fieldList>masterId
+      </fieldList>
+      
+      <referencedFieldList>id
+      </referencedFieldList>
+      
+    </meta:RelativeField>    
+
   </fields>
 
   <keys>
