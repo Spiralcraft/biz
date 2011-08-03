@@ -34,6 +34,8 @@
       </name>
       <type><Date.type/>
       </type>
+      <newExpression>[data:Space].nowTime
+      </newExpression>
       <defaultExpression>[data:Space].nowTime
       </defaultExpression>
     </meta:Field>
