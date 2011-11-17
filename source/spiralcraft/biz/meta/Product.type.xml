@@ -46,6 +46,14 @@
       </fieldList>
     </meta:RelativeField>
 
+    <meta:Field>
+      <name>classId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    
+    </meta:Field>
   </fields>
 
   <keys>
