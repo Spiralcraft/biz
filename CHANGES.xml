@@ -3,13 +3,35 @@
   >
   <scm:Change>
   
+    <revision>0.4.16
+    </revision>
+    
+    <authorId>miketoth
+    </authorId>
+    
+    <date>
+    </date>
+    
+    <detail>
+      <scm:Change>
+        
+        <revision>-dev1
+        </revision>
+        
+      </scm:Change>
+    </detail>
+
+  </scm:Change>
+
+  <scm:Change>
+  
     <revision>0.4.15
     </revision>
     
     <authorId>miketoth
     </authorId>
     
-    <date>XXXX-XX-XX
+    <date>
     </date>
     
     <detail>
