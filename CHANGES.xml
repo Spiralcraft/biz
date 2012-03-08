@@ -9,17 +9,8 @@
     <authorId>miketoth
     </authorId>
     
-    <date>
+    <date>2012-03-08
     </date>
-    
-    <detail>
-      <scm:Change>
-        
-        <revision>-dev1
-        </revision>
-        
-      </scm:Change>
-    </detail>
 
   </scm:Change>
 
