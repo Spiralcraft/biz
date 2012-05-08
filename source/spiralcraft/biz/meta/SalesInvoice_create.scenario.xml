@@ -6,7 +6,8 @@
   xmlns:editor="class:/spiralcraft/data/editor/"
   >
   <contextX>
-    { [#context]
+    [#context]
+    { 
       order:[@bizm:SalesOrder]
       ,issueDate:=[@ju:Date].()
     }

@@ -9,8 +9,9 @@
   xmlns:fn="class:/spiralcraft/lang/functions/"
   >
   <contextX>
+    [#context]
     { 
-      [#context]
+      
       order:=[bizm:SalesOrder]
       ,calendar:=[@time:Calendar].@DEFAULT
       ,reorderId:[@j:String]
@@ -84,7 +85,8 @@
                   <sequence>
                     <task:Eval>
                       <x>
-                        { [#original]
+                        [#original]
+                        { 
                           detail:=..
                           ,[editor:AggregateEditor].addNew.()
                             { 
