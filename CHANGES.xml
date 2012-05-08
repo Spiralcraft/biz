@@ -3,6 +3,44 @@
   >
   <scm:Change>
   
+    <revision>0.4.17
+    </revision>
+    
+    <authorId>miketoth
+    </authorId>
+    
+    <date>
+    </date>
+
+    <detail>
+      <scm:Change>
+        
+        <revision>-dev1
+        </revision>
+        
+        <notes>
+          <scm:Note>Fix deprecated named struct construct
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta
+        </path>
+        
+        <resources>
+          <URI>SalesInvoice_create.scenario.xml
+          </URI>
+          <URI>SalesOrder_reorder.scenario.xml
+          </URI>
+        </resources>
+
+      </scm:Change>
+      
+
+    </detail>
+  </scm:Change>
+
+  <scm:Change>
+  
     <revision>0.4.16
     </revision>
     
