@@ -10,13 +10,22 @@
     { 
       order:[@bizm:SalesOrder]
       ,issueDate:=[@ju:Date].()
+      ,priorBalance:[@bizm:Money]
+      ,priorDueDate:[@ju:Date]
     }
   </contextX>
+  
+  <addChainResult>true
+  </addChainResult>
+  
   
   <transactional>true
   </transactional>
 
-  <sequence>
+  <resultReflectorX>[@bizm:SalesInvoice]
+  </resultReflectorX>
+  
+  <chain>
     <dtask:Edit>
     
       <alias>masterEditor
@@ -27,8 +36,7 @@
       
       <autoCreate>true
       </autoCreate>
-      
-      
+       
       <sequence>
         <task:Eval>
           <x>
@@ -45,6 +53,8 @@
               ,.advancePeriodEndDate=[context].order.advancePeriodEndDate
               ,.issueDate=[context].issueDate
               ,.invoiceNumber=[context].order.invoiceNumber
+              ,.priorBalance=[context].priorBalance
+              ,.priorDueDate=[context].priorDueDate
               ,.
             }
           </x>
@@ -114,5 +124,5 @@
         </task:Eval>
       </sequence>
     </dtask:Edit>
-  </sequence>
+  </chain>
 </dtask:Session>
