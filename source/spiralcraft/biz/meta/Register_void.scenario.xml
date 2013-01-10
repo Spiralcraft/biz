@@ -2,7 +2,6 @@
   xmlns:dtask="class:/spiralcraft/data/task/"
   xmlns:task="class:/spiralcraft/task/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
-  xmlns:tcmeta="class:/com/xigi/tc/meta/"
   xmlns:ju="class:/java/util/"
   xmlns:jm="class:/java/math/"
   xmlns:editor="class:/spiralcraft/data/editor/"
