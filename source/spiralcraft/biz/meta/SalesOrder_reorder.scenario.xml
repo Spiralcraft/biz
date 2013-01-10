@@ -21,7 +21,13 @@
   <transactional>true
   </transactional>
 
-  <sequence>
+  <resultReflectorX>[@bizm:SalesOrder]
+  </resultReflectorX>
+  
+  <addChainResult>true
+  </addChainResult>
+  
+  <chain>
     <dtask:Edit>
     
       <alias>masterEditor
@@ -137,5 +143,5 @@
         </task:Eval>
       </sequence>
     </dtask:Edit>
-  </sequence>
+  </chain>
 </dtask:Session>
