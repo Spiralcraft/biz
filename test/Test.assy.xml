@@ -48,7 +48,7 @@
           )
       </subjectX>
       
-      <testX>true
+      <testX>.netAmount==231.94
       </testX>
     </test:Assertion>
 
@@ -76,7 +76,7 @@
           .reorder()
       </subjectX>
       
-      <testX>true
+      <testX>.netAmount==231.94
       </testX>
     </test:Assertion>
     

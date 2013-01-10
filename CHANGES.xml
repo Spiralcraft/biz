@@ -15,6 +15,37 @@
     <detail>
       <scm:Change>
         
+        <revision>-dev2
+        </revision>
+        
+        <notes>
+          <scm:Note>Make sure that SalesOrder.reorder() returns the new order.
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta/SalesOrder_reorder.scenario.xml
+        </path>
+
+      </scm:Change>
+
+      <scm:Change>
+        
+        <revision>-dev2
+        </revision>
+        
+        <notes>
+          <scm:Note>Provide for priorBalance, priorDueDate in SalesInvoice
+            .create method.
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta/SalesInvoice_create.scenario.xml
+        </path>
+
+      </scm:Change>
+
+      <scm:Change>
+        
         <revision>-dev1
         </revision>
         
