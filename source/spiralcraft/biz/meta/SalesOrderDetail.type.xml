@@ -24,7 +24,19 @@
       
     </meta:Field>
     
-   
+    <meta:RelativeField>
+      <name>support
+      </name>
+      
+      <type><bizm:SalesOrderDetailSupport.list.type/>
+      </type>
+      
+      <fieldList>salesOrderId,lineNumber
+      </fieldList>
+      
+      <referencedFieldList>salesOrderId,lineNumber
+      </referencedFieldList>
+    </meta:RelativeField>
   </fields>
 
   <keys>

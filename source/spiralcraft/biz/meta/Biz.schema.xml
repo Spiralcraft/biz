@@ -21,6 +21,10 @@
       </type>
     </meta:Entity>
     <meta:Entity>
+      <type><bizm:SalesOrderDetailSupport.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
       <type><bizm:SalesInvoice.type/>
       </type>
     </meta:Entity>

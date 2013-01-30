@@ -1,0 +1,82 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:jm="class:/java/math/"
+  >
+
+  <fields>
+    
+    <meta:Field>
+      <name>salesOrderId</name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>lineNumber
+      </name>
+      
+      <type><Integer.type/>
+      </type>
+      
+    </meta:Field>
+    
+    <meta:Field>
+      <name>entryNumber
+      </name>
+      
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>quantity
+      </name>
+      
+      <type><Double.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>unitAmount
+      </name>
+      
+      <type><bizm:Money.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:CalculatedField>
+      <name>extendedAmount
+      </name>
+      
+      <type><bizm:Money.type/>
+      </type>
+      
+      <expression>( unitAmount * quantity ).setScale(2,[@jm:RoundingMode].@HALF_DOWN)
+      </expression>
+    
+    </meta:CalculatedField>   
+    
+    <meta:Field>
+      <name>notes
+      </name>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>    
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <fieldList>salesOrderId,lineNumber,entryNumber
+      </fieldList>
+      <primary>true
+      </primary>
+    </meta:Key>
+    
+    <meta:Key>
+      <fieldList>salesOrderId,lineNumber
+      </fieldList>
+    </meta:Key>    
+  </keys>  
+</meta:Type>
