@@ -37,11 +37,11 @@
       </name>
       
       <parameterTypes>
-        <ju:Date.type/>
+        <Date.type/>
       </parameterTypes>
       
       <returnType>
-        <ju:Date.type/>
+        <Date.type/>
       </returnType>
       
       <contextX>{ invoiceDate:[@ju:Date] }      
