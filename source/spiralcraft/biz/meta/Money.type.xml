@@ -1,6 +1,8 @@
 <BigDecimal.type
   xmlns:meta="class:/spiralcraft/data/types/meta"
   >
-  <precision>2
+  <precision>9
   </precision>
+  <scale>2
+  </scale>
 </BigDecimal.type>
