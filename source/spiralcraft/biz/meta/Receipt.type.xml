@@ -1,0 +1,62 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta/"
+  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:social="class:/spiralcraft/archetype/social/"
+  >
+  <description>
+    Accounts for an incoming transfer of money. 
+  </description>
+
+  <fields>
+    
+    <meta:SequenceField>
+      <name>id</name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+      
+    <meta:Field>
+      <name>refId</name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>amount
+      </name>
+      <type><bizm:Money.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>accountId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>receiptDate</name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>recordDate
+      </name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
+
+  </fields>
+</meta:Type>
