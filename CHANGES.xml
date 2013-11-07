@@ -19,6 +19,52 @@
         </revision>
         
         <notes>
+          <scm:Note>Add a Receipt type for tracking incoming money.
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta/Receipt.type.xml
+        </path>
+
+      </scm:Change>
+
+      <scm:Change>
+        
+        <revision>-dev3
+        </revision>
+        
+        <notes>
+          <scm:Note>Set default precision and scale for Money type
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta/Money.type.xml
+        </path>
+
+      </scm:Change>
+
+      <scm:Change>
+        
+        <revision>-dev3
+        </revision>
+        
+        <notes>
+          <scm:Note>Payment terms uses standard spiralcraft Date type 
+            instead of java.util.Date class
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta/PaymentTerms.type.xml
+        </path>
+
+      </scm:Change>
+
+      <scm:Change>
+        
+        <revision>-dev3
+        </revision>
+        
+        <notes>
           <scm:Note>SalesOrderDetailSupport provides itemized breakdown to
             support line item.
           </scm:Note>
