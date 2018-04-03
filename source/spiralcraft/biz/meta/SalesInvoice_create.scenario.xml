@@ -112,7 +112,9 @@
                   </autoSave>
                   <sequence>
                     <task:Eval>
-                      <x>invoiceId=[bizm:SalesInvoice].id
+                      <x>@{ invoiceId=[bizm:SalesInvoice].id
+                          , closeDate=[bizm:SalesInvoice].issueDate
+                          }
                       </x>
                     </task:Eval>
                   </sequence>
