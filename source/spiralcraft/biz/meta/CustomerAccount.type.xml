@@ -23,6 +23,25 @@
       <referencedFieldList>customerId
       </referencedFieldList>
     </meta:RelativeField>
+    
+    <meta:Field>
+      <name>orgUnitId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>paymentTermsId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>paymentMethodId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
   </fields>
   
   <methods>
@@ -36,10 +55,11 @@
           {typeX:=[@bizm:SalesOrder].type
           ,action:=
             `@{
-              .orgUnitId="100"
+              .orgUnitId=[bizm:CustomerAccount].orgUnitId??"100"
               , customerId=[bizm:CustomerAccount].accountId
               ,.billToId=[bizm:CustomerAccount].contactId 
-              ,.paymentTermsId="1"
+              ,.paymentTermsId=[bizm:CustomerAccount].paymentTermsId??"1"
+              ,.paymentMethodId=[bizm:CustomerAccount].paymentMethodId??"1"
               ,.openDate=[@ju:Date].()
             }`
         }].()
