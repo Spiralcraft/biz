@@ -130,6 +130,17 @@
         </Date.type>
       </type>
     </meta:Field>
+    
+    <meta:Field>
+      <name>openDate
+      </name>
+      <type>
+        <Date.type>
+          <dateFormat>yyyy-MM-dd
+          </dateFormat>
+        </Date.type>
+      </type>
+    </meta:Field>
 
   </fields>
 

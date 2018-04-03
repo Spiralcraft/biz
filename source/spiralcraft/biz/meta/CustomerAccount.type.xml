@@ -2,6 +2,8 @@
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:entity="class:/spiralcraft/archetype/entity/"
+  xmlns:dt="class:/spiralcraft/data/task/"
+  xmlns:ju="class:/java/util/"
   >
   
   <!-- 
@@ -23,4 +25,25 @@
     </meta:RelativeField>
   </fields>
   
+  <methods>
+    <meta:TransactionMethod>
+      <name>openNewSalesOrder
+      </name>
+      <returnType><bizm:SalesOrder.type/>
+      </returnType>
+      <x>
+        [*dt:Edit
+          {typeX:=[@bizm:SalesOrder].type
+          ,action:=
+            `@{
+              .orgUnitId="100"
+              , customerId=[bizm:CustomerAccount].accountId
+              ,.billToId=[bizm:CustomerAccount].contactId 
+              ,.paymentTermsId="1"
+              ,.openDate=[@ju:Date].()
+            }`
+        }].()
+      </x>
+    </meta:TransactionMethod>
+  </methods>
 </meta:Type>
