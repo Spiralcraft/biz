@@ -48,7 +48,8 @@
               ,.netAmount=[context].order.netAmount
               ,.paymentTermsId=[context].order.paymentTermsId
               ,.paymentMethodId=[context].order.paymentMethodId
-              ,.arrearsPeriodStartDate=[context].order.arrearsPeriodStartDate
+              ,.arrearsPeriodStartDate=[context].order
+                { .arrearsPeriodStartDate??.openDate }
               ,.advancePeriodStartDate=[context].order.advancePeriodStartDate
               ,.advancePeriodEndDate=[context].order.advancePeriodEndDate
               ,.issueDate=[context].issueDate
