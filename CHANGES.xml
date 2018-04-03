@@ -15,6 +15,28 @@
     <detail>
       <scm:Change>
         
+        <revision>-dev4
+        </revision>
+        
+        <notes>
+          <scm:Note>Open new SalesOrder for CustomerAccount
+          </scm:Note>
+        </notes>
+        
+        <path>source/spiralcraft/biz/meta
+        </path>
+        
+        <resources>
+          <URI>CustomerAccount.type.xml
+          </URI>
+          <URI>SalesOrder.type.xml
+          </URI>
+        </resources>
+
+      </scm:Change>
+
+      <scm:Change>
+        
         <revision>-dev3
         </revision>
         
