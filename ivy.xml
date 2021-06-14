@@ -4,7 +4,7 @@
   </info> 
   
   <publications>
-    <artifact name="spiralcraft-biz" type="jar" ext="jar"/>
+    <artifact name="spiralcraft-biz" type="package" ext="zip"/>
   </publications> 
     
   <dependencies>

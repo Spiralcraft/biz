@@ -1,8 +1,9 @@
-<project name="spiralcraft-biz" default="build" basedir=".">
+<project name="spiralcraft-biz" default="pack" basedir=".">
 
   <property name="organization" value="spiralcraft"/>
   <property name="module" value="biz"/>
   <property file="version.properties"/>
+  <property name="publish.resolver.type" value="distrib"/>  
 
   <property name="classpath" value="lib/spiralcraft-core.jar"/>
   <property name="manifest.class.path" value="spiralcraft-core.jar"/>
@@ -10,4 +11,20 @@
   <property name="depends.dir" location="../../repo"/>
   <import file="../../build/build-common.xml"/>
   
+  <target name="prepack-copy">
+    <copy 
+      todir="${package-staging-dir}/lib"
+      failonerror="true"
+      preservelastmodified="true"
+      overwrite="true"
+      >
+      <fileset dir="lib">
+        <include name="spiralcraft-biz.jar"/>
+      </fileset>
+    </copy>
+    <delete file="lib/spiralcraft-biz.jar"/>
+  </target>
+    
+  <target name="pack" depends="build,build-app.pack">
+  </target>
 </project>
