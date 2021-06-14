@@ -15,6 +15,36 @@
     <detail>
       <scm:Change>
         
+        <revision>-dev6
+        </revision>
+        
+        <notes>
+          <scm:Note>Add Customer and Project entities along with associated js
+            client views and API.
+          </scm:Note>
+        </notes>
+        
+        <resources>
+          <URI>source/spiralcraft/biz/meta/Customer.type.xml
+          </URI>
+          <URI>source/sprialcraft/biz/pm/Project.type.xml
+          </URI>
+          <URI>package/lib-js/spiralcraft/biz/customerView.js
+          </URI>
+          <URI>package/lib-js/spiralcraft/biz/projectView.js
+          </URI>
+          <URI>package/war-webui/api/Customer.assy.xml
+          </URI>
+          <URI>package/war-webui/api/Project.assy.xml
+          </URI>
+          <URI>package/war-webui/api/PathContext.assy.xml
+          </URI>
+        </resources>
+
+      </scm:Change>
+
+      <scm:Change>
+        
         <revision>-dev4
         </revision>
         
