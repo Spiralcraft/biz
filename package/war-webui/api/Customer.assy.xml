@@ -1,0 +1,87 @@
+<rpc:DispatchHandler
+  xmlns:rpc="class:/spiralcraft/servlet/rpc/"
+  xmlns:t="class:/spiralcraft/task/"
+  xmlns:dt="class:/spiralcraft/data/task/"
+  xmlns:swm="class:/spiralcraft/webapp/meta"
+  xmlns:j="class:/java/lang/"
+  xmlns:fn="class:/spiralcraft/lang/functions"
+  xmlns:util="class:/spiralcraft/util"
+  xmlns:biz="class:/spiralcraft/biz/meta/"
+  >
+  <debug>false
+  </debug>
+  <name>customer
+  </name>
+  <defaultHandler>
+    <rpc:JsonHandler>
+      <result>
+        [*dt:Fetch{[@biz:Customer.list]}].()
+          #{{ id:=..id
+            , name:=..name
+           }}
+      </result>
+    </rpc:JsonHandler>
+  </defaultHandler>
+  <handlers>
+    <rpc:DispatchHandler>
+      <name>*
+      </name>
+      <contextX>
+        [#result] 
+          { 
+            id:=[rpc:Call].nextPath.firstElement()
+            ,new:=.id=="-"
+            ,data:=!.new
+                  ?[@biz:Customer].@forId(.id)
+                  :[*dt:Edit{ [@biz:Customer] }].()
+            ,response:=`[result].data
+               {{ id:=..id
+                  , name:=..name
+               }}
+               `
+          }
+      </contextX>
+      <requireMapping>true
+      </requireMapping>
+      <defaultHandler>
+        <rpc:JsonHandler>
+          <params>
+            [#p]
+            {
+              name:=[result].data.name
+            }
+          </params>
+          <result>
+            ![rpc:Call].request.isPost()
+            ?[result].response()           
+            :@{[result].data
+                 =[result].data
+                  { [result].new
+                    ?.[*dt:Edit{ action:=`
+                       @{ name=[p].name
+                       }`
+                     }].()
+                    :.[*dt:Edit{ action:=`
+                       @{ name=[p].name
+                       }`
+                     }].()
+                   }
+              ,[result].response()
+              }                
+            
+          </result>
+        </rpc:JsonHandler>
+      </defaultHandler>
+      <handlers>
+        <rpc:JsonHandler>
+          <name>.delete
+          </name>
+          <result>
+             @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
+              }
+          </result>
+        </rpc:JsonHandler>
+      </handlers>
+    </rpc:DispatchHandler>
+  </handlers>
+</rpc:DispatchHandler>

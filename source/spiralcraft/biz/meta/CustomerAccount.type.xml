@@ -1,15 +1,16 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta/"
-  xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:biz="class:/spiralcraft/biz/meta/"
   xmlns:entity="class:/spiralcraft/archetype/entity/"
   xmlns:dt="class:/spiralcraft/data/task/"
   xmlns:ju="class:/java/util/"
+  xmlns:j="class:/java/lang"
   >
   
   <!-- 
     An asset account associated with customer receivables
   -->
-  <baseType><bizm:TradeAccount.type/>
+  <baseType><biz:TradeAccount.type/>
   </baseType>
   
   <fields>
@@ -17,7 +18,7 @@
       <name>projects
       </name>
       
-      <type><bizm:CustomerProject.list.type/>
+      <type><biz:CustomerProject.list.type/>
       </type>
       
       <referencedFieldList>customerId
@@ -48,22 +49,44 @@
     <meta:TransactionMethod>
       <name>openNewSalesOrder
       </name>
-      <returnType><bizm:SalesOrder.type/>
+      <returnType><biz:SalesOrder.type/>
       </returnType>
       <x>
         [*dt:Edit
-          {typeX:=[@bizm:SalesOrder].type
+          {typeX:=[@biz:SalesOrder].type
           ,action:=
             `@{
-              .orgUnitId=[bizm:CustomerAccount].orgUnitId??"100"
-              , customerId=[bizm:CustomerAccount].accountId
-              ,.billToId=[bizm:CustomerAccount].contactId 
-              ,.paymentTermsId=[bizm:CustomerAccount].paymentTermsId??"1"
-              ,.paymentMethodId=[bizm:CustomerAccount].paymentMethodId??"1"
+              .orgUnitId=[biz:CustomerAccount].orgUnitId??"100"
+              , customerId=[biz:CustomerAccount].accountId
+              ,.billToId=[biz:CustomerAccount].contactId 
+              ,.paymentTermsId=[biz:CustomerAccount].paymentTermsId??"1"
+              ,.paymentMethodId=[biz:CustomerAccount].paymentMethodId??"1"
               ,.openDate=[@ju:Date].()
             }`
         }].()
       </x>
     </meta:TransactionMethod>
+    
+    <meta:Method>
+      <name>forId</name>
+      
+      <static>true
+      </static>
+      
+      <parameterTypes>
+        <String.type/>
+      </parameterTypes>
+      
+      <returnType>
+        <biz:CustomerAccount.type/>
+      </returnType>
+      
+      <contextX>{ accountId:[@j:String] }
+      </contextX>
+          
+      <x>[*dt:Fetch{[@biz:CustomerAccount],[{`accountId:=accountId`}]}].()
+      </x>
+          
+    </meta:Method>      
   </methods>
 </meta:Type>

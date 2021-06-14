@@ -1,0 +1,56 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizpm="class:/spiralcraft/biz/pm"
+  >
+  <description>
+    An entity who purchases from the business.
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>internalName
+      </name>
+      
+      <type><String.type/>
+      </type>
+      
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>projects
+      </name>
+      <type><bizpm:Project.list.type/>
+      </type>
+    </meta:RelativeField>
+  
+  </fields>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>internalName
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>name
+      </fieldList>
+    </meta:Key>
+  </keys>
+</meta:Type>

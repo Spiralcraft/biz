@@ -1,0 +1,13 @@
+<af:PathContext
+  xmlns:af="class:/spiralcraft/servlet/autofilter"
+  xmlns:rpc="class:/spiralcraft/servlet/rpc/"
+  >
+  <filters>
+    <rpc:Filter>
+      <handlers>
+        <Customer/>
+        <Project/>
+      </handlers>
+    </rpc:Filter>
+  </filters>
+</af:PathContext>

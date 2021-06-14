@@ -1,6 +1,7 @@
 <meta:Schema
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
+  xmlns:bizpm="class:/spiralcraft/biz/pm/"
   xmlns:social="class:/spiralcraft/archetype/social/"
   >
   <entities>
@@ -64,5 +65,13 @@
       <type><bizm:ShareRegister.type/>
       </type>
     </meta:Entity>    
+    <meta:Entity>
+      <type><bizm:Customer.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizpm:Project.type/>
+      </type>
+    </meta:Entity>
   </entities>
 </meta:Schema>

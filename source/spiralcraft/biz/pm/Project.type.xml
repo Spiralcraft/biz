@@ -1,0 +1,70 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizpm="class:/spiralcraft/biz/pm"
+  >
+  <description>
+    An endeavor conducted between the business and a customer. 
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      <description>Name for this project known or chosen by customer
+      </description>
+      
+      <type><String.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+
+    <meta:Field>
+      <name>internalName
+      </name>
+      <description>Internal name for this project
+      </description>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>customerId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>customer
+      </name>
+      <type><biz:Customer.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+  
+  </fields>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>internalName
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>customerId,name
+      </fieldList>
+      <unique>true
+      </unique>
+    </meta:Key>
+  </keys>
+</meta:Type>

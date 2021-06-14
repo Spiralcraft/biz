@@ -1,0 +1,34 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  >
+  <fields>
+  
+    <meta:SequenceField>
+      <name>id
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:SequenceField>
+  
+  </fields>
+
+  <keys>
+    <meta:Key>
+      <primary>true
+      </primary>
+      
+      <fieldList>id
+      </fieldList>
+      
+    </meta:Key>
+  </keys>
+  
+  <methods>
+    <dm:ForId/>
+  </methods>
+  
+</meta:Type>
