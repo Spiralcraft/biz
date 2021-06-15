@@ -19,6 +19,8 @@
         [*dt:Fetch{[@bizpm:Project.list]}].()
           #{{ id:=..id
             , name:=..name
+            , customerId:=..customerId
+            , customer:=..customer{{ name:=..name }}
            }}
       </result>
     </rpc:JsonHandler>
@@ -38,6 +40,8 @@
             ,response:=`[result].data
                {{ id:=..id
                   , name:=..name
+                  , customerId:=..customerId
+                  , customer:=..customer{{ name:=..name }}
                }}
                `
           }
@@ -50,6 +54,7 @@
             [#p]
             {
               name:=[result].data.name
+              ,customerId:=[result].data.customerId
             }
           </params>
           <result>
@@ -60,10 +65,12 @@
                   { [result].new
                     ?.[*dt:Edit{ action:=`
                        @{ name=[p].name
+                        , customerId=[p].customerId
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
                        @{ name=[p].name
+                        , customerId=[p].customerId
                        }`
                      }].()
                    }
