@@ -7,7 +7,12 @@
   xmlns:bizpm="class:/spiralcraft/biz/pm"
   >
   <description>
-    An endeavor conducted between the business and a customer. 
+    An endeavor conducted by the business.
+    
+    If the project is being done for a customer, the customer can be associated.
+    
+    Multiple sales orders can be associated with a project via CustomerProject
+      and SalesBillDetail.
   </description>
   
   <archetype><biz:PrimaryEntity.type/>
@@ -17,7 +22,8 @@
     <meta:Field>
       <name>name
       </name>
-      <description>Name for this project known or chosen by customer
+      <description>Unique name for this project, may be generated according
+        to some rules.
       </description>
       
       <type><String.type/>
@@ -30,7 +36,7 @@
     <meta:Field>
       <name>internalName
       </name>
-      <description>Internal name for this project
+      <description>An informal internal name for this project.
       </description>
       
       <type><String.type/>
@@ -61,7 +67,7 @@
       </fieldList>
     </meta:Key>
     <meta:Key>
-      <fieldList>customerId,name
+      <fieldList>name
       </fieldList>
       <unique>true
       </unique>
