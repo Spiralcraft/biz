@@ -8,7 +8,7 @@
   
   const columns =
   [
-    {title:"Name",field:"name",width:"40%",widthGrow: 1,widthShrink: 1},
+    {title:"Name",field:"name",width:"40%",minWidth:200,widthGrow: 1,widthShrink: 1},
   ]
   const dataView=biz.trackerModelView;
   
