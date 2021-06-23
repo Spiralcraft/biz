@@ -1,0 +1,78 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang/"
+  >
+  <description>
+    A model for a tracker item
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>components
+      </name>
+      <type><bizwf:TrackerModelComponent.list.type/>
+      </type>
+      <referencedFieldList>trackerModelId
+      </referencedFieldList>
+    </meta:RelativeField>
+    <meta:RelativeField>
+      <name>statusSet
+      </name>
+      <type><bizwf:TrackerStatus.list.type/>
+      </type>
+      <referencedFieldList>trackerModelId
+      </referencedFieldList>
+    </meta:RelativeField>
+    
+    <meta:Field>
+      <name>description
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+  </fields>
+
+  <methods>
+    <meta:Method>
+      <name>forName
+      </name>
+      <static>true
+      </static>
+      <parameterTypes>
+        <String.type/>
+      </parameterTypes>
+      <returnType><bizwf:TrackerModel.type/>
+      </returnType>
+      <contextX>[#p] { name:="" }
+      </contextX>
+      <x>[*dt:Fetch{[@bizwf:TrackerModel],[{`name:=[p].name`}] }].()
+      </x>
+    </meta:Method>
+  
+  </methods>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>name
+      </fieldList>
+      <unique>true
+      </unique>
+    </meta:Key>
+  </keys>
+</meta:Type>

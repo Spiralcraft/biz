@@ -1,0 +1,193 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:fn="class:/spiralcraft/lang/functions/"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang"
+  xmlns:sd="class:/spiralcraft/data"
+  >
+  <description>
+    Tracks the progress and status of part of a workflow.
+    
+    A tracker can be associated with a business entity. A given tracker model
+      should be used for one type of entity in order to 
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:RelativeField>
+      <name>components
+      </name>
+      <type><bizwf:TrackerComponent.list.type/>
+      </type>
+      <referencedFieldList>trackerId
+      </referencedFieldList>
+    </meta:RelativeField>
+  
+    <meta:Field>
+      <name>modelId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>model
+      </name>
+      <type><bizwf:TrackerModel.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+
+    <meta:Field>
+      <name>entityType
+      </name>
+      <type>
+        <String.type/>
+      </type>
+      <description>A well known name for the entity type, fully or namespace
+        qualified.
+      </description>
+    </meta:Field>
+
+    <meta:Field>
+      <name>entityId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+      <description>The business entity id associated with this Tracker, that can
+        be resolved within the scope defined by the entity type.
+      </description>
+    </meta:Field>
+
+    <meta:Field>
+      <name>order
+      </name>
+      <description>Ordering of the trackerItem ids
+      </description>
+      <type>
+        <String.array.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>statusId
+      </name>
+      <description>The id of the status of this Tracker
+      </description>
+      <type>
+        <LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>status
+      </name>
+      <type><bizwf:TrackerStatus.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+  
+    <meta:Field>
+      <name>populated
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>started
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>expectedDurationMinutes
+      </name>
+      <type><Integer.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>scheduledStartTime
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>actualStartTime
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>completion
+      </name>
+      <type><Float.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>completed
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>actualCompleteTime
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>scheduledCompleteTime
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+  </fields>
+  <methods>
+    <meta:TransactionMethod>
+      <name>create
+      </name>
+      <static>true
+      </static>
+      <parameterTypes>
+        <String.type/>
+      </parameterTypes>
+      <returnType><bizwf:Tracker.type/>
+      </returnType>
+      <contextX>
+        [#p] 
+        { modelName:=""
+        }
+      </contextX>
+      <x>
+        [#x] 
+        { model:=[@bizwf:TrackerModel].@forName([p].modelName)
+            {.==null?[*fn:Throw{`[@sd:InvalidValueException].("No TrackerModel '"+[p].modelName+"'")`}]:null,.},
+          tracker:=[*dt:Edit{[@bizwf:Tracker],action:=`modelId=[x].model.id`}].(),
+        }.tracker
+      </x>
+    </meta:TransactionMethod>  
+    <meta:TransactionMethod>
+      <name>delete
+      </name>
+      <returnType><Void.type/>
+      </returnType>
+      <x> 
+        [bizwf:Tracker].[*dt:Edit{ action:=`@tuple.delete()` }].()
+      </x>
+    </meta:TransactionMethod>
+  
+  </methods>
+</meta:Type>

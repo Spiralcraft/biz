@@ -5,6 +5,8 @@
   xmlns:dm="class:/spiralcraft/data/methods"
   xmlns:biz="class:/spiralcraft/biz/meta"
   xmlns:bizpm="class:/spiralcraft/biz/pm"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang/"
   >
   <description>
     An endeavor conducted by the business.
@@ -59,6 +61,29 @@
       </importKey>
     </meta:RelativeField>
   
+    <meta:Field>
+      <name>currentRunId</name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>currentRun
+      </name>
+      <type><bizpm:Run.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+    
+    <meta:RelativeField>
+      <name>runs
+      </name>
+      <type><bizpm:Run.list.type/>
+      </type>
+      <referencedFieldList>projectId
+      </referencedFieldList>
+    </meta:RelativeField>
   </fields>
   
   <keys>
@@ -73,4 +98,36 @@
       </unique>
     </meta:Key>
   </keys>
+  
+  <methods>
+    <meta:TransactionMethod>
+      <name>startRun
+      </name>
+      <returnType><Void.type/>
+      </returnType>
+      <x>
+        .currentRunId==null
+        ?[@bizpm:Run].@startNew([bizpm:Project].id,([bizpm:Project].runs.@size+1).toString())
+          { [bizpm:Project].[*dt:Edit{action:=`currentRunId=[bizpm:Run].id`}].()
+          }
+        :null
+      </x>
+    </meta:TransactionMethod>
+  
+    <meta:TransactionMethod>
+      <name>resetRun
+      </name>
+      <returnType><Void.type/>
+      </returnType>
+      <x>
+        [bizpm:Project]
+        { .currentRunId!=null
+          ?[.]{ .currentRun.delete(),
+                .[*dt:Edit{ action:=`.currentRunId=null` }].(),
+              }
+          :null
+        }
+      </x>
+    </meta:TransactionMethod>
+  </methods>
 </meta:Type>

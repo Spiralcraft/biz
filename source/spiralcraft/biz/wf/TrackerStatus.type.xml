@@ -1,0 +1,55 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizwf="class:/spiralcraft/biz/wf"
+  >
+  <description>
+    A status option for a Tracker
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+     <meta:Field>
+      <name>trackerModelId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>trackerModel
+      </name>
+      <type><bizwf:TrackerModel.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+ 
+    <meta:Field>
+      <name>label
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>color
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>description
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+  </fields>
+</meta:Type>

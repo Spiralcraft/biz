@@ -2,6 +2,7 @@
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:bizpm="class:/spiralcraft/biz/pm/"
+  xmlns:bizwf="class:/spiralcraft/biz/wf/"
   xmlns:social="class:/spiralcraft/archetype/social/"
   >
   <entities>
@@ -71,6 +72,30 @@
     </meta:Entity>
     <meta:Entity>
       <type><bizpm:Project.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizpm:Run.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerStatus.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerModel.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerModelComponent.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:Tracker.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerComponent.type/>
       </type>
     </meta:Entity>
   </entities>

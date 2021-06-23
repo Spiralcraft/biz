@@ -1,0 +1,120 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizpm="class:/spiralcraft/biz/pm"
+  xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang/"
+  
+  >
+  <description>
+    An work initiative within a project.
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      <description>Name for this Run for display purposes.
+      </description>
+      
+      <type><String.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+
+    <meta:Field>
+      <name>projectId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+
+    <meta:RelativeField>
+      <name>project
+      </name>
+      
+      <type><bizpm:Project.type/>
+      </type>
+      
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+    
+    <meta:Field>
+      <name>trackerId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>tracker</name>
+      <type><bizwf:Tracker.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+  </fields>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>projectId
+      </fieldList>
+    </meta:Key>
+  </keys>  
+  
+  <methods>
+    <meta:TransactionMethod>
+      <name>startNew
+      </name>
+      <static>true
+      </static>
+      <parameterTypes>
+        <String.type/>
+        <String.type/>
+      </parameterTypes>
+      <contextX>
+        [#p] 
+        { projectId:=""
+        , name:[@j:String]
+        , trackerModelName:="basic"
+        }
+      </contextX>
+      <x>
+        [#x]
+        {
+          tracker:=[@bizwf:Tracker].@create([p].trackerModelName),
+          run:=[*dt:Edit{[@bizpm:Run],
+              action:=`@{ .projectId=[p].projectId, .name=[p].name, trackerId=[x].tracker.id }`
+            }].(),
+        }
+        { .tracker.[*dt:Edit{ action:=`@{entityType="bizpm:Run",entityId=[x].run.id}` }].()
+        , .run
+        }
+      </x>
+    </meta:TransactionMethod>
+    <meta:TransactionMethod>
+      <name>delete
+      </name>
+      <x> 
+        [bizpm:Run]
+        { .tracker.delete(),
+          .[*dt:Edit{ action:=`@tuple.delete()` }].(),
+        }
+      </x>
+    </meta:TransactionMethod>
+  </methods>
+</meta:Type>

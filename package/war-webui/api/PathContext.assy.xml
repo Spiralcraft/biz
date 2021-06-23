@@ -7,6 +7,9 @@
       <handlers>
         <Customer/>
         <Project/>
+        <Tracker/>
+        <TrackerModel/>
+        <TrackerStatus/>
       </handlers>
     </rpc:Filter>
   </filters>

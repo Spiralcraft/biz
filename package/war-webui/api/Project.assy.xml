@@ -13,15 +13,43 @@
   </debug>
   <name>project
   </name>
+  <contextX>
+  [#api]
+  {
+    type:~[@bizpm:Project],
+    out:~[#{[@bizpm:Project].@nil}]
+            { [.]
+              {{ id:=..id
+                , name:=..name
+                , customerId:=..customerId
+                , customer:=..customer{{ name:=..name }}
+                , currentRun:=..currentRun==null?null:..currentRun
+                  {{ name:=..name, 
+                     tracker:=..tracker==null?null:..tracker
+                     {{
+                       id:=..id,
+                       modelId:=..modelId,
+                       order:=..order,
+                       components:=..components,                       
+                       status:=..status
+                       {{
+                         id:=..id,
+                         label:=..label,
+                         color:=..color,
+                       }}
+                     }}
+                             
+                  }}
+               }}
+            }
+         
+  }
+  </contextX>
   <defaultHandler>
     <rpc:JsonHandler>
       <result>
         [*dt:Fetch{[@bizpm:Project.list]}].()
-          #{{ id:=..id
-            , name:=..name
-            , customerId:=..customerId
-            , customer:=..customer{{ name:=..name }}
-           }}
+          #{[api].out(.)}
       </result>
     </rpc:JsonHandler>
   </defaultHandler>
@@ -37,13 +65,6 @@
             ,data:=!.new
                   ?[@bizpm:Project].@forId(.id)
                   :[*dt:Edit{ [@bizpm:Project] }].()
-            ,response:=`[result].data
-               {{ id:=..id
-                  , name:=..name
-                  , customerId:=..customerId
-                  , customer:=..customer{{ name:=..name }}
-               }}
-               `
           }
       </contextX>
       <requireMapping>true
@@ -59,7 +80,7 @@
           </params>
           <result>
             ![rpc:Call].request.isPost()
-            ?[result].response()           
+            ?[api].out([result].data)        
             :@{[result].data
                  =[result].data
                   { [result].new
@@ -74,7 +95,7 @@
                        }`
                      }].()
                    }
-              ,[result].response()
+              ,[api].out([result].data)
               }                
             
           </result>
@@ -85,8 +106,32 @@
           <name>.delete
           </name>
           <result>
-             @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
-              }
+            @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
+             }
+          </result>
+        </rpc:JsonHandler>
+      </handlers>
+      <handlers>
+        <rpc:JsonHandler>
+          <name>.startRun
+          </name>
+          <result>
+            [result].data
+            {
+              .startRun(),
+              [api].out([api].type.@forId(.id)),
+            }
+          </result>
+        </rpc:JsonHandler>
+        <rpc:JsonHandler>
+          <name>.resetRun
+          </name>
+          <result>
+            [result].data
+            {
+              .resetRun(),
+              [api].out([api].type.@forId(.id)),
+            }
           </result>
         </rpc:JsonHandler>
       </handlers>

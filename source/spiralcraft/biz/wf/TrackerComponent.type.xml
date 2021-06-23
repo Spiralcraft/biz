@@ -1,0 +1,91 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizwf="class:/spiralcraft/biz/wf"
+  >
+  <description>
+    A workflow component of a tracker
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      <type>
+        <String.type/>
+      </type>
+      <description>A label that identifies the item in the UI
+      </description>
+      <required>true
+      </required>
+    </meta:Field>
+
+    <meta:Field>
+      <name>trackerId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+      <required>true
+      </required>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>tracker
+      </name>
+      <type><bizwf:Tracker.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+    
+    <meta:Field>
+      <name>linkedTrackerId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+    </meta:Field>
+  
+    <meta:RelativeField>
+      <name>linkedTracker
+      </name>
+      <type><bizwf:Tracker.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+
+    <meta:Field>
+      <name>trackerModelComponentId
+      </name>
+      <type>
+        <LSID.type/>
+      </type>
+    </meta:Field>
+  
+    <meta:RelativeField>
+      <name>trackerModelComponent
+      </name>
+      <type><bizwf:TrackerModelComponent.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+
+  </fields>
+  <keys>
+    <meta:Key>
+      <fieldList>trackerId
+      </fieldList>
+      <fieldList>trackerModelComponentId
+      </fieldList>
+    </meta:Key>
+  </keys>
+</meta:Type>

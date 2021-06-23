@@ -1,10 +1,9 @@
 import makeview from '@vfs/spiralcraft/data/genericCRUDView.js';
 
 export default makeview(
-  { apiEndpoint: "biz/project/",
+  { apiEndpoint: "biz/tracker/",
     postFields: 
-      ["name",
-      "customerId",
+      ["statusId",
       ]
   }
   );

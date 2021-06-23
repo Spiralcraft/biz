@@ -1,0 +1,74 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizpm="class:/spiralcraft/biz/pm"
+  >
+  <description>
+    Directs the manufacturing operation to produce a certain item.
+    
+    May be associated with a SalesOrder or SalesOrder detail.
+    
+    May be associated with a Project that has specific details.
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>type
+      </name>
+      <description>Type of work order is the template for the work
+      </description>
+      
+      <type><String.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+
+    <meta:Field>
+      <name>internalName
+      </name>
+      <description>Internal name for this project
+      </description>
+      
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>customerId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:RelativeField>
+      <name>customer
+      </name>
+      <type><biz:Customer.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
+  
+  </fields>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>internalName
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>customerId,name
+      </fieldList>
+      <unique>true
+      </unique>
+    </meta:Key>
+  </keys>
+</meta:Type>
