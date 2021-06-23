@@ -19,6 +19,21 @@
         </revision>
         
         <notes>
+          <scm:Note>Add dash-a UI stack for Customer, Project,
+            Runs, and Tracker related entities.
+          </scm:Note>
+          
+          <path>package/lib-js/spiralcraft/biz/**
+          </path>
+        </notes>
+      </scm:Change>
+      
+      <scm:Change>
+        
+        <revision>-dev6
+        </revision>
+        
+        <notes>
           <scm:Note>Add Customer and Project entities along with associated js
             client views and API.
           </scm:Note>
