@@ -85,18 +85,19 @@
       <parameterTypes>
         <String.type/>
         <String.type/>
+        <String.type/>
       </parameterTypes>
       <contextX>
         [#p] 
         { projectId:=""
         , name:[@j:String]
-        , trackerModelName:="basic"
+        , runType:="basic"
         }
       </contextX>
       <x>
         [#x]
         {
-          tracker:=[@bizwf:Tracker].@create([p].trackerModelName),
+          tracker:=[@bizwf:Tracker].@create([p].runType),
           run:=[*dt:Edit{[@bizpm:Run],
               action:=`@{ .projectId=[p].projectId, .name=[p].name, trackerId=[x].tracker.id }`
             }].(),

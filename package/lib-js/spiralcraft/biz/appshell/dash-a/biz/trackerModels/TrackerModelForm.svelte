@@ -5,6 +5,7 @@
   import {FormField, TextInput, TextArea, CheckInput, SelectInput, Errors} from '@vfs/app/form/form.js';
   
   import TrackerStatusSetTable from '@vfs/app/biz/trackerModels/TrackerStatusSetTable.svelte';
+  import TrackerModelComponentTable from '@vfs/app/biz/trackerModels/TrackerModelComponentTable.svelte';
     
   //  import createValidator from "./customerValidator";
 
@@ -62,6 +63,7 @@
 
   {#if !create}
     <TrackerStatusSetTable master={values} details={values?values.statusSet:[]}/>
+    <TrackerModelComponentTable master={values} details={values?values.components:[]}/>
   {/if}
 
 </AbstractCRUDForm>

@@ -5,6 +5,8 @@
   xmlns:dm="class:/spiralcraft/data/methods"
   xmlns:biz="class:/spiralcraft/biz/meta"
   xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang"
   >
   <description>
     A workflow component of a tracker
@@ -88,4 +90,33 @@
       </fieldList>
     </meta:Key>
   </keys>
+  <methods>
+    <meta:TransactionMethod>
+      <name>create
+      </name>
+      <static>true
+      </static>
+      <parameterTypes>
+        <String.type/>
+        <bizwf:TrackerModelComponent.type/>
+      </parameterTypes>
+      <returnType><bizwf:TrackerComponent.type/>
+      </returnType>
+      <contextX>
+        [#p] 
+        { trackerId:[@j:String]
+        , trackerModelComponent:[@bizwf:TrackerModelComponent]
+        }
+      </contextX>
+      <x>
+        [*dt:Edit{[@bizwf:TrackerComponent]
+          ,action:=`@{ trackerId=[p].trackerId,
+                       trackerModelComponentId=[p].trackerModelComponent.id,
+                       name=[p].trackerModelComponent.name,
+                     }`
+        }].()
+      </x>
+    </meta:TransactionMethod>  
+
+  </methods>
 </meta:Type>

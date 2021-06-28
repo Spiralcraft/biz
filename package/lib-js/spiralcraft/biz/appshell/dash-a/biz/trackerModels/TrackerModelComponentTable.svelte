@@ -3,7 +3,6 @@
   import InnerPanel from '@vfs/app/layout/InnerPanel.svelte';
   import DataBrowser from '@vfs/app/layout/DataBrowser.svelte';
   import { EditIcon,PlusCircleIcon } from 'svelte-feather-icons';
-  import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
 
   const app=getContext("App");
   
@@ -11,16 +10,18 @@
   export let master;
   
   const add = () => 
-    { app.nav("/trackerModels/"+master.id+"/status/-");
+    { app.nav("/trackerModels/"+master.id+"/component/-");
     };
   
+  const editAction = (id) => (edit(id));
+  
   const edit = (id) =>
-    { app.nav("/trackerModels/"+master.id+"/status/"+id);    
+    { app.nav("/trackerModels/"+master.id+"/component/"+id);    
     };
   
 </script>
 
-<InnerPanel title="Status Set">
+<InnerPanel title="Tracker Components">
   <span slot="header-controls">
     <a on:click|preventDefault={add} href="/#">
       <PlusCircleIcon size="1.5x"/>
@@ -29,25 +30,31 @@
 
   {#if !details || details.length==0}
     <div class="alert alert-primary" role="alert">
-      The set of status items is empty. Press the '+' button to add one.
+      The set of components is empty. Press the '+' button to add one.
     </div>
   {:else}
     <table class="table table-bordered">
       <colgroup>
-        <col span="1" width="8em"/>
+        <col span="1" width="100"/>
+        <col span="1" width="100"/>
         <col span="1"/>
-        <col span="1" width="2em"/>
+        <col span="1" width="36"/>
       </colgroup>
       {#each details as detail}
-        <tr>
-          <td class="py-0">
-            <TrackerStatusWidget status={detail} clickHandler={(status) => edit(status.id)}/>
+        <tr on:click|preventDefault={editAction(detail.id)}>
+          <td>
+            {detail.name}
           </td>
           <td>
-            <div>{detail.description}</div>
+            {detail.linkedTrackerModel?detail.linkedTrackerModel.name:"(select tracker model)"}
           </td>
           <td>
-            <a href="/#" on:click|preventDefault={edit(detail.id)}>
+            <div>
+                {detail.linkedTrackerModel?detail.linkedTrackerModel.description:""}
+            </div>
+          </td>
+          <td>
+            <a href="/#" on:click|preventDefault={editAction(detail.id)}>
               <EditIcon size="1.3x"/>
             </a>
           </td>

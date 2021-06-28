@@ -1,9 +1,8 @@
 <script>
-  import chroma from "chroma-js";
   import { isDark } from '@vfs/spiralcraft/util/color.js';
   export let status;
   export let classes="";
-  export let onClick= (status) => {};
+  export let clickHandler = (status) => {};
   export let element="span";
   
   let textColor="#000000";
@@ -22,28 +21,32 @@
 {#if element=="span"}
   <span 
     style="--background: {(status && status.color)?status.color:"#CCCCCC"}; --text-color: {textColor};" 
-    class="status-widget {classes}"
-    on:click|preventDefault={() => onClick(status)}
+    class="status-widget d-flex align-content-center justify-content-center {classes}"
+    on:click|preventDefault={() => { clickHandler(status) }}
     {...$$restProps}
     >
-    {#if status && status.label}
-      {status.label}
-    {:else}
-      {@html "&nbsp;"}
-    {/if}
+    <div class="status-label d-block my-auto">
+      {#if status && status.label}
+        {status.label}
+      {:else}
+        {@html "&nbsp;"}
+      {/if}
+    </div>
   </span>
 {:else if element=="button"}
   <button 
     style="--background: {(status && status.color)?status.color:"#CCCCCC"}; --text-color: {textColor};" 
-    class="status-widget {classes}"
-    on:click|preventDefault={() => onClick(status)}
+    class="status-widget d-flex align-content-center justify-content-center {classes}"
+    on:click|preventDefault={(e) => { clickHandler(status) }}
     {...$$restProps}
     >
-    {#if status && status.label}
-      {status.label}
-    {:else}
-      {@html "&nbsp;"}
-    {/if}
+    <div class="status-label d-block my-auto">
+      {#if status && status.label}
+        {status.label}
+      {:else}
+        {@html "&nbsp;"}
+      {/if}
+    </div>
   </button>
 
 {/if}
@@ -54,8 +57,12 @@
   background-color: var(--background);
   color: var(--text-color);
   width: 8em;
+  height: 2.25rem;
   display: inline-block;
   font-weight: 500;
   text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: var(--text-md);
 }
 </style>

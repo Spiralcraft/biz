@@ -1,37 +1,49 @@
 <script>
   import { getContext } from 'svelte';
   import AbstractDexRoute from '@vfs/app/components/AbstractDexRoute.svelte';
-  import ProjectForm from '@vfs/app/biz/projects/ProjectForm.svelte';
+  import ProjectDetailPanel from '@vfs/app/biz/projects/ProjectDetailPanel.svelte';
   import runStatus from '@vfs/app/biz/projects/runStatus.js'
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte'
-  import StatusRibbon from '@vfs/app/widgets/StatusRibbon.svelte';
-  
+  import StatusRibbon from '@vfs/app/biz/trackerModels/StatusRibbon.svelte';
+  import ProjectDexRowDetail from '@vfs/app/biz/projects/ProjectDexRowDetail.svelte';
+  import trackerTableRenderer from '@vfs/app/biz/projects/trackerTableRenderer.js';
+
+  const app=getContext("App");
   const biz=getContext("biz");
 
+  const hasDetail = (cell) =>
+  {
+    let project=cell.getRow().getData();
+    return project.currentRun
+      && project.currentRun.tracker
+      && project.currentRun.tracker.components
+      && project.currentRun.tracker.components.length>0;
+  }
+  
+  
   const statusFormatter = (cell,params,onRendered) => 
   { 
+    cell.getElement().style.paddingTop=0;
+    cell.getElement().style.paddingBottom=0;
     let run=cell.getRow().getData().currentRun;
     let hasTracker=(run && run.tracker);
-      
+    let status=hasTracker?run.tracker.status:{};
+    
     if (hasTracker)
-    { 
+    {  
       onRendered( () => 
       {
          // cell.getElement().style.padding=0;
          const comp=new TrackerStatusWidget
            ({ target: cell.getElement()
              , props: 
-               { status: run.tracker.status
+               { status: status
                , classes: "d-block h-100"
                } 
            });
          
       });
-
-      return "";
     }
-    else 
-      return runStatus(cell.getRow().getData());
 
   }
   
@@ -45,32 +57,80 @@
   {
     const statusColors = ["grey","green","yellow","red","blue"];
   
-    onRendered( ()=> 
-      {
-        const comp=new StatusRibbon
-          ({ target: cell.getElement(),
-             props: 
-              { size: "1x",
-                width: "8em", 
-                classes: "h-100",
-                data: [{ status: 0, tooltip:"Not started"},
-                       { status: 1, tooltip:"In Process"},
-                       { status: 2, tooltip:"Waiting"},
-                       { status: 3, tooltip:"Problem"},
-                       { status: 4, tooltip:"Finished"},
-                      ],
-                colors: statusColors
-              } 
-           }
-         );
-      });
+    let run=cell.getRow().getData().currentRun;
+    let hasTracker=(run && run.tracker);
+    let hasComponents
+      =hasTracker 
+        && run.tracker.components 
+        && run.tracker.components.length>0;
+
+    cell.getElement().style.paddingTop=0;
+    cell.getElement().style.paddingBottom=0;
+      
+    if (hasComponents)
+    { 
+  
+      onRendered( ()=> 
+        {
+          const comp=new StatusRibbon
+            ({ target: cell.getElement(),
+               props: 
+                { size: "1x",
+                  width: "8em", 
+                  classes: "h-100",
+                  data: run.tracker.components,
+                } 
+             }
+           );
+        });
+      }
   };
 
+  
+  const expanderFormatter = () =>
+  {
+    const icon=app.icons["list"];
+    
+    
+    return (cell,params,onRendered) => 
+    { 
+      if (hasDetail(cell))
+      {
+        onRendered(() => 
+         { 
+           new icon({ target: cell.getElement(), props: { size: "1x" }});
+           if (cell.getTable().context.indexDetailView.isDetailOpen(cell.getRow()))
+           { 
+             cell.getElement().style.background="#007BFF";
+             cell.getElement().style.color="#FFFFFF";
+           }
+           else
+           {
+             cell.getElement().style.background=undefined;
+             cell.getElement().style.color=undefined;
+           }
+         
+         });
+      }
+    }
+  }
   
   const columns =
   [
     {title:"Name",field:"name",widthGrow: 1,widthShrink: 1},
     {title:"Customer",field:"customer.name",widthGrow: 1,widthShrink: 2},
+    {title:"",minWidth:"24",width:"24",maxWidth:"24",
+      formatter:expanderFormatter(), 
+      headerSort: false, 
+      cellClick: (e,cell) => 
+        { 
+          const idv=cell.getTable().context.indexDetailView;
+          idv.toggleDetail(cell); 
+          if (idv.isDetailOpen(cell.getRow()))
+          { cell.getTable().context.indexDetailView.moveCursorToRow(cell.getRow());
+          }
+        },
+    },
     {title:"Status",field:"currentRun",width:"124",mutator:statusMutator,formatter:statusFormatter},
     {title:"Components",field:"currentRun",width:"124",mutator:statusMutator,formatter:componentStatusFormatter},
   ]
@@ -80,6 +140,11 @@
   const activityTitle = "Project List";
   const panelTitle = "Projects";
 
+  const formatRow = (row) =>
+  {
+    trackerTableRenderer(row);    
+  }
+  
   const props = 
   { 
     columns,
@@ -87,12 +152,14 @@
     detailRoute,
     activityTitle,
     panelTitle,
+    formatRow,
+    selectable: false,
   }
 </script>
 
 
 <AbstractDexRoute { ...props }>
-  <ProjectForm slot="detail-callout"
+  <ProjectDetailPanel slot="detail-callout"
     create={false}
     embedded={true}
   />

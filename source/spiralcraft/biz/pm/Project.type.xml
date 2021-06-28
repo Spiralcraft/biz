@@ -103,11 +103,15 @@
     <meta:TransactionMethod>
       <name>startRun
       </name>
+      <parameterTypes><String.type/>
+      </parameterTypes>
       <returnType><Void.type/>
       </returnType>
+      <contextX>[#p] { runType:="" }
+      </contextX>
       <x>
-        .currentRunId==null
-        ?[@bizpm:Run].@startNew([bizpm:Project].id,([bizpm:Project].runs.@size+1).toString())
+        [bizpm:Project].currentRunId==null
+        ?[@bizpm:Run].@startNew([bizpm:Project].id,([bizpm:Project].runs.@size+1).toString(),[p].runType)
           { [bizpm:Project].[*dt:Edit{action:=`currentRunId=[bizpm:Run].id`}].()
           }
         :null

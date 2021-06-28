@@ -176,6 +176,7 @@
         { model:=[@bizwf:TrackerModel].@forName([p].modelName)
             {.==null?[*fn:Throw{`[@sd:InvalidValueException].("No TrackerModel '"+[p].modelName+"'")`}]:null,.},
           tracker:=[*dt:Edit{[@bizwf:Tracker],action:=`modelId=[x].model.id`}].(),
+          components:=.model.components#{ [@bizwf:TrackerComponent].@create(..tracker.id,.) },
         }.tracker
       </x>
     </meta:TransactionMethod>  

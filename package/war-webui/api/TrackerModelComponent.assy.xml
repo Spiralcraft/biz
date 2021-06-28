@@ -11,27 +11,19 @@
   >
   <debug>false
   </debug>
-  <name>trackerModel
+  <name>trackerModelComponent
   </name>
   <contextX>
   [#api]
   {
-    type:~[@bizwf:TrackerModel],
+    type:~[@bizwf:TrackerModelComponent],
     out:~[#{[api].type.@nil}]
             { [.]
               {{ id:=..id,
+                 trackerModelId:=..trackerModelId,
                  name:=..name,
-                 description:=..description??"",
-                 statusSet:=..statusSet,
-                 order:=..order,
-                 components:=..components#
-                 {{
-                   id:=..id,
-                   trackerModelId:=..trackerModelId,
-                   name:=..name,
-                   linkedTrackerModelId:=..linkedTrackerModelId,
-                   linkedTrackerModel:=..linkedTrackerModel,
-                 }}
+                 linkedTrackerModelId:=..linkedTrackerModelId,
+                 linkedTrackerModel:=..linkedTrackerModel,
               }}
             }
          
@@ -66,8 +58,9 @@
           <params>
             [#p]
             {
+              trackerModelId:=[result].data.trackerModelId,
               name:=[result].data.name,
-              description:=[result].data.description,
+              linkedTrackerModelId:=[result].data.linkedTrackerModelId,
             }
           </params>
           <result>
@@ -77,14 +70,14 @@
                  =[result].data
                   { [result].new
                     ?.[*dt:Edit{ action:=`
-                       @{name=[p].name,
-                         description=[p].description,
-                        
+                       @{ trackerModelId=[p].trackerModelId,
+                          name=[p].name,
+                          linkedTrackerModelId=[p].linkedTrackerModelId,
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
-                       @{name=[p].name,
-                         description=[p].description,
+                       @{ name=[p].name,
+                          linkedTrackerModelId=[p].linkedTrackerModelId,
                        }`
                      }].()
                    }

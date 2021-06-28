@@ -22,7 +22,12 @@
       <type><String.type/>
       </type>
     </meta:Field>
-    
+    <meta:Field>
+      <name>order
+      </name>
+      <type><String.array.type/>
+      </type>
+    </meta:Field>
     <meta:RelativeField>
       <name>components
       </name>

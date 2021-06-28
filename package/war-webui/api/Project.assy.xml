@@ -36,6 +36,7 @@
                          id:=..id,
                          label:=..label,
                          color:=..color,
+                         description:=..description,
                        }}
                      }}
                              
@@ -115,10 +116,12 @@
         <rpc:JsonHandler>
           <name>.startRun
           </name>
+          <params>[#p] { runType:[@j:String] }
+          </params>
           <result>
             [result].data
             {
-              .startRun(),
+              .startRun([p].runType),
               [api].out([api].type.@forId(.id)),
             }
           </result>

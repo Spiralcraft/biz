@@ -9,33 +9,38 @@ import CustomerRoute from '@vfs/app/biz/customers/CustomerRoute.svelte'
 import TrackerModelDexRoute from '@vfs/app/biz/trackerModels/TrackerModelDexRoute.svelte'
 import TrackerModelRoute from '@vfs/app/biz/trackerModels/TrackerModelRoute.svelte'
 import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.svelte'
+import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelComponentRoute.svelte'
 
 
 import customerView from '@vfs/spiralcraft/biz/customerView.js';
 import projectView from '@vfs/spiralcraft/biz/projectView.js';
 import trackerModelView from '@vfs/spiralcraft/biz/trackerModelView.js';
 import trackerStatusView from '@vfs/spiralcraft/biz/trackerStatusView.js';
+import trackerModelComponentView from '@vfs/spiralcraft/biz/trackerModelComponentView.js';
 import trackerView from '@vfs/spiralcraft/biz/trackerView.js';
+
+import custom from '@vfs/app/spiralcraft-biz.custom.js';
 
 let app;
 const context =
 {
+  custom,
 };
 
 const onInit = (ac) => 
 { 
   app=ac; 
-  context.customerView=customerView(app); 
-  context.customerView.init();
-  context.projectView=projectView(app); 
-  context.projectView.init();
-  context.trackerModelView=trackerModelView(app); 
-  context.trackerModelView.init();
-  context.trackerStatusView=trackerStatusView(app); 
-  context.trackerStatusView.init();
-  context.trackerView=trackerView(app); 
-  context.trackerView.init();
 }
+
+const views=
+{
+  customerView,
+  projectView,
+  trackerModelView,
+  trackerStatusView,
+  trackerView,
+  trackerModelComponentView,
+};
 
 export default AppModule(
   {
@@ -108,10 +113,19 @@ export default AppModule(
         ,section: "main"
         ,icon: "workflow"
       },
+      {
+        path: "/trackerModels/:trackerModelId/component/:id"
+        ,component: TrackerModelComponentRoute
+        ,authRequired: true
+        ,restricted: true
+        ,section: "main"
+        ,icon: "workflow"
+      },
     ],
     icons: { 
       
     },
+    views,
     context,
     onInit,
 
