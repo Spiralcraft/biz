@@ -77,6 +77,12 @@
         inputGroup="true"
         >
       </TextInput>
+      <TextInput
+        name="color"
+        placeholder="Status Color"
+        inputGroup="true"
+        >
+      </TextInput>
     </InputGroup>
   </FormField>
     
