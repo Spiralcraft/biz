@@ -35,8 +35,8 @@
   {:else}
     <table class="table table-bordered">
       <colgroup>
-        <col span="1" width="100"/>
-        <col span="1" width="100"/>
+        <col span="1" width="175"/>
+        <col span="1" width="125"/>
         <col span="1"/>
         <col span="1" width="36"/>
       </colgroup>

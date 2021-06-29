@@ -4,7 +4,7 @@
   
   import SoloActivityPanel from "@vfs/app/layout/SoloActivityPanel.svelte";
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';  
-  
+  import TrackerComponentTable from '@vfs/app/biz/trackers/TrackerComponentTable.svelte';
   export let embedded=true;
   
   const app=getContext("App");
@@ -208,6 +208,7 @@
           </ul>
           <span class="col9 col10-sm ms-3">{status.description}</span>
         </div>
+        <TrackerComponentTable details={project.currentRun.tracker.components}/>
       {/if}
     {/if}
   </div>
