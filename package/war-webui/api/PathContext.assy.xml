@@ -6,6 +6,7 @@
     <rpc:Filter>
       <handlers>
         <Customer/>
+        <SalesOrder/>
         <Project/>
         <Tracker/>
         <TrackerModel/>

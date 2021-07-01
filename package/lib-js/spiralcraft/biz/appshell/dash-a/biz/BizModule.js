@@ -6,6 +6,9 @@ import ProjectRoute from '@vfs/app/biz/projects/ProjectRoute.svelte'
 import CustomerDexRoute from '@vfs/app/biz/customers/CustomerDexRoute.svelte'
 import CustomerRoute from '@vfs/app/biz/customers/CustomerRoute.svelte'
 
+import SalesOrderDexRoute from '@vfs/app/biz/salesOrders/SalesOrderDexRoute.svelte'
+import SalesOrderRoute from '@vfs/app/biz/salesOrders/SalesOrderRoute.svelte'
+
 import TrackerModelDexRoute from '@vfs/app/biz/trackerModels/TrackerModelDexRoute.svelte'
 import TrackerModelRoute from '@vfs/app/biz/trackerModels/TrackerModelRoute.svelte'
 import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.svelte'
@@ -13,6 +16,7 @@ import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelC
 
 
 import customerView from '@vfs/spiralcraft/biz/customerView.js';
+import salesOrderView from '@vfs/spiralcraft/biz/salesOrderView.js';
 import projectView from '@vfs/spiralcraft/biz/projectView.js';
 import trackerModelView from '@vfs/spiralcraft/biz/trackerModelView.js';
 import trackerStatusView from '@vfs/spiralcraft/biz/trackerStatusView.js';
@@ -35,6 +39,7 @@ const onInit = (ac) =>
 const views=
 {
   customerView,
+  salesOrderView,
   projectView,
   trackerModelView,
   trackerStatusView,
@@ -63,16 +68,6 @@ export default AppModule(
         ,section: "main"
         ,icon: custom.pm.project.icon
       },
-/*
-      {
-        path: "/production"
-        ,component: ProductionDash
-        ,authRequired: true
-        ,restricted: false
-        ,section: "main"
-        ,icon: "factory"
-      },
-*/
       {
         path: "/customers"
         ,component: CustomerDexRoute
@@ -88,6 +83,22 @@ export default AppModule(
         ,restricted: false
         ,section: "main"
         ,icon: "people"
+      },
+      {
+        path: "/salesOrders"
+        ,component: SalesOrderDexRoute
+        ,authRequired: true
+        ,restricted: false
+        ,section: "main"
+        ,icon: "cart3"
+      },
+      {
+        path: "/salesOrders/:id"
+        ,component: SalesOrderRoute
+        ,authRequired: true
+        ,restricted: false
+        ,section: "main"
+        ,icon: "cart3"
       },
       {
         path: "/trackerModels"

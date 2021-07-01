@@ -3,6 +3,7 @@
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:social="class:/spiralcraft/archetype/social/"
   xmlns:time="class:/spiralcraft/time/"
+  xmlns:dm="class:/spiralcraft/data/methods/"
   >
   
   <archetype><bizm:SalesBill.type/>
@@ -91,6 +92,7 @@
   </keys>
   
   <methods>
+    <dm:ForId/>
     <meta:TaskMethod>
       <name>reorder
       </name>

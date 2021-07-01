@@ -2,6 +2,7 @@
   xmlns:meta="class:/spiralcraft/data/types/meta/"
   xmlns:bizm="class:/spiralcraft/biz/meta/"
   xmlns:entity="class:/spiralcraft/archetype/entity/"
+  xmlns:bizpm="class:/spiralcraft/biz/pm/"
   >
   
   <description>A Customer-defined grouping for billable items
@@ -56,7 +57,28 @@
       <type><Boolean.type/>
       </type>
     </meta:Field>
+
+    <meta:Field>
+      <name>projectId
+      </name>
+      
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
     
+    <meta:RelativeField>
+      <name>project
+      </name>
+      
+      <description>A managed Project associated with this, if any
+      </description>
+      
+      <type><bizpm:Project.type/>
+      </type>
+      
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
   </fields>
   
   
