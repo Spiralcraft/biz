@@ -53,7 +53,7 @@ export default AppModule(
         ,authRequired: true
         ,restricted: false
         ,section: "main"
-        ,icon: "circleSquare"
+        ,icon: custom.pm.project.icon
       },
       {
         path: "/projects/:id"
@@ -61,7 +61,7 @@ export default AppModule(
         ,authRequired: true
         ,restricted: false
         ,section: "main"
-        ,icon: "circleSquare"
+        ,icon: custom.pm.project.icon
       },
 /*
       {
