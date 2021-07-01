@@ -43,6 +43,20 @@
       <type><LSID.type/>
       </type>
     </meta:Field>
+    <meta:Field>
+      <name>customerId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    <meta:RelativeField>
+      <name>customer
+      </name>
+      <type><biz:Customer.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
   </fields>
   
   <methods>
