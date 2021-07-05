@@ -9,7 +9,7 @@
   const biz=getContext("biz");
   
   export let details;
-  export let master;
+//  export let master;
   
   let editingId;
   let editingTrackerModel;

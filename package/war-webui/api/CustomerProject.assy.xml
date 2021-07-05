@@ -10,32 +10,20 @@
   >
   <debug>false
   </debug>
-  <name>customer
+  <name>customerProject
   </name>
   <contextX>
   [#api]
   {
-    type:~[@biz:Customer],
+    type:~[@biz:CustomerProject],
     out:~[#{[api].type.@nil}]
             { [.]
-              {{ id:=..id
-              ,  name:=..name
-              , tradeAccount:=..tradeAccount!=null?..tradeAccount
-                {{
-                  accountId:=..accountId,
-                  contact:=..contact,
-                  rep:=..rep,
-                  entity:=..entity,
-                  paymentMethod:=..paymentMethod{.!=null?.
-                    { id:=..id,
-                      displayName:=..displayName,
-                    }:null},
-                  paymentTerms:=..paymentTerms{.!=null?.
-                    { id:=..id,
-                      displayName:=..displayName,
-                    }:null},
-                }}:null,
-             }}            
+              {{
+                id:=..id,
+                customerId:=..customerId,
+                displayName:=..displayName,
+                active:=..active,
+              }}
            }
          
   }
@@ -69,7 +57,9 @@
           <params>
             [#p]
             {
-              name:=[result].data.name
+              customerId:=[result].data.customerId,
+              displayName:=[result].data.displayName,
+              active:=[result].data.active,
             }
           </params>
           <result>
@@ -79,11 +69,16 @@
                  =[result].data
                   { [result].new
                     ?.[*dt:Edit{ action:=`
-                       @{ name=[p].name
+                       @{ 
+                          customerId=[p].customerId,
+                          displayName=[p].displayName,
+                          active=[p].active,
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
-                       @{ name=[p].name
+                       @{ 
+                          displayName=[p].displayName,
+                          active=[p].active,
                        }`
                      }].()
                    }

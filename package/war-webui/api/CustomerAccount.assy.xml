@@ -10,32 +10,35 @@
   >
   <debug>false
   </debug>
-  <name>customer
+  <name>customerAccount
   </name>
   <contextX>
   [#api]
   {
-    type:~[@biz:Customer],
+    type:~[@biz:CustomerAccount],
     out:~[#{[api].type.@nil}]
             { [.]
-              {{ id:=..id
-              ,  name:=..name
-              , tradeAccount:=..tradeAccount!=null?..tradeAccount
-                {{
-                  accountId:=..accountId,
-                  contact:=..contact,
-                  rep:=..rep,
-                  entity:=..entity,
-                  paymentMethod:=..paymentMethod{.!=null?.
-                    { id:=..id,
-                      displayName:=..displayName,
-                    }:null},
-                  paymentTerms:=..paymentTerms{.!=null?.
-                    { id:=..id,
-                      displayName:=..displayName,
-                    }:null},
-                }}:null,
-             }}            
+              {{
+                accountId:=..accountId,
+                displayName:=..displayName,
+                contact:=..contact,
+                contactId:=..contactId,
+                rep:=..rep,
+                entity:=..entity,
+                paymentMethod:=..paymentMethod{.!=null?.
+                  { id:=..id,
+                    displayName:=..displayName,
+                  }:null},
+                paymentTerms:=..paymentTerms{.!=null?.
+                  { id:=..id,
+                    displayName:=..displayName,
+                  }:null},
+                projects:=..projects#
+                  {{ id:=..id,
+                     displayName:=..displayName,
+                     active:=..active,
+                  }}
+              }}
            }
          
   }
@@ -55,10 +58,10 @@
       <contextX>
         [#result] 
           { 
-            id:=[rpc:Call].nextPath.firstElement()
-            ,new:=.id=="-"
+            accountId:=[rpc:Call].nextPath.firstElement()
+            ,new:=.accountId=="-"
             ,data:=!.new
-                  ?[api].type.@forId(.id)
+                  ?[api].type.@forId(.accountId)
                   :[*dt:Edit{ [api].type }].()
           }
       </contextX>
@@ -69,7 +72,10 @@
           <params>
             [#p]
             {
-              name:=[result].data.name
+              displayName:=[result].data.displayName,
+              customerId:=[result].data.customerId,
+              contactId:=[result].data.contactId,
+              
             }
           </params>
           <result>
@@ -79,11 +85,16 @@
                  =[result].data
                   { [result].new
                     ?.[*dt:Edit{ action:=`
-                       @{ name=[p].name
+                       @{ displayName=[p].displayName,
+                          customerId=[p].customerId,
+                          credit=false,
+                          contactId=[p].contactId,
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
-                       @{ name=[p].name
+                       @{ 
+                         displayName=[p].displayName,
+                         contactId=[p].contactId,
                        }`
                      }].()
                    }

@@ -5,14 +5,10 @@
   xmlns:time="class:/spiralcraft/time/"
   >
   
+  <archetype><bizm:PrimaryEntity.type/>
+  </archetype>
+    
   <fields>
-  
-    <meta:SequenceField>
-      <name>id
-      </name>
-      <type><LSID.type/>
-      </type>
-    </meta:SequenceField>
   
     <meta:Field>
       <name>displayName
@@ -23,18 +19,5 @@
    
     
   </fields>
- 
-  <keys>
-    <meta:Key>      
-      <primary>true
-      </primary>
-      
-      <fieldList>id
-      </fieldList>
-      
-    </meta:Key>
-
-
-  </keys>
-  
+   
 </meta:Type>

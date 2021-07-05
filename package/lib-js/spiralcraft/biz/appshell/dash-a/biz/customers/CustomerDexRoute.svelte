@@ -1,7 +1,7 @@
 <script>
   import { getContext } from 'svelte';
   import AbstractDexRoute from "@vfs/app/components/AbstractDexRoute.svelte";
-  import CustomerForm from "@vfs/app/biz/customers/CustomerForm.svelte";
+  import CustomerDetailPanel from "@vfs/app/biz/customers/CustomerDetailPanel.svelte";
   
   const biz=getContext("biz");
   const columns =
@@ -26,7 +26,7 @@
 
 
 <AbstractDexRoute { ...props }>
-  <CustomerForm slot="detail-callout"
+  <CustomerDetailPanel slot="detail-callout"
     create={false}
     embedded={true}
   />

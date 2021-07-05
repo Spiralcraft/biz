@@ -15,7 +15,10 @@ import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.sv
 import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelComponentRoute.svelte'
 
 
+import contactView from '@vfs/spiralcraft/biz/contactView.js';
 import customerView from '@vfs/spiralcraft/biz/customerView.js';
+import customerAccountView from '@vfs/spiralcraft/biz/customerAccountView.js';
+import customerProjectView from '@vfs/spiralcraft/biz/customerProjectView.js';
 import salesOrderView from '@vfs/spiralcraft/biz/salesOrderView.js';
 import projectView from '@vfs/spiralcraft/biz/projectView.js';
 import trackerModelView from '@vfs/spiralcraft/biz/trackerModelView.js';
@@ -38,7 +41,10 @@ const onInit = (ac) =>
 
 const views=
 {
+  contactView,
   customerView,
+  customerAccountView,
+  customerProjectView,
   salesOrderView,
   projectView,
   trackerModelView,

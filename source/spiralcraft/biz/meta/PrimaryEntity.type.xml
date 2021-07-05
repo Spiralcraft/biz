@@ -12,6 +12,10 @@
       
       <type><LSID.type/>
       </type>
+      
+      <!-- Sequence needs to be scoped to leaf entity -->
+      <template>true
+      </template>
     </meta:SequenceField>
   
   </fields>

@@ -133,16 +133,7 @@
 
   let unsub;
   onMount(() => 
-    { 
-      unsub=dataStore.subscribe(scatter);
-      // Show description for tracker model
-      //
-      // trackerModelView.call
-      //    (null
-      //    ,"forName"
-      //    ,{ name: defaultRunType }
-      //    ,(data) => { defaultTrackerModel=data }
-      //    );
+    { unsub=dataStore.subscribe(scatter);
     }
   );
   

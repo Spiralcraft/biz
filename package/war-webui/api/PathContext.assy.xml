@@ -6,12 +6,15 @@
     <rpc:Filter>
       <handlers>
         <Customer/>
+        <CustomerAccount/>
+        <CustomerProject/>
         <SalesOrder/>
         <Project/>
         <Tracker/>
         <TrackerModel/>
         <TrackerStatus/>
         <TrackerModelComponent/>
+        <Contact/>
       </handlers>
     </rpc:Filter>
   </filters>

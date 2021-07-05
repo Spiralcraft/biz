@@ -37,12 +37,28 @@
       <type><LSID.type/>
       </type>
     </meta:Field>
+    <meta:RelativeField>
+      <name>paymentTerms
+      </name>
+      <type><biz:PaymentTerms.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
     <meta:Field>
       <name>paymentMethodId
       </name>
       <type><LSID.type/>
       </type>
     </meta:Field>
+    <meta:RelativeField>
+      <name>paymentMethod
+      </name>
+      <type><biz:PaymentMethod.type/>
+      </type>
+      <importKey>true
+      </importKey>
+    </meta:RelativeField>
     <meta:Field>
       <name>customerId
       </name>

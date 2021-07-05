@@ -8,15 +8,10 @@
   <description>A Customer-defined grouping for billable items
   </description>
   
+  <archetype><bizm:PrimaryEntity.type/>
+  </archetype>
+  
   <fields>
-
-    <meta:SequenceField>
-      <name>id
-      </name>
-      
-      <type><LSID.type/>
-      </type>
-    </meta:SequenceField>
     
     <meta:Field>
       <name>customerId
@@ -80,19 +75,5 @@
       </importKey>
     </meta:RelativeField>
   </fields>
-  
-  
-  <keys>
-  
-    <meta:Key>
-      <fieldList>id
-      </fieldList>
-      
-      <primary>true
-      </primary>
-    </meta:Key>
-    
-  </keys>
-  
   
 </meta:Type>

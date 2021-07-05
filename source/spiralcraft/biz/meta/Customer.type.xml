@@ -41,6 +41,16 @@
       </type>
     </meta:RelativeField>
   
+    <meta:RelativeField>
+      <name>tradeAccount
+      </name>
+      <type><biz:CustomerAccount.type/>
+      </type>
+      <fieldList>id
+      </fieldList>
+      <referencedFieldList>customerId
+      </referencedFieldList>
+    </meta:RelativeField>
   </fields>
   
   <keys>

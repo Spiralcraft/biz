@@ -7,6 +7,10 @@
   >
   <entities>
     <meta:Entity>
+      <type><bizm:Account.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
       <type><bizm:CustomerAccount.type/>
       </type>
     </meta:Entity>
