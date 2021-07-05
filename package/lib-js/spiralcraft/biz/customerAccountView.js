@@ -6,6 +6,7 @@ export default makeview(
       postFields: 
         [ 
           "displayName",
+          "customerId",
           "contactId",
           "paymentMethodId",
           "paymentTermsId",
