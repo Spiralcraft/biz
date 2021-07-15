@@ -21,6 +21,7 @@
               {{
                 accountId:=..accountId,
                 displayName:=..displayName,
+                customerId:=..customerId,
                 contact:=..contact,
                 contactId:=..contactId,
                 rep:=..rep,
