@@ -117,6 +117,27 @@
         }].()
       </x>
     </meta:TransactionMethod>  
+    <meta:TransactionMethod>
+      <name>initTracker
+      </name>
+      <parameterTypes>
+      </parameterTypes>
+      <returnType><bizwf:TrackerComponent.type/>
+      </returnType>
+      <contextX>
+        [#p] 
+        { 
+        }
+      </contextX>
+      <x>[bizwf:TrackerComponent].
+           [*dt:Edit{ action:=`
+            @{ linkedTrackerId=[@bizwf:Tracker].@createFromModel
+                ( trackerModelComponent.linkedTrackerModel
+                ).id,
+             }`
+        }].()
+      </x>
+    </meta:TransactionMethod>  
 
   </methods>
 </meta:Type>

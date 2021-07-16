@@ -25,6 +25,7 @@ import trackerModelView from '@vfs/spiralcraft/biz/trackerModelView.js';
 import trackerStatusView from '@vfs/spiralcraft/biz/trackerStatusView.js';
 import trackerModelComponentView from '@vfs/spiralcraft/biz/trackerModelComponentView.js';
 import trackerView from '@vfs/spiralcraft/biz/trackerView.js';
+import trackerComponentView from '@vfs/spiralcraft/biz/trackerComponentView.js';
 
 import custom from '@vfs/app/spiralcraft-biz.custom.js';
 
@@ -50,6 +51,7 @@ const views=
   trackerModelView,
   trackerStatusView,
   trackerView,
+  trackerComponentView,
   trackerModelComponentView,
 };
 

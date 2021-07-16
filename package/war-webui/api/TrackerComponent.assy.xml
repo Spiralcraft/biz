@@ -11,35 +11,25 @@
   >
   <debug>false
   </debug>
-  <name>tracker
+  <name>trackerComponent
   </name>
   <contextX>
   [#api]
   {
-    type:~[@bizwf:Tracker],
+    type:~[@bizwf:TrackerComponent],
     out:~[#{[api].type.@nil}]
             { [.]
-              {{ 
-                id:=..id,
-                modelId:=..modelId,
-                statusId:=..statusId,
-                status:=..status,
-                order:=..order,
-                components:=..components
-                  .[*fn:Sort{`..order.indexOf(.id)`,false}]#
-                  {{ 
-                    id:=..id,
-                    name:=..name,
-                    trackerId:=..trackerId,
-                    linkedTrackerId:=..linkedTrackerId,
-                    linkedTracker:=..linkedTracker
-                      {.==null?null:{
-                        id:=..id,
-                        statusId:=..statusId,
-                        status:=..status,
-                      }},
-                    trackerModelComponentId:=..trackerModelComponentId,
-                  }}              
+              {{ id:=..id,
+                 name:=..name,
+                 trackerId:=..trackerId,
+                 linkedTrackerId:=..linkedTrackerId,
+                 linkedTracker:=..linkedTracker
+                   {.==null?null:{
+                     id:=..id,
+                     statusId:=..statusId,
+                     status:=..status,
+                   }},
+                 trackerModelComponentId:=..trackerModelComponentId,
               }}
             }
          
@@ -74,7 +64,6 @@
           <params>
             [#p]
             {
-              statusId:=[result].data.statusId,
             }
           </params>
           <result>
@@ -84,11 +73,11 @@
                  =[result].data
                   { [result].new
                     ?.[*dt:Edit{ action:=`
-                       @{statusId=[p].statusId,
+                       @{ 
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
-                       @{statusId=[p].statusId,
+                       @{ 
                        }`
                      }].()
                    }
@@ -105,6 +94,19 @@
           <result>
             @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
              }
+          </result>
+        </rpc:JsonHandler>
+        <rpc:JsonHandler>
+          <name>.initTracker
+          </name>
+          <params>[#p] {  }
+          </params>
+          <result>
+            [result].data
+            {
+              .initTracker(),
+              [api].out([api].type.@forId(.id)),
+            }
           </result>
         </rpc:JsonHandler>
       </handlers>

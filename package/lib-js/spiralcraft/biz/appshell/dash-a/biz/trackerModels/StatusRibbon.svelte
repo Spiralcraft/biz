@@ -10,26 +10,26 @@
 
 const tooltipText = (component) =>
 {
-  if (!component.tracker)
+  if (!component.linkedTracker)
   { return component.name+": Not tracking";
   }
-  else if (!component.tracker.status)
+  else if (!component.linkedTracker.status)
   { return component.name+": No status";
   }
   else
-  { return component.name+": "+component.tracker.status.status.label;
+  { return component.name+": "+component.linkedTracker.status.label;
   }
 }
 
 const color = (component) =>
 {
-  if (!component.tracker
-      || !component.tracker.status
+  if (!component.linkedTracker
+      || !component.linkedTracker.status
       )
   { return "#CCCCCC";
   }
   else
-  { return component.tracker.status.color;
+  { return component.linkedTracker.status.color;
   }
 }
 

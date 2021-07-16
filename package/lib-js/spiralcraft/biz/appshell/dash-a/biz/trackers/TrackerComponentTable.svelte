@@ -9,20 +9,22 @@
   const biz=getContext("biz");
   
   export let details;
+  export let onChange= () => {};
+  
 //  export let master;
   
   let editingId;
   let editingTrackerModel;
   let editingTrackerModelComponent;
   
-  const editAction = (tracker) =>
+  const editAction = (trackerComponent) =>
   {
     return (e) => 
     { 
-      console.log("Editing "+JSON.stringify(tracker));
-      editingId = tracker.id;
+      console.log("Editing "+JSON.stringify(trackerComponent));
+      editingId = trackerComponent.id;
       biz.trackerModelComponentView.showForPkey
-        (tracker.trackerModelComponentId
+        (trackerComponent.trackerModelComponentId
         ,(data) => 
           {
             editingTrackerModelComponent=data;
@@ -40,13 +42,51 @@
     }
   }
   
-  const updateStatus = (tracker) =>
+  const updateStatus = (trackerComponent) =>
   {
+    const tracker=trackerComponent.linkedTracker;
+    
     return (status) =>
     { 
-      console.log("Updating status of "+JSON.stringify(tracker)+" to "+JSON.stringify(status));
-      tracker.status=status;
+      if (!tracker)
+      { 
+        biz.trackerComponentView.call
+          ( trackerComponent.id,
+            "initTracker",
+            {},
+            (data) =>
+              { 
+                trackerComponent.linkedTracker=data.linkedTracker;
+                trackerComponent.linkedTrackerId=data.linkedTrackerId;
+                updateTrackerStatus(data.linkedTracker,status);
+              },
+          );
+      }
+      else
+      { updateTrackerStatus(tracker,status);
+      }
     }
+  };
+  
+  const updateTrackerStatus = (tracker,status) =>
+  {
+      
+    console.log("Updating status of "+JSON.stringify(tracker)
+                +" to "+JSON.stringify(status)
+              );    
+    tracker.status=status;
+    tracker.statusId=status.id;
+    biz.trackerView.edited
+      (tracker
+      ,(data) => 
+            {
+              console.log("Updated status of "+JSON.stringify(data)
+                +" to "+JSON.stringify(data.status)
+              );
+              onChange();
+            }
+      );
+      
   }
   
 </script>
@@ -70,12 +110,20 @@
             <td>
               {#if detail.id==editingId }
                 <TrackerStatusSelector 
-                  status={detail.status?detail.status:{}}
+                  status={ (detail.linkedTracker && detail.linkedTracker.status)
+                            ?detail.linkedTracker.status
+                            :{}
+                          }
                   trackerModel={editingTrackerModel}
                   updateStatus={updateStatus(detail)}
                 />
               {:else}
-                <TrackerStatusWidget status={detail.status?detail.status:{}}/>
+                <TrackerStatusWidget 
+                  status={ (detail.linkedTracker && detail.linkedTracker.status)
+                            ?detail.linkedTracker.status
+                            :{}
+                         }
+                />
               {/if}
             </td>
           </tr>

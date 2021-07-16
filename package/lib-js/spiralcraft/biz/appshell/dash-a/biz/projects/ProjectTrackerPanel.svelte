@@ -124,6 +124,12 @@
       );
     
   }
+  
+  let trackerComponentChanged = () =>
+  { 
+    dataController.onSave(project);
+    scatter(project);
+  }
 
   let trackerModel;
   const refreshTrackerModel = (id) => {
@@ -199,7 +205,10 @@
           </ul>
           <span class="col9 col10-sm ms-3">{status.description}</span>
         </div>
-        <TrackerComponentTable details={project.currentRun.tracker.components}/>
+        <TrackerComponentTable 
+          details={project.currentRun.tracker.components}
+          onChange={trackerComponentChanged}
+        />
       {/if}
     {/if}
   </div>

@@ -25,12 +25,26 @@
                 , customer:=..customer{{ name:=..name }}
                 , currentRun:=..currentRun==null?null:..currentRun
                   {{ name:=..name, 
-                     tracker:=..tracker==null?null:..tracker
-                     {{
+                     tracker:=..tracker
+                     {.==null?null:{
                        id:=..id,
                        modelId:=..modelId,
                        order:=..order,
-                       components:=..components,                       
+                       components:=..components
+                         .[*fn:Sort{`..order.indexOf(.id)`,false}]#
+                         {{ 
+                           id:=..id,
+                           name:=..name,
+                           trackerId:=..trackerId,
+                           linkedTrackerId:=..linkedTrackerId,
+                           linkedTracker:=..linkedTracker
+                             {.==null?null:{
+                               id:=..id,
+                               statusId:=..statusId,
+                               status:=..status,
+                             }},
+                           trackerModelComponentId:=..trackerModelComponentId,
+                         }},                       
                        status:=..status
                        {{
                          id:=..id,
@@ -111,8 +125,6 @@
              }
           </result>
         </rpc:JsonHandler>
-      </handlers>
-      <handlers>
         <rpc:JsonHandler>
           <name>.startRun
           </name>

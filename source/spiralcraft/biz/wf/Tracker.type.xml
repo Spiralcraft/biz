@@ -175,11 +175,38 @@
         [#x] 
         { model:=[@bizwf:TrackerModel].@forName([p].modelName)
             {.==null?[*fn:Throw{`[@sd:InvalidValueException].("No TrackerModel '"+[p].modelName+"'")`}]:null,.},
-          tracker:=[*dt:Edit{[@bizwf:Tracker],action:=`modelId=[x].model.id`}].(),
-          components:=.model.components#{ [@bizwf:TrackerComponent].@create(..tracker.id,.) },
+          tracker:=[@bizwf:Tracker].@createFromModel(.model),
         }.tracker
       </x>
-    </meta:TransactionMethod>  
+    </meta:TransactionMethod>
+    <meta:TransactionMethod>
+      <name>createFromModel
+      </name>
+      <static>true
+      </static>
+      <parameterTypes>
+        <bizwf:TrackerModel.type/>
+      </parameterTypes>
+      <returnType><bizwf:Tracker.type/>
+      </returnType>
+      <contextX>
+        [#p] 
+        { model:[@bizwf:TrackerModel]
+        }
+      </contextX>
+      <x>
+        [#x] 
+        { model:=[p].model
+            {.==null?[*fn:Throw{`[@sd:InvalidValueException].("TrackerModel can't be null")`}]:null,.},
+          tracker:=[*dt:Edit{[@bizwf:Tracker],action:=`.modelId=[x].model.id`}].(),
+          components:=.model.components
+            .[*fn:Sort{ `[x].model.order.indexOf(.id)`,false }]
+            #{ [@bizwf:TrackerComponent].@create(..tracker.id,.) },
+          order:=.components#{ .id },
+          trackerFin:=.tracker.[*dt:Edit{ action:=`.order=[x].order` }].(),
+        }.trackerFin
+      </x>
+    </meta:TransactionMethod>
     <meta:TransactionMethod>
       <name>delete
       </name>
