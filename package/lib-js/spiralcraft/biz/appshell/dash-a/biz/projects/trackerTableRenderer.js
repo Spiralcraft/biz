@@ -1,12 +1,13 @@
 import Tabulator from 'tabulator-tables';
 import StatusRibbon from '@vfs/app/biz/trackerModels/StatusRibbon.svelte';
+import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
 
 const statusFormatter = (cell,params,onRendered) => 
 { 
   cell.getElement().style.paddingTop=0;
   cell.getElement().style.paddingBottom=0;
-  let hasTracker=(cell.getData().tracker);
-  let status=hasTracker?cell.getData().tracker.status:{};
+  let hasTracker=(cell.getData().linkedTracker);
+  let status=hasTracker?cell.getData().linkedTracker.status:{};
   
   if (hasTracker)
   {  
@@ -28,13 +29,13 @@ const statusFormatter = (cell,params,onRendered) =>
 
 const componentStatusFormatter = (cell,formatterParams,onRendered) => 
 {
-  let hasTracker=(cell.getData().tracker);
-  let tracker=cell.getData().tracker;
+  let hasTracker=(cell.getData().linkedTracker);
+  let tracker=cell.getData().linkedTracker;
   
   let hasComponents=
     tracker 
-    && tracker.componentns
-    && tracker.componentns.length>0; 
+    && tracker.components
+    && tracker.components.length>0; 
 
   cell.getElement().style.paddingTop=0;
   cell.getElement().style.paddingBottom=0;

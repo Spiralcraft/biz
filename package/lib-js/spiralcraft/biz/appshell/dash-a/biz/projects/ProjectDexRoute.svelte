@@ -98,7 +98,11 @@
       {
         onRendered(() => 
          { 
-           new icon({ target: cell.getElement(), props: { size: "1x" }});
+           const inner=document.createElement("div");
+           cell.getElement().appendChild(inner);
+           inner.addEventListener("click",(e) => { expanderUsed(e,cell) });
+           const iconO=new icon({ target: inner, props: { size: "1x" }});
+           // iconO.$on("click",(e) => { expanderUsed(e,cell) });
            if (cell.getTable().context.indexDetailView.isDetailOpen(cell.getRow()))
            { 
              cell.getElement().style.background="#007BFF";
@@ -115,6 +119,15 @@
     }
   }
   
+  const expanderUsed = (e,cell) => 
+  { 
+    const idv=cell.getTable().context.indexDetailView;
+    idv.toggleDetail(cell); 
+    if (idv.isDetailOpen(cell.getRow()))
+    { cell.getTable().context.indexDetailView.moveCursorToRow(cell.getRow());
+    }
+  }
+  
   const columns =
   [
     {title:"Name",field:"name",widthGrow: 1,widthShrink: 1},
@@ -122,14 +135,8 @@
     {title:"",minWidth:"24",width:"24",maxWidth:"24",
       formatter:expanderFormatter(), 
       headerSort: false, 
-      cellClick: (e,cell) => 
-        { 
-          const idv=cell.getTable().context.indexDetailView;
-          idv.toggleDetail(cell); 
-          if (idv.isDetailOpen(cell.getRow()))
-          { cell.getTable().context.indexDetailView.moveCursorToRow(cell.getRow());
-          }
-        },
+      cellClick: () => {},
+      cellTap: () => {},
     },
     {title:"Status",field:"currentRun",width:"124",mutator:statusMutator,formatter:statusFormatter},
     {title:"Components",field:"currentRun",width:"124",mutator:statusMutator,formatter:componentStatusFormatter},
