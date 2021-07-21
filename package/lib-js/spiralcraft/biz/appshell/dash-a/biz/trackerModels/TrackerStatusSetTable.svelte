@@ -9,6 +9,7 @@
   
   export let details;
   export let master;
+  export let fitContainer;
   
   const add = () => 
     { app.nav("/trackerModels/"+master.id+"/status/-");
@@ -20,7 +21,7 @@
   
 </script>
 
-<InnerPanel title="Status Set">
+<InnerPanel title="Status Set" fitContainer={fitContainer}>
   <span slot="header-controls">
     <a on:click|preventDefault={add} href="/#">
       <PlusCircleIcon size="1.5x"/>

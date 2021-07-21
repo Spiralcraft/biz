@@ -8,6 +8,7 @@
   
   export let details;
   export let master;
+  export let fitContainer;
   
   const add = () => 
     { app.nav("/trackerModels/"+master.id+"/component/-");
@@ -21,7 +22,7 @@
   
 </script>
 
-<InnerPanel title="Tracker Components">
+<InnerPanel title="Tracker Components" fitContainer={fitContainer}>
   <span slot="header-controls">
     <a on:click|preventDefault={add} href="/#">
       <PlusCircleIcon size="1.5x"/>
@@ -41,7 +42,7 @@
         <col span="1" width="36"/>
       </colgroup>
       {#each details as detail}
-        <tr on:click|preventDefault={editAction(detail.id)}>
+        <tr>
           <td>
             {detail.name}
           </td>

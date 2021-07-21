@@ -15,6 +15,7 @@
   const detailRoute="/trackerModels";
   const activityTitle = "Tracker Admin";
   const panelTitle = "Tracker Models";
+  const hSplit = 3;
 
   const props = 
   { 
@@ -23,6 +24,7 @@
     detailRoute,
     activityTitle,
     panelTitle,
+    hSplit,
   }
 </script>
 

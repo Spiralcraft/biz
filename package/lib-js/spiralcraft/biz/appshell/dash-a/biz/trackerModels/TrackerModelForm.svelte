@@ -62,8 +62,12 @@
   </FormField>
 
   {#if !create}
-    <TrackerStatusSetTable master={values} details={values?values.statusSet:[]}/>
-    <TrackerModelComponentTable master={values} details={values?values.components:[]}/>
+    <TrackerStatusSetTable master={values} details={values?values.statusSet:[]}
+      fitContainer={embedded}
+    />
+    <TrackerModelComponentTable master={values} details={values?values.components:[]}
+      fitContainer={embedded}
+    />
   {/if}
 
 </AbstractCRUDForm>

@@ -91,7 +91,7 @@
   
 </script>
 
-<InnerPanel title="Tracker Components">
+<InnerPanel title="Tracker Components" fitContainer={true}>
   {#if !details || details.length==0}
     <div class="alert alert-primary" role="alert">
       No components.
