@@ -157,7 +157,7 @@
       </button>
     {/if}
   </div>
-  <div>
+  <div class="h-100 overflow-auto d-flex flex-column">
     {#if project}
       {#if !project.currentRun}
         <h6>Start a new run:</h6>

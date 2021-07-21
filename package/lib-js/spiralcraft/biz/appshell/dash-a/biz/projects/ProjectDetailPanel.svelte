@@ -18,23 +18,25 @@
   const cursor = dataController.cursor;
 </script>
 
-<div>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" class:active={active=="info"} href="/#"
-        on:click|preventDefault={()=>{ active="info" }}
-        >
-        <InfoIcon size="1x"/><span class="nav-label ms-2">Info</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" class:active={active=="tracker"} href="/#"
-        on:click|preventDefault={()=>{ active="tracker" }}
-        >
-        <WorkflowIcon size="1x"/><span class="nav-label ms-2">Tracker</span>
-      </a>
-    </li>
-  </ul>
+<div class="h-100 overflow-auto d-flex flex-column">
+  <div class="tabs-header">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" class:active={active=="info"} href="/#"
+          on:click|preventDefault={()=>{ active="info" }}
+          >
+          <InfoIcon size="1x"/><span class="nav-label ms-2">Info</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" class:active={active=="tracker"} href="/#"
+          on:click|preventDefault={()=>{ active="tracker" }}
+          >
+          <WorkflowIcon size="1x"/><span class="nav-label ms-2">Tracker</span>
+        </a>
+      </li>
+    </ul>
+  </div>
   {#if active=="info"}
     <ProjectForm
       create={create}

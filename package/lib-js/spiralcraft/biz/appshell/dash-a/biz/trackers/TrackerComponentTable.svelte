@@ -97,7 +97,7 @@
       No components.
     </div>
   {:else}
-    <table class="table table-bordered">
+    <table class="table table-bordered h-100 overflow-auto">
       <colgroup>
         <col span="1" width="175"/>
         <col span="1" width="124"/>
