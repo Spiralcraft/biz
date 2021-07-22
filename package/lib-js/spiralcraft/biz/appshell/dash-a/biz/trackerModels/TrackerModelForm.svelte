@@ -66,7 +66,7 @@
       fitContainer={embedded}
     />
     <TrackerModelComponentTable master={values} details={values?values.components:[]}
-      fitContainer={embedded}
+      fitContainer={embedded} 
     />
   {/if}
 

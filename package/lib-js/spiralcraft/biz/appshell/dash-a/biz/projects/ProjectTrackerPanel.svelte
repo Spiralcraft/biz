@@ -151,7 +151,7 @@
     {#if canReset}  
       <button 
         type="button" 
-        class="btn btn-sm btn-warning col3 col2-sm flex-shrink-0 flex-grow-0"
+        class="pb-2 btn btn-sm btn-warning col3 col2-sm flex-shrink-0 flex-grow-0"
         label="Reset run and discard progress"
         on:click|preventDefault={ (e)=> { resetRun() } }><TrashIcon size="1.25x"/>
       </button>
@@ -162,7 +162,7 @@
       {#if !project.currentRun}
         <h6>Start a new run:</h6>
         <div class="d-flex flex-row align-items-center">
-          <button type="button" class="btn btn-sm btn-success col3 col2-sm flex-shrink-0 flex-grow-0"
+          <button type="button" class="pb-2 btn btn-sm btn-success col3 col2-sm flex-shrink-0 flex-grow-0"
             on:click|preventDefault={startRun}><PlayCircleIcon size="1.25x"/>
           </button>
           <span class="col9 col10-sm ms-3">{defaultRunType}</span>

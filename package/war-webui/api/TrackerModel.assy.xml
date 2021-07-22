@@ -24,14 +24,18 @@
                  description:=..description??"",
                  statusSet:=..statusSet,
                  order:=..order,
-                 components:=..components#
-                 {{
-                   id:=..id,
-                   trackerModelId:=..trackerModelId,
-                   name:=..name,
-                   linkedTrackerModelId:=..linkedTrackerModelId,
-                   linkedTrackerModel:=..linkedTrackerModel,
-                 }}
+                 components:=..components
+                   {...order!=null
+                     ?.[*fn:Sort{`...order.indexOf(.id)`,false}]
+                     :.
+                   }#                 
+                   {{
+                     id:=..id,
+                     trackerModelId:=..trackerModelId,
+                     name:=..name,
+                     linkedTrackerModelId:=..linkedTrackerModelId,
+                     linkedTrackerModel:=..linkedTrackerModel,
+                   }},
               }}
             }
          
@@ -68,6 +72,7 @@
             {
               name:=[result].data.name,
               description:=[result].data.description,
+              order:=[result].data.order,
             }
           </params>
           <result>
@@ -79,12 +84,12 @@
                     ?.[*dt:Edit{ action:=`
                        @{name=[p].name,
                          description=[p].description,
-                        
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
                        @{name=[p].name,
                          description=[p].description,
+                         order=[p].order,
                        }`
                      }].()
                    }
