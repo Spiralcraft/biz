@@ -9,6 +9,7 @@ const bizSidebar=SidebarMenu(
 //       SidebarMenuItem({ text:"Production", path:"/production"}),
        SidebarMenuItem({ text:"Tracker Admin", path:"/trackerModels"}),
        SidebarMenuItem({ text:"Sales Orders", path:"/salesOrders"}),
+       SidebarMenuItem({ text:"Contacts", path:"/contacts"}),
      ] 
   }
 );

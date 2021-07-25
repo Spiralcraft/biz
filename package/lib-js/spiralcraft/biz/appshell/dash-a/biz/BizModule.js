@@ -1,18 +1,21 @@
-import AppModule from '@vfs/app/AppModule.js'
+import AppModule from '@vfs/app/AppModule.js';
 
-import ProjectDexRoute from '@vfs/app/biz/projects/ProjectDexRoute.svelte'
-import ProjectRoute from '@vfs/app/biz/projects/ProjectRoute.svelte'
+import ProjectDexRoute from '@vfs/app/biz/projects/ProjectDexRoute.svelte';
+import ProjectRoute from '@vfs/app/biz/projects/ProjectRoute.svelte';
 
-import CustomerDexRoute from '@vfs/app/biz/customers/CustomerDexRoute.svelte'
-import CustomerRoute from '@vfs/app/biz/customers/CustomerRoute.svelte'
+import ContactDexRoute from '@vfs/app/biz/contacts/ContactDexRoute.svelte';
+import ContactRoute from '@vfs/app/biz/contacts/ContactRoute.svelte';
 
-import SalesOrderDexRoute from '@vfs/app/biz/salesOrders/SalesOrderDexRoute.svelte'
-import SalesOrderRoute from '@vfs/app/biz/salesOrders/SalesOrderRoute.svelte'
+import CustomerDexRoute from '@vfs/app/biz/customers/CustomerDexRoute.svelte';
+import CustomerRoute from '@vfs/app/biz/customers/CustomerRoute.svelte';
 
-import TrackerModelDexRoute from '@vfs/app/biz/trackerModels/TrackerModelDexRoute.svelte'
-import TrackerModelRoute from '@vfs/app/biz/trackerModels/TrackerModelRoute.svelte'
-import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.svelte'
-import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelComponentRoute.svelte'
+import SalesOrderDexRoute from '@vfs/app/biz/salesOrders/SalesOrderDexRoute.svelte';
+import SalesOrderRoute from '@vfs/app/biz/salesOrders/SalesOrderRoute.svelte';
+
+import TrackerModelDexRoute from '@vfs/app/biz/trackerModels/TrackerModelDexRoute.svelte';
+import TrackerModelRoute from '@vfs/app/biz/trackerModels/TrackerModelRoute.svelte';
+import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.svelte';
+import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelComponentRoute.svelte';
 
 
 import contactView from '@vfs/spiralcraft/biz/contactView.js';
@@ -139,6 +142,22 @@ export default AppModule(
         ,restricted: true
         ,section: "main"
         ,icon: "workflow"
+      },
+      {
+        path: "/contacts"
+        ,component: ContactDexRoute
+        ,authRequired: true
+        ,restricted: true
+        ,section: "main"
+        ,icon: "contacts"
+      },
+      {
+        path: "/contacts/:id"
+        ,component: ContactRoute
+        ,authRequired: true
+        ,restricted: true
+        ,section: "main"
+        ,icon: "contacts"
       },
     ],
     icons: { 
