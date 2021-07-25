@@ -13,6 +13,7 @@
 
   const initial = { id: "", name: "" };
   const title = "Tracker Model";
+  const titleClasses = "fw-500 fs-6";
   const validator=undefined;
   const dataView=biz.trackerModelView;
   const cleanEdited = (values) => values;
@@ -26,6 +27,7 @@
   const props = 
   { initial,
     title,
+    titleClasses,
     validator,
     dataView,
     create,
@@ -60,15 +62,6 @@
       placeholder="Describe this tracker"
     />
   </FormField>
-
-  {#if !create}
-    <TrackerStatusSetTable master={values} details={values?values.statusSet:[]}
-      fitContainer={embedded}
-    />
-    <TrackerModelComponentTable master={values} details={values?values.components:[]}
-      fitContainer={embedded} 
-    />
-  {/if}
 
 </AbstractCRUDForm>
 

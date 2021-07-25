@@ -1,7 +1,7 @@
 <script>
   import { getContext } from 'svelte';
   import AbstractDexRoute from '@vfs/app/components/AbstractDexRoute.svelte';
-  import TrackerModelForm from '@vfs/app/biz/trackerModels/TrackerModelForm.svelte';
+  import TrackerModelDetailPanel from '@vfs/app/biz/trackerModels/TrackerModelDetailPanel.svelte';
   
   const biz=getContext("biz");
 
@@ -30,7 +30,7 @@
 
 
 <AbstractDexRoute { ...props }>
-  <TrackerModelForm slot="detail-callout"
+  <TrackerModelDetailPanel slot="detail-callout"
     create={false}
     embedded={true}
   />

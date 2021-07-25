@@ -12,6 +12,7 @@
   export let details;
   export let master;
   export let fitContainer;
+  export let onOrderChanged;
 
   const orderChanged = (order) =>
   { 
@@ -22,8 +23,12 @@
         {
           master=data;
           details=data.components;
+          if (onOrderChanged)
+          { onOrderChanged(master);
+          }
         }
       );
+    
   }
   
   const add = () => 

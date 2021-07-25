@@ -1,7 +1,7 @@
 <script>
   import { onMount, getContext } from 'svelte';
   
-  import TrackerModelForm from "@vfs/app/biz/trackerModels/TrackerModelForm.svelte";
+  import TrackerModelDetailPanel from "@vfs/app/biz/trackerModels/TrackerModelDetailPanel.svelte";
   import AbstractCRUDRoute from "@vfs/app/components/AbstractCRUDRoute.svelte";
 
   const title="Tracker Admin";
@@ -17,7 +17,7 @@
   doneRoute={doneRoute}
   id={id}
   >
-  <TrackerModelForm/>
+  <TrackerModelDetailPanel/>
 </AbstractCRUDRoute>
 
 
