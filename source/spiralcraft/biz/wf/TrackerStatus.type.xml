@@ -5,6 +5,9 @@
   xmlns:dm="class:/spiralcraft/data/methods"
   xmlns:biz="class:/spiralcraft/biz/meta"
   xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:j="class:/java/lang"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:fn="class:/spiralcraft/lang/functions"
   >
   <description>
     A status option for a Tracker
@@ -52,4 +55,29 @@
       </type>
     </meta:Field>
   </fields>
+  
+  <methods>
+    <meta:TransactionMethod>
+      <name>clone
+      </name>
+      <parameterTypes><String.type/>
+      </parameterTypes>
+      <returnType><bizwf:TrackerStatus.type/>
+      </returnType>
+      <contextX>[#p] { trackerModelId:[@j:String], orig:=[bizwf:TrackerStatus] }
+      </contextX>
+      <x>[*dt:Edit{[@bizwf:TrackerStatus], 
+            action:=
+            `@{ 
+                trackerModelId=[p].trackerModelId,
+                label=[p].orig.label,
+                color=[p].orig.color,
+                description=[p].orig.description,
+             }
+            ` 
+         }].()
+      </x>
+    </meta:TransactionMethod>
+  </methods>
+  
 </meta:Type>

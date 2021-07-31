@@ -7,6 +7,8 @@
   xmlns:bizwf="class:/spiralcraft/biz/wf"
   xmlns:dt="class:/spiralcraft/data/task"
   xmlns:j="class:/java/lang/"
+  xmlns:su="class:/spiralcraft/util/"
+  xmlns:fn="class:/spiralcraft/lang/functions"
   >
   <description>
     A model for a tracker item
@@ -70,6 +72,29 @@
       </x>
     </meta:Method>
   
+    <meta:TransactionMethod>
+      <name>clone
+      </name>
+      <returnType><bizwf:TrackerModel.type/>
+      </returnType>
+      <contextX>[#p] { orig:=[bizwf:TrackerModel] }
+      </contextX>
+      <x>[*dt:Edit{[@bizwf:TrackerModel], 
+            action:=
+            `@{ name="Clone of "+[p].orig.name,
+                description=[p].orig.description,
+             }
+            ` 
+         }].()
+         {[#x]{
+           components:=[p].orig.components
+            .[*fn:Sort{`[p].orig.order.indexOf(.id)`,false}]
+            #{ .clone(...id) },
+           statusSet:=[p].orig.statusSet#{ .clone(...id) },
+           clone:=..[*dt:Edit{ action:=`order=[x].components#{.id}`}].(),
+         }}.clone
+      </x>
+    </meta:TransactionMethod>
   </methods>
   
   <keys>

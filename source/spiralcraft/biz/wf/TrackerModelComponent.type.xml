@@ -5,6 +5,8 @@
   xmlns:dm="class:/spiralcraft/data/methods"
   xmlns:biz="class:/spiralcraft/biz/meta"
   xmlns:bizwf="class:/spiralcraft/biz/wf"
+  xmlns:j="class:/java/lang"
+  xmlns:dt="class:/spiralcraft/data/task"
   >
   <description>
     A model for a tracker item
@@ -66,5 +68,27 @@
       </referencedFieldList>
     </meta:RelativeField>
   </fields>
+  
+  <methods>
+    <meta:TransactionMethod>
+      <name>clone
+      </name>
+      <parameterTypes><String.type/>
+      </parameterTypes>
+      <returnType><bizwf:TrackerModelComponent.type/>
+      </returnType>
+      <contextX>[#p] { trackerModelId:[@j:String], orig:=[bizwf:TrackerModelComponent] }
+      </contextX>
+      <x>[*dt:Edit{[@bizwf:TrackerModelComponent], 
+            action:=
+            `@{ name=[p].orig.name,
+                trackerModelId=[p].trackerModelId,
+                linkedTrackerModelId=[p].orig.linkedTrackerModelId,
+             }
+            ` 
+         }].()
+      </x>
+    </meta:TransactionMethod>
+  </methods>
   
 </meta:Type>

@@ -101,6 +101,14 @@
       </defaultHandler>
       <handlers>
         <rpc:JsonHandler>
+          <name>.clone
+          </name>
+          <result>
+            @{ [api].out([result].data.clone())
+             }
+          </result>
+        </rpc:JsonHandler>
+        <rpc:JsonHandler>
           <name>.delete
           </name>
           <result>

@@ -16,7 +16,7 @@
   const InfoIcon = app.icons["info"];
   const StoplightIcon = app.icons["stoplight"];
   const Diagram3Icon = app.icons["diagram3"];
-
+  const CopyIcon = app.icons["copy"];
   
   const trackerModelView=biz.trackerModelView;
   const dataController=getContext("DataController");
@@ -44,12 +44,21 @@
       { id:"components", iconComponent: Diagram3Icon, label:"Components" },
     ];
   };
+  
+  function cloneTracker(e)
+  { trackerModelView.call($key,"clone",{},(data) => { });
+  }
 </script>
 
 <SoloActivityPanel border="none">
   <div slot="title" class="d-inline-block">
     <span class="fw-bold fs-6">Tracker Model:</span>
     <span class="fw-normal">{trackerModel?trackerModel.name:""}</span>
+  </div>
+  <div slot="header-controls" class="d-inline-block">
+    <a href="#/" on:click|preventDefault={cloneTracker} title="Clone tracker">
+      <CopyIcon size="2x"/>
+    </a>
   </div>
   <div class="tabBar">
     <Tabs bind:active data={ tabs }/>
