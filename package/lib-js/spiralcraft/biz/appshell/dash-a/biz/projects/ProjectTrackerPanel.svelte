@@ -30,6 +30,7 @@
   if (!defaultRunType)
   { defaultRunType="basic";
   }  
+  let selectedRunType=defaultRunType;
   
   let canReset=false;
   let title="";
@@ -85,7 +86,7 @@
   const startRun = () => 
     projectView.call($key
       ,"startRun"
-      ,{ runType: defaultRunType
+      ,{ runType: selectedRunType
        }
       ,(data) => 
         { 
@@ -131,6 +132,8 @@
     scatter(project);
   }
 
+  let trackerModels;
+  
   let trackerModel;
   const refreshTrackerModel = (id) => {
       console.log("Refreshing tracker "+id);
@@ -139,7 +142,9 @@
 
   let unsub;
   onMount(() => 
-    { unsub=dataStore.subscribe(scatter);
+    { 
+      unsub=dataStore.subscribe(scatter);
+      trackerModelView.showAll((data) => { trackerModels=data; });
     }
   );
   
@@ -165,7 +170,15 @@
           <button type="button" class="pb-2 btn btn-sm btn-success col3 col2-sm flex-shrink-0 flex-grow-0"
             on:click|preventDefault={startRun}><PlayCircleIcon size="1.25x"/>
           </button>
-          <span class="col9 col10-sm ms-3">{defaultRunType}</span>
+          {#if trackerModels}
+            <span class="col9 col10-sm ms-3">
+              <select class="form-select run-type-selector" bind:value={selectedRunType}>
+                {#each trackerModels as trackerModel }
+                  <option value="{trackerModel.name}" title="{trackerModel.description}">{trackerModel.name}</option>
+                {/each}
+              </select>
+            </span>
+          {/if}
         </div>
       {/if}
       {#if tracking}
@@ -215,7 +228,7 @@
 </SoloActivityPanel>
 
 <style>
-.status-button, .status-select-item
+.status-button, .status-select-item, .run-type-selector
 {
   font-size: var(--text-md);
 }
