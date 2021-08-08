@@ -50,7 +50,7 @@
   }
 </script>
 
-<SoloActivityPanel border="none">
+<SoloActivityPanel border="none" bodyClasses="h-100 d-flex flex-column">
   <div slot="title" class="d-inline-block">
     <span class="fw-bold fs-6">Tracker Model:</span>
     <span class="fw-normal">{trackerModel?trackerModel.name:""}</span>
@@ -63,7 +63,7 @@
   <div class="tabBar">
     <Tabs bind:active data={ tabs }/>
   </div>
-  <div class="trackerModelDetailContent">
+  <div class="trackerModelDetailContent h-100 overflow-auto">
     {#if active=="info"}
       <TrackerModelForm
         create={create}

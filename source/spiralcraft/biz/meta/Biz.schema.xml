@@ -19,6 +19,10 @@
       </type>
     </meta:Entity>
     <meta:Entity>
+      <type><bizm:ContactComment.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
       <type><bizm:SalesOrder.type/>
       </type>
     </meta:Entity>
