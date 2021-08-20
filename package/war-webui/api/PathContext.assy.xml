@@ -16,7 +16,7 @@
         <TrackerStatus/>
         <TrackerModelComponent/>
         <Contact/>
-        <ContactComment/>
+        <ContactNote/>
       </handlers>
     </rpc:Filter>
   </filters>

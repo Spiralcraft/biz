@@ -71,14 +71,16 @@
     <meta:Method>
       <name>forEntity
       </name>
+      <static>true
+      </static>
       <parameterTypes><String.type/>
       </parameterTypes>
-      <returnTypeX>[meta:Type]
+      <returnTypeX>[meta:Type].aggregateType
       </returnTypeX>
-      <contextX>[#p] { id:[@j:String] }
+      <contextX>[#p] { entityId:[@j:String] }
       </contextX>
-      <x>[*dt:Fetch{[meta:Type], 
-            [{`id:=[p].id`}]
+      <x>[*dt:Fetch{[meta:Type].aggregateType, 
+            [{`entityId:=[p].entityId`}]
             }].()
       </x>      
     </meta:Method>

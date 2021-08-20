@@ -1,7 +1,7 @@
 import makeview from '@vfs/spiralcraft/data/genericCRUDView.js';
 
 export default makeview(
-    { apiEndpoint: "biz/contactComment/",
+    { apiEndpoint: "biz/contactNote/",
       postFields: 
         [ 
           "entityId",

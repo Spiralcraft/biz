@@ -19,7 +19,7 @@
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizm:ContactComment.type/>
+      <type><bizm:ContactNote.type/>
       </type>
     </meta:Entity>
     <meta:Entity>

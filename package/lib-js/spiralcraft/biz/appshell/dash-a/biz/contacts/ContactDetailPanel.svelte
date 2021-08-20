@@ -1,7 +1,7 @@
 <script>
   import { getContext } from "svelte";
   import ContactForm from '@vfs/app/biz/contacts/ContactForm.svelte';
-  import ContactCommentsTab from '@vfs/app/biz/contacts/ContactCommentsTab.svelte';
+  import ContactNotesTab from '@vfs/app/biz/contacts/ContactNotesTab.svelte';
   import Tabs from '@vfs/app/layout/Tabs.svelte';
   
   export let create;
@@ -25,11 +25,11 @@
   if (!create)
   { tabs = 
     [ ...tabs,
-      { id:"comments", iconComponent: CardTextIcon, label:"Comments", },
+      { id:"notes", iconComponent: CardTextIcon, label:"Notes", },
     ]
   }
 
-  let comments;
+  let notes;
     
 </script>
 
@@ -41,10 +41,10 @@
       embedded={true}
       bodyClasses="h-100 d-flex flex-column"
     />
-  {:else if active=="comments"}
-    <ContactCommentsTab
+  {:else if active=="notes"}
+    <ContactNotesTab
       master={$cursor} 
-      details={comments}
+      details={notes}
       fitContainer={true}
     />
   {/if}

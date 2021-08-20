@@ -3,7 +3,7 @@
   xmlns:ab="class:/spiralcraft/biz/abstract"
   >
   <archetype>
-    <ab:AbstractComment.type/>
+    <ab:AbstractNote.type/>
   </archetype>
   <fields>
   </fields>

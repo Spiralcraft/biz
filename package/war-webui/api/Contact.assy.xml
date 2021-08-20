@@ -9,6 +9,7 @@
   xmlns:biz="class:/spiralcraft/biz/meta/"
   xmlns:social="class:/spiralcraft/archetype/social"
   xmlns:postal="class:/spiralcraft/archetype/postal"
+  xmlns:st="class:/spiralcraft/text"
   >
   <debug>false
   </debug>
@@ -49,6 +50,44 @@
     </rpc:JsonHandler>
   </defaultHandler>
   <handlers>
+    <rpc:JsonHandler>
+      <name>.search
+      </name>
+      <queryParams>q
+      </queryParams>
+      <params>
+        [#p]
+        {
+          q:[@j:String]
+        }
+      </params>
+      <result>
+        [#x] { 
+          query:=[p].q,
+          terms:=.query.split("\\\s+"),
+          scorer:=[@st:RelevanceCalculator].(.terms),
+          result:=
+            [*dt:Fetch{[api].type.type.aggregateType}].()
+              #{{
+                item:=[api].out(..),
+                score:=
+                  [x].scorer.score(..knownAs)*10
+                  +[x].scorer.score(..attentionName)*10
+                  +[x].scorer.score(..organizationName)*10
+                  +( [@biz:ContactNote].@forEntity(..id).@log("Notes="+.)
+                    $[ [x].scorer.score(.sourceText.@log(.)).[*fn:Sum] ].@log("Note score = "+.+" for "+...id)
+                   ),
+              }}
+              [.score &gt; 0]
+              .[*fn:Sort{`.score`,true}]
+        }
+        {{
+          query:=..query,
+          terms:=..terms,
+          result:=..result,
+        }}      
+      </result>
+    </rpc:JsonHandler>
     <rpc:DispatchHandler>
       <name>*
       </name>

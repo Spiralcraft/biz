@@ -12,12 +12,12 @@
   >
   <debug>false
   </debug>
-  <name>contactComment
+  <name>contactNote
   </name>
   <contextX>
   [#api]
   {
-    type:~[@biz:ContactComment],
+    type:~[@biz:ContactNote],
     out:~[#{[api].type.@nil}]
             { [.]
               {{ 

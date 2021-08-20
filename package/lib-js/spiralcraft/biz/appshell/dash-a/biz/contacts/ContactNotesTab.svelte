@@ -3,7 +3,7 @@
   import InnerPanel from '@vfs/app/layout/InnerPanel.svelte';
   import { EditIcon,PlusCircleIcon,TrashIcon } from 'svelte-feather-icons';
   
-  import CommentMiniForm from '@vfs/app/biz/contacts/CommentMiniForm.svelte';
+  import NoteMiniForm from '@vfs/app/biz/contacts/NoteMiniForm.svelte';
   
   const app=getContext("App");
   const biz=getContext("biz");
@@ -31,7 +31,7 @@
   {
     if (master)
     {
-      biz.contactCommentView.call
+      biz.contactNoteView.call
         (null
         ,"forEntity?entityId="+master.id
         ,null
@@ -48,10 +48,10 @@
     adding=false;
   }
   
-  function onCommentSave(comment)
+  function onNoteSave(note)
   { 
-    biz.contactCommentView.edited
-      ({ ...comment, 
+    biz.contactNoteView.edited
+      ({ ...note, 
          entityId: master.id 
        }
       ,(data) => 
@@ -61,7 +61,7 @@
       );
   }
 
-  function onCommentQuit()
+  function onNoteQuit()
   { stopEditing();
   }  
   
@@ -77,7 +77,7 @@
   
 </script>
 
-<InnerPanel title="Comments: {master?master.knownAs:''}" fitContainer={fitContainer}>
+<InnerPanel title="Notes: {master?master.knownAs:''}" fitContainer={fitContainer}>
   <span slot="header-controls">
     <a on:click|preventDefault={add} href="/#">
       <PlusCircleIcon size="1.5x"/>
@@ -87,20 +87,20 @@
   
   {#if !adding && (!details || details.length==0) }
     <div class="alert alert-primary" role="alert">
-      No comments. Press the '+' button to add one.
+      No notes. Press the '+' button to add one.
     </div>
   {:else}
-    <div class="comment-list d-flex flex-column h-100 overflow-auto">
+    <div class="note-list d-flex flex-column h-100 overflow-auto">
       {#if adding}
-        <CommentMiniForm 
-          onSave={onCommentSave}
-          onQuit={onCommentQuit}
+        <NoteMiniForm 
+          onSave={onNoteSave}
+          onQuit={onNoteQuit}
         />
       {/if}
       {#if details}
         {#each details as detail}
-          <div class="comment-card">
-            <div class="comment-header d-flex flex-row">
+          <div class="note-card">
+            <div class="note-header d-flex flex-row">
               <div class="controls ms-auto">
                 <a href="{'#'}">
                   <PinIcon size="0.875x"/>
@@ -113,12 +113,12 @@
                 </a>
               </div>
             </div>
-            <div class="comment-body pre">
+            <div class="note-body pre">
               {detail.sourceText}
             </div>
-            <div class="comment-footer d-flex flex-row text-muted">
-              <div class="comment-author">{detail.creator.commonName}</div>
-              <div class="comment-date ms-auto">{compactDate(detail.lastModified)}</div>
+            <div class="note-footer d-flex flex-row text-muted">
+              <div class="note-author">{detail.creator.commonName}</div>
+              <div class="note-date ms-auto">{compactDate(detail.lastModified)}</div>
             </div>
           </div>
         {/each}
@@ -128,7 +128,7 @@
 </InnerPanel>
 
 <style>
-  .comment-card
+  .note-card
   {
     border: 1px solid rgb(0 0 0 / 20%);
     padding: 2px 3px 5px 5px;
@@ -137,7 +137,7 @@
     box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 20%)
   }
   
-  .comment-header
+  .note-header
   { margin-bottom: 2px;
   }
   
@@ -152,7 +152,7 @@
     color: #555555;
   }
 
-  .comment-header
+  .note-header
   { margin-top: 2px;
   }
 </style>
