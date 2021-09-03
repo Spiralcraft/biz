@@ -6,6 +6,8 @@ export default makeview(
       ["trackerModelId",
        "name",
        "linkedTrackerModelId",
+       "description",
+       "detailedDescription",
       ]
   }
   );
