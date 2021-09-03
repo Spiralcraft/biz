@@ -1,0 +1,10 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ab="class:/spiralcraft/biz/abstract"
+  >
+  <archetype>
+    <ab:AbstractTag.type/>
+  </archetype>
+  <fields>
+  </fields>
+</meta:Type>

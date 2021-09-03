@@ -20,6 +20,8 @@ import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelC
 
 import contactView from '@vfs/spiralcraft/biz/contactView.js';
 import contactNoteView from '@vfs/spiralcraft/biz/contactNoteView.js';
+import contactTaggedView from '@vfs/spiralcraft/biz/contactTaggedView.js';
+import contactTagView from '@vfs/spiralcraft/biz/contactTagView.js';
 import customerView from '@vfs/spiralcraft/biz/customerView.js';
 import customerAccountView from '@vfs/spiralcraft/biz/customerAccountView.js';
 import customerProjectView from '@vfs/spiralcraft/biz/customerProjectView.js';
@@ -48,6 +50,8 @@ const views=
 {
   contactView,
   contactNoteView,
+  contactTaggedView,
+  contactTagView,
   customerView,
   customerAccountView,
   customerProjectView,

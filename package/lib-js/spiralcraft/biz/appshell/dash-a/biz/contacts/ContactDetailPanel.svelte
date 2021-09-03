@@ -2,14 +2,16 @@
   import { getContext } from "svelte";
   import ContactForm from '@vfs/app/biz/contacts/ContactForm.svelte';
   import ContactNotesTab from '@vfs/app/biz/contacts/ContactNotesTab.svelte';
+  import ContactTaggedTab from '@vfs/app/biz/contacts/ContactTaggedTab.svelte';
   import Tabs from '@vfs/app/layout/Tabs.svelte';
   
   export let create;
-  export let embedded;
+//  export let embedded;
 
   const app=getContext("App");
   const InfoIcon = app.icons["info"];
   const CardTextIcon = app.icons["cardText"];
+  const TagIcon = app.icons["tag"];
   
   let active="info";    
 
@@ -26,15 +28,17 @@
   { tabs = 
     [ ...tabs,
       { id:"notes", iconComponent: CardTextIcon, label:"Notes", },
+      { id:"tags", iconComponent: TagIcon, label:"Tags", },
     ]
   }
 
   let notes;
+  let tags;
     
 </script>
 
 <div class="h-100 overflow-auto d-flex flex-column">
-  <Tabs bind:active data={ tabs }/>
+  <Tabs bind:active data={ tabs } linkClasses="px-2"/>
   {#if active=="info"}
     <ContactForm
       create={create}
@@ -45,6 +49,12 @@
     <ContactNotesTab
       master={$cursor} 
       details={notes}
+      fitContainer={true}
+    />
+  {:else if active=="tags"}
+    <ContactTaggedTab
+      master={$cursor} 
+      details={tags}
       fitContainer={true}
     />
   {/if}

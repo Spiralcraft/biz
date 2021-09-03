@@ -1,0 +1,52 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang"
+  xmlns:swm="class:/spiralcraft/webapp/meta"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  >
+  <archetype>
+    <biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>label
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    <meta:Field>
+      <name>searchLabel
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>creatorId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>createdOn
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    
+  </fields>  
+  
+  <keys>
+    <meta:Key>
+      <unique>true
+      </unique>
+      <fieldList>searchLabel
+      </fieldList>
+    </meta:Key>
+  </keys>
+
+</meta:Type>

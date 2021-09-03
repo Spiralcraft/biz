@@ -17,6 +17,8 @@
         <TrackerModelComponent/>
         <Contact/>
         <ContactNote/>
+        <ContactTagged/>
+        <ContactTag/>
       </handlers>
     </rpc:Filter>
   </filters>

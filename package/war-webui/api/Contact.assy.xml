@@ -66,6 +66,8 @@
           query:=[p].q,
           terms:=.query.split("\\\s+"),
           scorer:=[@st:RelevanceCalculator].(.terms),
+          tags:=[*dt:Fetch{[@biz:ContactTag.list]}].()
+            [!..terms[..searchLabel.contains(.toLowerCase())].@empty].@log("Tags: "+.),
           result:=
             [*dt:Fetch{[api].type.type.aggregateType}].()
               #{{
@@ -74,9 +76,15 @@
                   [x].scorer.score(..knownAs)*10
                   +[x].scorer.score(..attentionName)*10
                   +[x].scorer.score(..organizationName)*10
-                  +( [@biz:ContactNote].@forEntity(..id).@log("Notes="+.)
-                    $[ [x].scorer.score(.sourceText.@log(.)).[*fn:Sum] ].@log("Note score = "+.+" for "+...id)
-                   ),
+                  +[x].scorer.score(..email)*10
+                  +[x].scorer.score(..phone)*10
+                  +( [@biz:ContactNote].@forEntity(..id)
+                    $[ [x].scorer.score(.sourceText).[*fn:Sum] ]
+                   )
+                  +( [@biz:ContactTagged].@forEntity(..id)
+                      [![x].tags[.id==..tagId].@empty].@size * 2048
+                   )
+                   ,
               }}
               [.score &gt; 0]
               .[*fn:Sort{`.score`,true}]
@@ -135,7 +143,7 @@
                           organizationName=[p].organizationName,
                           email=[p].email,
                           phone=[p].phone,
-                          postalAddress=postalAddress.[*dt:Edit].().@log("Postal original "+.)
+                          postalAddress=postalAddress.[*dt:Edit].()
                           {
                             (.==null?[@postal:Address.buffer].():.)
                             {
@@ -146,7 +154,7 @@
                               .postalCode=[p].postalAddress.postalCode,
                               .
                             }
-                          }.@log("PostalAddress "+.),
+                          },
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
@@ -156,7 +164,7 @@
                           organizationName=[p].organizationName,
                           email=[p].email,
                           phone=[p].phone,
-                          postalAddress=postalAddress.[*dt:Edit].().@log("Postal original "+.)
+                          postalAddress=postalAddress.[*dt:Edit].()
                           {
                             (.==null?[@postal:Address.buffer].():.)
                             {
@@ -167,7 +175,7 @@
                               .postalCode=[p].postalAddress.postalCode,
                               .
                             }
-                          }.@log("PostalAddress "+.),
+                          },
                        }`
                      }].()
                    }

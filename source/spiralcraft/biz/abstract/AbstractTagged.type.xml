@@ -1,0 +1,95 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang"
+  xmlns:swm="class:/spiralcraft/webapp/meta"
+  >
+
+  <fields>
+    <meta:SequenceField>
+      <name>id
+      </name>
+      <type><LSID.type/>
+      </type>
+      <!-- Sequence needs to be scoped to leaf entity -->
+      <template>true
+      </template>
+    </meta:SequenceField>
+    
+    <meta:Field>
+      <name>entityId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>tagId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>creatorId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+    
+
+    <meta:Field>
+      <name>createdOn
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+    
+  </fields>  
+  
+  <keys>
+    <meta:Key>
+      <primary>true
+      </primary>
+      <fieldList>id
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>tagId
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>entityId
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>entityId
+      </fieldList>
+      <fieldList>tagId
+      </fieldList>
+      <unique>true
+      </unique>
+    </meta:Key>
+  </keys>
+  <methods>
+    <dm:ForId/>
+    
+    <meta:Method>
+      <name>forEntity
+      </name>
+      <static>true
+      </static>
+      <parameterTypes><String.type/>
+      </parameterTypes>
+      <returnTypeX>[meta:Type].aggregateType
+      </returnTypeX>
+      <contextX>[#p] { entityId:[@j:String] }
+      </contextX>
+      <x>[*dt:Fetch{[meta:Type].aggregateType, 
+            [{`entityId:=[p].entityId`}]
+            }].()
+      </x>      
+    </meta:Method>
+  </methods>
+</meta:Type>
