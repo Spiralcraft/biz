@@ -9,7 +9,7 @@
   xmlns:dt="class:/spiralcraft/data/task"
   >
   <description>
-    A model for a tracker item
+    A subcomponent of a tracker model
   </description>
   
   <archetype><biz:PrimaryEntity.type/>
@@ -67,6 +67,20 @@
       <referencedFieldList>id
       </referencedFieldList>
     </meta:RelativeField>
+    
+    <meta:Field>
+      <name>description
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>    
+
+    <meta:Field>
+      <name>detailedDescription
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>    
   </fields>
   
   <methods>

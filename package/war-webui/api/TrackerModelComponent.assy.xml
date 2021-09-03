@@ -24,6 +24,8 @@
                  name:=..name,
                  linkedTrackerModelId:=..linkedTrackerModelId,
                  linkedTrackerModel:=..linkedTrackerModel,
+                 description:=..description,
+                 detailedDescription:=..detailedDescription,
               }}
             }
          
@@ -61,6 +63,8 @@
               trackerModelId:=[result].data.trackerModelId,
               name:=[result].data.name,
               linkedTrackerModelId:=[result].data.linkedTrackerModelId,
+              description:=[result].data.description,
+              detailedDescription:=[result].data.detailedDescription,
             }
           </params>
           <result>
@@ -73,11 +77,15 @@
                        @{ trackerModelId=[p].trackerModelId,
                           name=[p].name,
                           linkedTrackerModelId=[p].linkedTrackerModelId,
+                          description=[p].description,
+                          detailedDescription=[p].detailedDescription,
                        }`
                      }].()
                     :.[*dt:Edit{ action:=`
                        @{ name=[p].name,
                           linkedTrackerModelId=[p].linkedTrackerModelId,
+                          description=[p].description,
+                          detailedDescription=[p].detailedDescription,                         
                        }`
                      }].()
                    }

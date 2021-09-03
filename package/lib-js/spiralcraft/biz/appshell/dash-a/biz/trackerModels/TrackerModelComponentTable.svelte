@@ -82,9 +82,14 @@
         (data.linkedTrackerModel?data.linkedTrackerModel.name:""), 
       headerSort: false,
     },
-    { title: "Description", field: "linkedTrackerModel.description",
+    { title: "Description", field: "description",
       mutator: (value,data) => 
-        (data.linkedTrackerModel?data.linkedTrackerModel.description:""),  
+        (data.description?
+          data.description:
+          data.linkedTrackerModel?
+          data.linkedTrackerModel.description:
+          ""
+        ),  
       headerSort: false,
     },
     { title: "", minWidth:"24",width:"24",maxWidth:"24",

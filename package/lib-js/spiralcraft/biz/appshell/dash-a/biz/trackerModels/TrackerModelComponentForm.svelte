@@ -27,7 +27,7 @@
   
   export let trackerModelId;
   console.log("trackerModelId "+trackerModelId);
-  const initial = { trackerModelId: trackerModelId, id: "", name: "", linkedTrackerModelId:""};
+  const initial = { trackerModelId: trackerModelId, id: "", name: "", linkedTrackerModelId:"", description:"", detailedDescription:""};
   const dataController = getContext("DataController");
 
   const defaultEditEnabled=true;
@@ -86,6 +86,14 @@
           </option>
       {/each}
     </SelectInput>
+  </FormField>
+
+  <FormField path="description">
+    <TextInput
+      name="description"
+      label="Description"
+      placeholder="Component description"
+    />
   </FormField>
 
 </AbstractCRUDForm>
