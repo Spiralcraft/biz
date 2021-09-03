@@ -44,5 +44,9 @@
                   Bitstream Vera Sans Mono,Courier New, monospace;
   }
   
-  
+  .controls .btn
+  {
+    padding: 0 .5rem;
+    font-size: .750rem;
+  }
 </style>

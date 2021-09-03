@@ -31,6 +31,7 @@
                 lastModified:=..lastModified,
                 sourceType:=..sourceType,
                 sourceText:=..sourceText,
+                pinned:=..pinned,
               }}
             }
          
@@ -58,7 +59,14 @@
       </params>
       <result>
         [*dt:Fetch{[api].type.type.aggregateType, [{`entityId:=[p].entityId`}] }].()
-          .[*fn:Sort{`.lastModified`,true}]
+          .[*fn:Sort{ 
+            [*fn:Ordering
+              {`.pinned`
+              ,true
+              ,[*fn:Ordering{`.lastModified`,true}]
+              }
+            ]
+          }]
           #{[api].out(.)}.@log([p].entityId) 
       </result>
     </rpc:JsonHandler>
@@ -104,6 +112,7 @@
                      }].()
                     :.[*dt:Edit{ action:=`
                        @{
+                         creatorId=[swm:Session].user.id,
                          lastModified=[@ju:Date].(),
                          sourceType=[p].sourceType,
                          sourceText=[p].sourceText,
@@ -122,6 +131,16 @@
           </name>
           <result>
             @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
+             }
+          </result>
+        </rpc:JsonHandler>
+        <rpc:JsonHandler>
+          <name>.togglePinned
+          </name>
+          <result>
+            @{ [result].data=
+                 [result].data.[*dt:Edit{ action:=`.pinned=.pinned?false:true` }].()
+             , [api].out([result].data)
              }
           </result>
         </rpc:JsonHandler>
