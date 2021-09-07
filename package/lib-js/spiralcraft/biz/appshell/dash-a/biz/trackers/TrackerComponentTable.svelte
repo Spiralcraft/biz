@@ -2,8 +2,11 @@
   import { getContext } from 'svelte';
   import InnerPanel from '@vfs/app/layout/InnerPanel.svelte';
   import DataBrowser from '@vfs/app/layout/DataBrowser.svelte';
+  import Modal from '@spiralcraft/svelte/modal/Modal.svelte';
+  
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
   import TrackerStatusSelector from '@vfs/app/biz/trackers/TrackerStatusSelector.svelte';
+  import TrackerUpdateForm from '@vfs/app/biz/trackers/TrackerUpdateForm.svelte';
 
   const app=getContext("App");
   const biz=getContext("biz");
@@ -16,29 +19,23 @@
   let editingId;
   let editingTrackerModel;
   let editingTrackerModelComponent;
+  let trackerUpdateModal;
   
   const editAction = (trackerComponent) =>
   {
     return (e) => 
     { 
       console.log("Editing "+JSON.stringify(trackerComponent));
-      editingId = trackerComponent.id;
-      biz.trackerModelComponentView.showForPkey
-        (trackerComponent.trackerModelComponentId
-        ,(data) => 
-          {
-            editingTrackerModelComponent=data;
-            if (data.linkedTrackerModelId)
-            {
-              biz.trackerModelView.showForPkey
-                (data.linkedTrackerModelId
-                ,(data) =>
-                  { editingTrackerModel=data;
-                  }
-                )
-            }
-          }
+      
+      trackerUpdateModal.show
+        ({ trackerComponent: trackerComponent,
+           updateStatus: updateStatus(trackerComponent),
+         
+         }
         );
+/*
+      editingId = trackerComponent.id;
+ */
     }
   }
   
@@ -108,23 +105,12 @@
               {detail.name}
             </td>
             <td>
-              {#if detail.id==editingId }
-                <TrackerStatusSelector 
-                  status={ (detail.linkedTracker && detail.linkedTracker.status)
-                            ?detail.linkedTracker.status
-                            :{}
-                          }
-                  trackerModel={editingTrackerModel}
-                  updateStatus={updateStatus(detail)}
-                />
-              {:else}
-                <TrackerStatusWidget 
-                  status={ (detail.linkedTracker && detail.linkedTracker.status)
-                            ?detail.linkedTracker.status
-                            :{}
-                         }
-                />
-              {/if}
+              <TrackerStatusWidget 
+                status={ (detail.linkedTracker && detail.linkedTracker.status)
+                          ?detail.linkedTracker.status
+                          :{}
+                       }
+              />
             </td>
           </tr>
         
@@ -133,3 +119,6 @@
   {/if}
 </InnerPanel>
 
+<Modal bind:this={trackerUpdateModal} let:options>
+  <TrackerUpdateForm {options}/>
+</Modal>

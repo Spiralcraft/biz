@@ -187,7 +187,7 @@
         <p>{trackerModel.description}</p> 
         {/if}
         <h6>Status</h6>       
-        <div class="d-flex flex-row align-items-center mb-3 dropdown">
+        <div class="d-flex flex-row align-items-center mb-3 dropdown ps-2">
           <button data-bs-toggle="dropdown" aria-expanded="false" type="button"
             class="status-button btn btn-secondary dropdown-toggle 
               dropdown-toggle-split p-0 pe-1"
