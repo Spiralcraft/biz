@@ -238,7 +238,8 @@
     padding: 2px 3px 5px 5px;
     margin-right: 2px;
     margin-bottom: 8px;
-    box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 20%)
+    box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 20%);
+    border-radius: 4px;
   }
   
   .note-header
