@@ -32,8 +32,13 @@ import trackerStatusView from '@vfs/spiralcraft/biz/trackerStatusView.js';
 import trackerModelComponentView from '@vfs/spiralcraft/biz/trackerModelComponentView.js';
 import trackerView from '@vfs/spiralcraft/biz/trackerView.js';
 import trackerComponentView from '@vfs/spiralcraft/biz/trackerComponentView.js';
+import trackerAlertView from '@vfs/spiralcraft/biz/trackerAlertView.js';
+import trackerNoteView from '@vfs/spiralcraft/biz/trackerNoteView.js';
+import trackerLogView from '@vfs/spiralcraft/biz/trackerLogView.js';
 
 import custom from '@vfs/app/spiralcraft-biz.custom.js';
+
+import alerts from '@vfs/spiralcraft/biz/alerts.js';
 
 let app;
 const context =
@@ -44,6 +49,7 @@ const context =
 const onInit = (ac) => 
 { 
   app=ac; 
+  context.alerts = alerts(app);
 }
 
 const views=
@@ -61,6 +67,9 @@ const views=
   trackerStatusView,
   trackerView,
   trackerComponentView,
+  trackerAlertView,
+  trackerNoteView,
+  trackerLogView,
   trackerModelComponentView,
 };
 

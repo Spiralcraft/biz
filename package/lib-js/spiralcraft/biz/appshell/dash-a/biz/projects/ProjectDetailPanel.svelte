@@ -2,7 +2,9 @@
   import { getContext } from "svelte";
   import ProjectForm from '@vfs/app/biz/projects/ProjectForm.svelte';
   import ProjectTrackerPanel from '@vfs/app/biz/projects/ProjectTrackerPanel.svelte';
-
+  import ProjectLogPanel from '@vfs/app/biz/projects/ProjectLogPanel.svelte';
+  import Tabs from '@vfs/app/layout/Tabs.svelte';
+  import LabeledElement from '@vfs/app/layout/LabeledElement.svelte';
   export let create;
   export let embedded;
 
@@ -14,29 +16,35 @@
 
   const dataController = getContext("DataController");
   
-  const key=dataController.key;
+  const key= dataController.key;
   const cursor = dataController.cursor;
+  
+  let tabs = 
+  [ 
+    { id:"info", iconComponent: InfoIcon, label:"Info" },
+  ];
+  
+  if (!create)
+  { tabs = 
+    [ ...tabs,
+      { id:"tracker", iconComponent: WorkflowIcon, label:"Tracker", },
+      { id:"log", iconComponent: InfoIcon, label:"Log", },
+    ]
+  }  
+  
 </script>
 
 <div class="h-100 overflow-auto d-flex flex-column">
-  <div class="tabs-header">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link" class:active={active=="info"} href="/#"
-          on:click|preventDefault={()=>{ active="info" }}
-          >
-          <InfoIcon size="1x"/><span class="nav-label ms-2">Info</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" class:active={active=="tracker"} href="/#"
-          on:click|preventDefault={()=>{ active="tracker" }}
-          >
-          <WorkflowIcon size="1x"/><span class="nav-label ms-2">Tracker</span>
-        </a>
-      </li>
-    </ul>
+  <div class="header d-flex flex-row">
+    <LabeledElement
+      classes="mb-1"
+      label="Project"
+      labelClasses="text-sm fw-bold"
+      elementClasses="fs-6"
+      >{$cursor?$cursor.name:""}
+    </LabeledElement>
   </div>
+  <Tabs bind:active data={ tabs } linkClasses="px-2"/>
   {#if active=="info"}
     <ProjectForm
       create={create}
@@ -44,6 +52,8 @@
     />
   {:else if active=="tracker"}
     <ProjectTrackerPanel embedded={embedded}/>
+  {:else if active=="log"}
+    <ProjectLogPanel embedded={embedded}/>
     
   {/if}
 </div>

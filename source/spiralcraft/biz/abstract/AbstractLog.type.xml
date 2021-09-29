@@ -1,6 +1,5 @@
 <meta:Type
   xmlns:meta="class:/spiralcraft/data/types/meta"
-  xmlns:ab="class:/spiralcraft/biz/abstract"
   xmlns:dm="class:/spiralcraft/data/methods"
   xmlns:dt="class:/spiralcraft/data/task"
   xmlns:j="class:/java/lang"
@@ -20,7 +19,7 @@
     </meta:SequenceField>
     
     <meta:Field>
-      <name>creatorId
+      <name>userId
       </name>
       <type><LSID.type/>
       </type>
@@ -34,40 +33,41 @@
     </meta:Field>
 
     <meta:Field>
-      <name>alertId
+      <name>timestamp
+      </name>
+      <type><Date.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>eventTag
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>eventData
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>objectType
+      </name>
+      <type><String.type/>
+      </type>
+    </meta:Field>
+    
+    <meta:Field>
+      <name>objectId
       </name>
       <type><LSID.type/>
       </type>
     </meta:Field>
 
-    <meta:Field>
-      <name>lastModified
-      </name>
-      <type><Date.type/>
-      </type>
-    </meta:Field>
-    
-    <meta:Field>
-      <name>sourceType
-      </name>
-      <type><String.type/>
-      </type>
-    </meta:Field>
-
-    <meta:Field>
-      <name>sourceText
-      </name>
-      <type><String.type/>
-      </type>
-    </meta:Field>
-    
-    <meta:Field>
-      <name>pinned
-      </name>
-      <type><Boolean.type/>
-      </type>
-    </meta:Field>
-  </fields>  
+  </fields>
   
   <keys>
     <meta:Key>
@@ -78,6 +78,14 @@
     </meta:Key>
     <meta:Key>
       <fieldList>entityId
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>userId
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>timestamp
       </fieldList>
     </meta:Key>
   </keys>
@@ -100,9 +108,8 @@
             }].()
       </x>      
     </meta:Method>
-
-    <meta:TransactionMethod>
-      <name>create
+    <meta:Method>
+      <name>logEvent
       </name>
       <static>true
       </static>
@@ -110,45 +117,33 @@
         <String.type/>
         <String.type/>
         <String.type/>
-        <String.type/>
       </parameterTypes>
       <returnTypeX>[meta:Type]
       </returnTypeX>
       <contextX>[#p] 
-        { entityId:[@j:String], 
-          sourceType:[@j:String], 
-          sourceText:[@j:String], 
-          creatorId:[@j:String] 
+        { 
+          userId:[@j:String],
+          entityId:[@j:String],
+          eventTag:[@j:String],
+          eventData:[@j:String],
+          objectType:[@j:String],
+          objectId:[@j:String],
         }
       </contextX>
-      <x>[*dt:Edit{[meta:Type], 
-           action:=`@{
-            entityId=[p].entityId,
-            sourceType=[p].sourceType,
-            sourceText=[p].sourceText,
-            creatorId=[p].creatorId,
-            lastModified=[@ju:Date].(),
-           }`
+      <x>[*dt:Edit{[meta:Type],
+           :@{
+             userId=[p].userId,
+             entityId=[p].entityId,
+             timestamp=[@ju:Date].(),
+             eventTag=[p].eventTag,
+             eventData=[p].eventData,
+             objectType=[p].objectType,
+             objectId=[p].objectId,
+             
+           }
          }].()
       </x>      
-    </meta:TransactionMethod>
-    <meta:TransactionMethod>
-      <name>alert
-      </name>
-      <parameterTypes>
-        <String.type/>
-      </parameterTypes>
-      <returnTypeX>[meta:Type]
-      </returnTypeX>
-      <contextX>[#p]
-        { alertId:[@j:String]
-        }
-      </contextX>
-      <x>
-        [ab:AbstractNote].[*dt:Edit{
-          action:=`alertId=[p].alertId`
-        }].()
-      </x>
-    </meta:TransactionMethod>
+    </meta:Method>
+
   </methods>
 </meta:Type>

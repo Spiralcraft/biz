@@ -27,6 +27,20 @@
     </meta:Field>
     
     <meta:Field>
+      <name>deactivatorId
+      </name>
+      <type><LSID.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
+      <name>active
+      </name>
+      <type><Boolean.type/>
+      </type>
+    </meta:Field>
+
+    <meta:Field>
       <name>entityId
       </name>
       <type><LSID.type/>
@@ -34,39 +48,33 @@
     </meta:Field>
 
     <meta:Field>
-      <name>alertId
+      <name>noteId
       </name>
       <type><LSID.type/>
       </type>
     </meta:Field>
 
     <meta:Field>
-      <name>lastModified
+      <name>activatedTime
       </name>
       <type><Date.type/>
       </type>
     </meta:Field>
     
     <meta:Field>
-      <name>sourceType
+      <name>deactivatedTime
       </name>
-      <type><String.type/>
+      <type><Date.type/>
       </type>
     </meta:Field>
-
+    
     <meta:Field>
-      <name>sourceText
+      <name>code
       </name>
       <type><String.type/>
       </type>
     </meta:Field>
     
-    <meta:Field>
-      <name>pinned
-      </name>
-      <type><Boolean.type/>
-      </type>
-    </meta:Field>
   </fields>  
   
   <keys>
@@ -78,6 +86,10 @@
     </meta:Key>
     <meta:Key>
       <fieldList>entityId
+      </fieldList>
+    </meta:Key>
+    <meta:Key>
+      <fieldList>noteId
       </fieldList>
     </meta:Key>
   </keys>
@@ -100,55 +112,57 @@
             }].()
       </x>      
     </meta:Method>
-
+    <meta:Method>
+      <name>forNote
+      </name>
+      <static>true
+      </static>
+      <parameterTypes><String.type/>
+      </parameterTypes>
+      <returnTypeX>[meta:Type].aggregateType
+      </returnTypeX>
+      <contextX>[#p] { noteId:[@j:String] }
+      </contextX>
+      <x>[*dt:Fetch{[meta:Type].aggregateType, 
+            [{`noteId:=[p].noteId`}]
+            }].()
+      </x>      
+    </meta:Method>
     <meta:TransactionMethod>
-      <name>create
+      <name>createAndPost
       </name>
       <static>true
       </static>
       <parameterTypes>
-        <String.type/>
-        <String.type/>
+        <ab:AbstractNote.type/>
         <String.type/>
         <String.type/>
       </parameterTypes>
       <returnTypeX>[meta:Type]
       </returnTypeX>
       <contextX>[#p] 
-        { entityId:[@j:String], 
-          sourceType:[@j:String], 
-          sourceText:[@j:String], 
-          creatorId:[@j:String] 
-        }
-      </contextX>
-      <x>[*dt:Edit{[meta:Type], 
-           action:=`@{
-            entityId=[p].entityId,
-            sourceType=[p].sourceType,
-            sourceText=[p].sourceText,
-            creatorId=[p].creatorId,
-            lastModified=[@ju:Date].(),
-           }`
-         }].()
-      </x>      
-    </meta:TransactionMethod>
-    <meta:TransactionMethod>
-      <name>alert
-      </name>
-      <parameterTypes>
-        <String.type/>
-      </parameterTypes>
-      <returnTypeX>[meta:Type]
-      </returnTypeX>
-      <contextX>[#p]
-        { alertId:[@j:String]
+        { note:[@ab:AbstractNote], 
+          code:[@j:String],
+          creatorId:[@j:String],
         }
       </contextX>
       <x>
-        [ab:AbstractNote].[*dt:Edit{
-          action:=`alertId=[p].alertId`
-        }].()
-      </x>
-    </meta:TransactionMethod>
+        { alert:=
+            [*dt:Edit{[meta:Type], 
+               action:=`@{
+                noteId=[p].note.id,
+                entityId=[p].note.entityId,
+                code=[p].code,
+                creatorId=[p].creatorId,
+                active=true,
+                activatedTime=[@ju:Date].(),
+               }`
+             }].(),
+        , note:=
+            [p].note.alert(.alert.id)
+        }.alert
+         
+      </x>      
+    </meta:TransactionMethod>    
   </methods>
 </meta:Type>

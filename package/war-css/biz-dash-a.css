@@ -22,6 +22,15 @@ body {
 }
 */
 
+.text-sm
+{
+  font-size: var(--text-sm);
+}
+
+.text-md
+{
+  font-size: var(--text-md);
+}
 
 /*
  * Sidebar

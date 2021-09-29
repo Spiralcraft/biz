@@ -207,6 +207,24 @@
         }.trackerFin
       </x>
     </meta:TransactionMethod>
+
+    <meta:TransactionMethod>
+      <name>updateStatus
+      </name>
+      <parameterTypes><String.type/>
+      </parameterTypes>
+      <returnType><bizwf:Tracker.type/>
+      </returnType>
+      <contextX>
+        [#p] { statusId:[@j:String] 
+        }
+      </contextX>
+      <x> 
+        [bizwf:Tracker]
+          .[*dt:Edit{ action:=`.statusId=[p].statusId`}].()  
+      </x>
+    </meta:TransactionMethod>
+
     <meta:TransactionMethod>
       <name>delete
       </name>

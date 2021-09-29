@@ -114,5 +114,17 @@
       <type><bizwf:TrackerComponent.type/>
       </type>
     </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerNote.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerAlert.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
+      <type><bizwf:TrackerLog.type/>
+      </type>
+    </meta:Entity>
   </entities>
 </meta:Schema>

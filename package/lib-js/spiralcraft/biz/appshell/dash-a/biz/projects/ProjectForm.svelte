@@ -11,7 +11,7 @@
   const biz=getContext("biz");
 
   const initial = { id: "", name: "" };
-  const title = "Project";
+  const title = "Info";
   const validator=undefined;
   const dataView=biz.projectView;
   const customerView=biz.customerView;

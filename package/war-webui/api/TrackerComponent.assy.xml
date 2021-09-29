@@ -104,7 +104,15 @@
           <result>
             [result].data
             {
-              .initTracker(),
+              .initTracker()
+                { 
+                  [@bizwf:TrackerLog].@logEvent
+                    ([swm:Session].user.id
+                    ,.linkedTrackerId
+                    ,"init"
+                    ),
+                  .
+                },
               [api].out([api].type.@forId(.id)),
             }
           </result>

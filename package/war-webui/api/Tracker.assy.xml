@@ -39,7 +39,38 @@
                         status:=..status,
                       }},
                     trackerModelComponentId:=..trackerModelComponentId,
-                  }}              
+                  }},
+                alerts:=[@bizwf:TrackerAlert].@forEntity(.id)
+                 .[*fn:Sort{
+                    [*fn:Ordering{`.active`,true,
+                      [*fn:Ordering{`[{'d','w','i','s','q'}].indexOf(.code.charAt(0))`,false,
+                        [*fn:Ordering{`.activatedTime`,true}]
+                      }]
+                    }]
+                  }]#
+                  {{
+                    id:=..id,
+                    code:=..code,
+                    creatorId:=..creatorId,
+                    creator:=[@swm:User].@forId(..creatorId)
+                    {{
+                      commonName:=..commonName,
+                    }},
+                    deactivator:=..deactivatorId==null?null:
+                      [@swm:User].@forId(..deactivatorId)
+                      {{
+                        commonName:=..commonName,
+                      }},
+                    note:=[@bizwf:TrackerNote].@forId(..noteId)
+                      {{
+                        id:=..id,
+                        sourceType:=..sourceType,
+                        sourceText:=..sourceText,
+                      }},
+                    active:=..active,
+                    activatedTime:=..activatedTime,
+                    deactivatedTime:=..deactivatedTime,
+                  }},
               }}
             }
          
@@ -99,6 +130,74 @@
         </rpc:JsonHandler>
       </defaultHandler>
       <handlers>
+        <rpc:JsonHandler>
+          <name>.update
+          </name>
+          <transactional>true
+          </transactional>
+          <params>
+            [#p] 
+            { 
+              newStatusId:[@j:String],
+              note:[@j:String],
+              alert:[@j:String],
+            }
+          </params>
+          <guard>
+            <rpc:Guard>
+              <assertion>[rpc:Call].request.isPost()
+              </assertion>
+            </rpc:Guard>
+          </guard>
+          <result>
+            { 
+               tracker:=
+                 [p].newStatusId!=null
+                 ?[result].data.updateStatus([p].newStatusId)
+                    { 
+                      [@bizwf:TrackerLog].@logEvent
+                        ([swm:Session].user.id
+                        ,[result].data.id
+                        ,"updateStatus"
+                        ,objectType:="Status"
+                        ,objectId:=[p].newStatusId
+                        ),
+                      .
+                    }
+                 :[result].data,
+               note:=![p].note.@empty
+                 ?[@bizwf:TrackerNote].@create(.tracker.id,"pre",[p].note,[swm:Session].user.id)
+                    { 
+                      [p].alert.@empty
+                      ?[@bizwf:TrackerLog].@logEvent
+                        ([swm:Session].user.id
+                        ,[result].data.id
+                        ,"logNote"
+                        ,objectType:="Note"
+                        ,objectId:=.id
+                        )
+                      :null,
+                    .
+                    }
+                 :null,
+               alert:=![p].alert.@empty
+                 ?[@bizwf:TrackerAlert].@createAndPost(.note,[p].alert,[swm:Session].user.id)
+                    { 
+                      [@bizwf:TrackerLog].@logEvent
+                        ([swm:Session].user.id
+                        ,[result].data.id
+                        ,"alert"
+                        ,objectType:="Alert"
+                        ,objectId:=.id
+                        ),
+                    .
+                    }
+                 :null,
+            }
+            { [api].out(.tracker)
+            }.@log("Updated tracker "+.)
+          </result>
+        </rpc:JsonHandler>
         <rpc:JsonHandler>
           <name>.delete
           </name>

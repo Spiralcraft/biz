@@ -46,4 +46,9 @@
 {
   transform: translate(0px,40px) !important;
 }
+
+.btn
+{
+  transition: none;
+}
 </style>

@@ -3,8 +3,12 @@
   import { derived } from "svelte/store";
   
   import SoloActivityPanel from "@vfs/app/layout/SoloActivityPanel.svelte";
-  import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';  
+  import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
   import TrackerComponentTable from '@vfs/app/biz/trackers/TrackerComponentTable.svelte';
+  import TrackerDetailPanel from '@vfs/app/biz/trackers/TrackerDetailPanel.svelte';
+  import Modal from '@spiralcraft/svelte/modal/Modal.svelte';
+  
+  
   export let embedded=true;
   
   const app=getContext("App");
@@ -12,6 +16,7 @@
 
   const PlayCircleIcon = app.icons["playCircle"];
   const TrashIcon = app.icons["trash"];
+  const XSquareIcon=app.icons["xSquare"];
   
   const projectView=biz.projectView;
   const dataController=getContext("DataController");
@@ -38,6 +43,8 @@
   let tracking=false;
   let status=noStatus;
 
+  let trackerUpdateModal;
+  
   let scatter = (data) =>
   {
     console.log("Project is "+JSON.stringify(project));
@@ -108,24 +115,6 @@
         }
       );
       
-  const updateStatus = (status) => 
-  { 
-    project.currentRun.tracker.status=status;
-    project.currentRun.tracker.statusId=status.id?status.id:null;
-    console.log("UpdateStatus "+project.currentRun.tracker.id+":"+status.id);
-    
-    trackerView.edited
-      (project.currentRun.tracker
-      ,(data) => 
-        {
-          project.currentRun.tracker=data;
-          dataController.onSave(project);
-          scatter(project);
-        }
-      );
-    
-  }
-  
   let trackerComponentChanged = () =>
   { 
     dataController.onSave(project);
@@ -150,8 +139,25 @@
   
   onDestroy(() => { if (unsub) { unsub() } });
   
+  
+  function trackerUpdated(tracker)
+  {
+    console.log("Tracker updated "+JSON.stringify(tracker));
+    project.currentRun.tracker=tracker;
+    status=tracker.status;
+    dataController.onSave(project);
+    scatter(project);
+  }
+    
+  function editAction()
+  {
+    trackerUpdateModal.show
+      ({ tracker: project.currentRun.tracker,
+       }
+      );
+  }  
 </script>
-<SoloActivityPanel title={title} border={embedded?"none":"top"}>
+<SoloActivityPanel hasTitle={false} border={embedded?"none":"top"}>
   <div class="d-flex flex-row align-items-center" slot="header-controls">
     {#if canReset}  
       <button 
@@ -186,39 +192,24 @@
         {#if trackerModel && trackerModel.description}
         <p>{trackerModel.description}</p> 
         {/if}
-        <h6>Status</h6>       
-        <div class="d-flex flex-row align-items-center mb-3 dropdown ps-2">
-          <button data-bs-toggle="dropdown" aria-expanded="false" type="button"
-            class="status-button btn btn-secondary dropdown-toggle 
-              dropdown-toggle-split p-0 pe-1"
-            on:click={(e)=> { refreshTrackerModel(project.currentRun.tracker.modelId) }}
+        <h6>Status</h6>  
+
+        <div class="d-flex flex-row align-items-center mb-3 ps-2">
+          <button type="button"
+            class="status-button btn p-0"
+            on:click|preventDefault={ editAction }
             >
             <div class="d-inline-block">
               <TrackerStatusWidget
                 status={status} 
-                classes="me-1 rounded-1"
+                classes="rounded-1"
               />
             </div>
           </button>
-          <ul class="dropdown-menu status-menu" aria-labelledby="status-dropdown">
-          {#if trackerModel}
-            {#each [ {}, ...trackerModel.statusSet ] as status}
-              <li>
-                <a class="dropdown-item status-select-item" href="/#" 
-                  title='{status.description?status.description:"No Status"}'
-                  on:click|preventDefault=
-                    {(e) => {updateStatus(status)}
-                    }
-                  >
-                  <TrackerStatusWidget status={status}/>
-                </a>
-              </li>
-            {/each}
-          {/if}
-          </ul>
           <span class="col9 col10-sm ms-3">{status.description}</span>
         </div>
         <TrackerComponentTable 
+          contextInfo={ [{ label:"Project", text: project.name }] }
           details={project.currentRun.tracker.components}
           onChange={trackerComponentChanged}
         />
@@ -227,12 +218,26 @@
   </div>
 </SoloActivityPanel>
 
+<Modal bind:this={trackerUpdateModal} let:options>
+  <div slot="modal-header" let:close class="d-flex flex-row tracker-modal-header p-1">
+    <div class="title-container fw-500 fs-6 d-inline-block">
+      Master Tracker Detail
+    </div>
+    <a class="modal-close-button d-inline-block ms-auto" 
+      href={"#"} title="Close" on:click|preventDefault={ close }
+      >
+      <XSquareIcon size="1.5x"/>
+    </a>
+  </div>
+  <TrackerDetailPanel contextInfo={ [{ label:"Project", text: project.name }] } 
+    {options} updated={trackerUpdated}
+  />
+</Modal>
+
 <style>
-.status-button, .status-select-item, .run-type-selector
+.status-button,  .run-type-selector
 {
   font-size: var(--text-md);
 }
-.status-menu
-{ min-width: 8rem;
-}
+
 </style>

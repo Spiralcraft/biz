@@ -5,12 +5,12 @@
   import Modal from '@spiralcraft/svelte/modal/Modal.svelte';
   
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
-  import TrackerStatusSelector from '@vfs/app/biz/trackers/TrackerStatusSelector.svelte';
-  import TrackerUpdateForm from '@vfs/app/biz/trackers/TrackerUpdateForm.svelte';
+  import TrackerDetailPanel from '@vfs/app/biz/trackers/TrackerDetailPanel.svelte';
 
   const app=getContext("App");
   const biz=getContext("biz");
   
+  export let contextInfo=[];
   export let details;
   export let onChange= () => {};
   
@@ -20,6 +20,8 @@
   let editingTrackerModel;
   let editingTrackerModelComponent;
   let trackerUpdateModal;
+  
+  const XSquareIcon=app.icons["xSquare"];
   
   const editAction = (trackerComponent) =>
   {
@@ -86,6 +88,11 @@
       
   }
   
+  function updated()
+  { 
+    details=details;
+    onChange();
+  }
 </script>
 
 <InnerPanel title="Tracker Components" fitContainer={true}>
@@ -120,5 +127,19 @@
 </InnerPanel>
 
 <Modal bind:this={trackerUpdateModal} let:options>
-  <TrackerUpdateForm {options}/>
+  <div slot="modal-header" let:close class="d-flex flex-row tracker-modal-header p-1">
+    <div class="title-container fw-500 fs-6 d-inline-block">
+      Tracker Detail
+    </div>
+    <a class="modal-close-button d-inline-block ms-auto" 
+      href={"#"} title="Close" on:click|preventDefault={ close }
+      >
+      <XSquareIcon size="1.5x"/>
+    </a>
+  </div>
+  <TrackerDetailPanel {contextInfo} {options} {updated}/>
 </Modal>
+
+<style>
+
+</style>

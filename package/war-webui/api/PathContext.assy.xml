@@ -12,8 +12,10 @@
         <Project/>
         <Tracker/>
         <TrackerComponent/>
+        <TrackerAlert/>
         <TrackerModel/>
         <TrackerStatus/>
+        <TrackerLog/>
         <TrackerModelComponent/>
         <Contact/>
         <ContactNote/>
