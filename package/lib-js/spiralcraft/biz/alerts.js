@@ -14,7 +14,7 @@ export default function(app)
       color: "#198754"
     },
     { code: 'q', 
-      icon: app.icons["exclamationTriangle"],
+      icon: app.icons["questionDiamond"],
       colorClass: "text-warning",
       color: "#9d0df0"
     },
@@ -29,7 +29,9 @@ export default function(app)
       color: "#DC3545"
     },
   ];
-  
+
+  const priorityOrder = ['d','w','q','i','s'];
+    
   function alert(code)
   {
     return alerts.find( a => a.code==code );
@@ -70,6 +72,58 @@ export default function(app)
     }
   }    
 
+  function compare(code1,code2)
+  {
+    if (code1==code2)
+    { return 0;
+    }
+    if (!code1)
+    { return 1;
+    }
+    if (!code2)
+    { return -1;
+    }
+    
+    return priorityOrder.indexOf(code1)
+            -priorityOrder.indexOf(code2);
+  }
+
+  function sort(alerts, bins)
+  {
+    bins=bins || 
+      { d:[],
+        w:[],
+        i:[],
+        s:[],
+        q:[],
+      };
+      
+    if (alerts && alerts.length>0)
+    {
+      for (let alert of alerts)
+      { bins[alert.code].push(alert);
+      }
+    }
+    return bins;  
+  }
+  
+  function orderByPriority(alerts)
+  {
+    alerts.sort( (a,b) =>
+      {
+        let priorityResult = compare(a.code, b.code);
+        if (priorityResult!=0)
+        { return priorityResult;
+        }
+        if (a.activatedTime==b.activatedTime)
+        { return 0;
+        }
+        return a.activatedTime<b.activatedTime?1:-1;
+      }
+    );
+    return alerts;
+  }
+  
   const mod=
   {
     alerts,
@@ -77,6 +131,9 @@ export default function(app)
     icon,
     colorClass,
     color,
+    compare,
+    sort,
+    orderByPriority,
   };
   
   return mod;

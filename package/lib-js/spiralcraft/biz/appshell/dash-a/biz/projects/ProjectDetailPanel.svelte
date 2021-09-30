@@ -2,6 +2,7 @@
   import { getContext } from "svelte";
   import ProjectForm from '@vfs/app/biz/projects/ProjectForm.svelte';
   import ProjectTrackerPanel from '@vfs/app/biz/projects/ProjectTrackerPanel.svelte';
+  import ProjectAlertsPanel from '@vfs/app/biz/projects/ProjectAlertsPanel.svelte';
   import ProjectLogPanel from '@vfs/app/biz/projects/ProjectLogPanel.svelte';
   import Tabs from '@vfs/app/layout/Tabs.svelte';
   import LabeledElement from '@vfs/app/layout/LabeledElement.svelte';
@@ -11,6 +12,9 @@
   const app=getContext("App");
   const InfoIcon = app.icons["info"];
   const WorkflowIcon = app.icons["workflow"];
+  const ExclamationTriangleIcon = app.icons["exclamationTriangle"];
+  const EditIcon = app.icons["edit"];
+  const JournalTextIcon = app.icons["journalText"];
   
   let active="info";    
 
@@ -28,7 +32,8 @@
   { tabs = 
     [ ...tabs,
       { id:"tracker", iconComponent: WorkflowIcon, label:"Tracker", },
-      { id:"log", iconComponent: InfoIcon, label:"Log", },
+      { id:"alerts", iconComponent: ExclamationTriangleIcon, label:"Alerts", },
+      { id:"log", iconComponent: JournalTextIcon, label:"Log", },
     ]
   }  
   
@@ -52,8 +57,10 @@
     />
   {:else if active=="tracker"}
     <ProjectTrackerPanel embedded={embedded}/>
+  {:else if active=="alerts"}
+    <ProjectAlertsPanel project={$cursor} />
   {:else if active=="log"}
-    <ProjectLogPanel embedded={embedded}/>
+    <ProjectLogPanel project={$cursor} />
     
   {/if}
 </div>

@@ -6,6 +6,7 @@
   
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
   import TrackerDetailPanel from '@vfs/app/biz/trackers/TrackerDetailPanel.svelte';
+  import AlertCountCluster from '@vfs/app/biz/trackers/AlertCountCluster.svelte';
 
   const app=getContext("App");
   const biz=getContext("biz");
@@ -105,6 +106,7 @@
       <colgroup>
         <col span="1" width="175"/>
         <col span="1" width="124"/>
+        <col span="1" width="40"/>
       </colgroup>
       {#each details as detail}
           <tr on:click|preventDefault={editAction(detail)}>
@@ -118,6 +120,21 @@
                           :{}
                        }
               />
+            </td>
+            <td>
+              {#if detail.linkedTracker 
+                && detail.linkedTracker.activeAlerts
+                && detail.linkedTracker.activeAlerts.length>0
+                }
+                <AlertCountCluster 
+                  alertSet=
+                    {biz.alerts.sort
+                      (detail.linkedTracker.activeAlerts)
+                    }
+                  {biz}
+                  height="29px"
+                />
+              {/if}
             </td>
           </tr>
         

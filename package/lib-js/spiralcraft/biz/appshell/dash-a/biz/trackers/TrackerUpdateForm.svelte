@@ -19,25 +19,6 @@
   let updateData = { newStatus: null, note: "", alert: "" };
   let updateValid=false;
 
-  const alerts=
-  [ { code:'i', 
-      icon: app.icons["infoCircle"],
-      color: "text-info",
-    },
-    { code: 's',
-      icon: app.icons["checkCircle"],
-      color: "text-success",
-    },
-    { code: 'w', 
-      icon: app.icons["exclamationTriangle"],
-      color: "text-warning",
-    },
-    { code: 'd', 
-      icon: app.icons["exclamationTriangle"],
-      color: "text-danger",
-    },
-  ];
-        
   $: load(options);
   
   $: updateValid = isChanged(updateData);
@@ -201,15 +182,15 @@
         labelClasses="text-sm fw-bold"
         >
         <div class="alert-selector">
-          {#each alerts as alert}
+          {#each biz.alerts.alerts as alert}
             <label class="alert-check me-2" for="alert-{alert.code}">
               <input class="alert-{alert.code} alert-radio" 
                 type="checkbox" name="alert" id="alert-{alert.code}" value="{alert.code}"
                 on:change={ (e) => { alertSelected(alert.code) } }
                 checked={ updateData.alert==alert.code }
               />
-              <div class="icon-div d-inline-block">
-                <svelte:component class="icon {alert.color}" this={alert.icon} size="1.75x"/>
+              <div class="icon-div d-inline-block" style="--color: {alert.color}">
+                <svelte:component class="icon" this={alert.icon} size="1.75x"/>
               </div>
             </label>
           {/each}
@@ -291,5 +272,9 @@ input[type=checkbox]:checked + .icon-div
 {
   transition: none;
   resize: none;
+}
+
+.icon-div
+{ color: var(--color);
 }
 </style>

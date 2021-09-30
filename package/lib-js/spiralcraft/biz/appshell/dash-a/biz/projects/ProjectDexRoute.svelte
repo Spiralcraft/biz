@@ -7,6 +7,7 @@
   import StatusRibbon from '@vfs/app/biz/trackerModels/StatusRibbon.svelte';
   import ProjectDexRowDetail from '@vfs/app/biz/projects/ProjectDexRowDetail.svelte';
   import trackerTableRenderer from '@vfs/app/biz/projects/trackerTableRenderer.js';
+  import AlertCountCluster from '@vfs/app/biz/trackers/AlertCountCluster.svelte';
 
   const app=getContext("App");
   const biz=getContext("biz");
@@ -51,6 +52,45 @@
   { 
     if (!value) data.currentRun={};
     return !value?{}:value;
+  }
+  
+  const alertsFormatter = (cell,formatterParams,onRendered) =>
+  {
+    const alerts=biz.alerts.sort();
+    
+    let run=cell.getRow().getData().currentRun;
+    let tracker=run?run.tracker:null;
+    let mainAlerts=(tracker && tracker.activeAlerts)?tracker.activeAlerts:null;
+    if (mainAlerts)
+    { biz.alerts.sort(mainAlerts,alerts);
+    }
+    let components=tracker?tracker.components:null;
+    if (components)
+    {
+      for (let comp of components)
+      { 
+        let subTracker=comp.linkedTracker;
+        let compAlerts=subTracker?subTracker.activeAlerts:null;
+        if (compAlerts)
+        { biz.alerts.sort(compAlerts,alerts);
+        }
+      }
+    }
+    
+    onRendered( () =>
+      {
+        cell.getElement().style.paddingTop=0;
+        cell.getElement().style.paddingBottom=0;      
+        const comp=new AlertCountCluster
+          ({target: cell.getElement(),
+            props:
+              { alertSet: alerts,
+                biz: biz,
+                height: "29px",
+              }
+          });      
+      }
+    );
   }
   
   const componentStatusFormatter = (cell,formatterParams,onRendered) => 
@@ -138,8 +178,15 @@
       cellClick: () => {},
       cellTap: () => {},
     },
-    {title:"Status",field:"currentRun",width:"124",mutator:statusMutator,formatter:statusFormatter},
-    {title:"Components",field:"currentRun",width:"124",mutator:statusMutator,formatter:componentStatusFormatter},
+    {title:"Status",field:"currentRun",width:"124",mutator:statusMutator,
+      formatter:statusFormatter, headerSort:false 
+    },
+    {title:"Components",field:"currentRun",width:"124",mutator:statusMutator,
+      formatter:componentStatusFormatter, headerSort:false 
+    },
+    {title:"Alerts",field:"currentRun",width:"48",mutator:statusMutator,
+      formatter:alertsFormatter,headerSort:false
+    },
   ]
   const dataView=biz.projectView;
   
@@ -161,6 +208,9 @@
     panelTitle,
     formatRow,
     selectable: false,
+    hSplitXl: 8,
+    hSplitLg: 7,
+    hSplitMd: 7,
   }
 </script>
 

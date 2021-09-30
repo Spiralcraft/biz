@@ -15,6 +15,8 @@
   const biz=getContext("biz");
   const PlayCircleIcon = app.icons["playCircle"];
   const InfoIcon = app.icons["info"];
+  const EditIcon = app.icons["edit"];
+  const JournalTextIcon = app.icons["journalText"];
   const ExclamationTriangleIcon = app.icons["exclamationTriangle"];
   
   let title = "Tracker Detail";
@@ -27,9 +29,9 @@
   
   let tabs = 
   [ 
-    { id:"update", iconComponent: InfoIcon, label:"Update" },
+    { id:"update", iconComponent: EditIcon, label:"Update" },
     { id:"alerts", iconComponent: ExclamationTriangleIcon, label:"Alerts", },
-    { id:"log", iconComponent: InfoIcon, label:"Log", },
+    { id:"log", iconComponent: JournalTextIcon, label:"Log", },
   ];
 
 

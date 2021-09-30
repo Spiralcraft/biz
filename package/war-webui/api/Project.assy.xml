@@ -8,6 +8,7 @@
   xmlns:util="class:/spiralcraft/util"
   xmlns:biz="class:/spiralcraft/biz/meta/"
   xmlns:bizpm="class:/spiralcraft/biz/pm/"
+  xmlns:bizwf="class:/spiralcraft/biz/wf/"
   >
   <debug>false
   </debug>
@@ -38,20 +39,67 @@
                            trackerId:=..trackerId,
                            linkedTrackerId:=..linkedTrackerId,
                            linkedTracker:=..linkedTracker
-                             {.==null?null:{
-                               id:=..id,
-                               statusId:=..statusId,
-                               status:=..status,
-                             }},
-                           trackerModelComponentId:=..trackerModelComponentId,
-                         }},                       
+                              {.==null?null:{
+                                id:=..id,
+                                statusId:=..statusId,
+                                status:=..status,
+                                activeAlerts:=[@bizwf:TrackerAlert].@forEntity(.id)[.active]
+                                 .[*fn:Sort{
+                                    [*fn:Ordering{`[{'d','w','i','s','q'}].indexOf(.code.charAt(0))`,false,
+                                      [*fn:Ordering{`.activatedTime`,true}]
+                                    }]
+                                  }]#
+                                  {{
+                                    id:=..id,
+                                    code:=..code,
+                                    creatorId:=..creatorId,
+                                    creator:=[@swm:User].@forId(..creatorId)
+                                    {{
+                                      commonName:=..commonName,
+                                    }},
+                                    note:=[@bizwf:TrackerNote].@forId(..noteId)
+                                      {{
+                                        id:=..id,
+                                        sourceType:=..sourceType,
+                                        sourceText:=..sourceText,
+                                      }},
+                                    activatedTime:=..activatedTime,
+                                    active:=..active,
+                                  }},
+                                
+                              }},
+                            trackerModelComponentId:=..trackerModelComponentId,
+                          }},                       
                        status:=..status
                        {{
                          id:=..id,
                          label:=..label,
                          color:=..color,
                          description:=..description,
-                       }}
+                       }},
+                       activeAlerts:=[@bizwf:TrackerAlert].@forEntity(.id)
+                         .[*fn:Sort{
+                            [*fn:Ordering{`[{'d','w','i','s','q'}].indexOf(.code.charAt(0))`,false,
+                              [*fn:Ordering{`.activatedTime`,true}]
+                            }]
+                          }]#
+                          {{
+                            id:=..id,
+                            code:=..code,
+                            creatorId:=..creatorId,
+                            creator:=[@swm:User].@forId(..creatorId)
+                            {{
+                              commonName:=..commonName,
+                            }},
+                            note:=[@bizwf:TrackerNote].@forId(..noteId)
+                              {{
+                                id:=..id,
+                                sourceType:=..sourceType,
+                                sourceText:=..sourceText,
+                              }},
+                            activatedTime:=..activatedTime,
+                            active:=..active,
+                          }},
                      }}
                              
                   }}
