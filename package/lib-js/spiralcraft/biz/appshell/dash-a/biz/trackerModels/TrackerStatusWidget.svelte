@@ -80,5 +80,11 @@
   top: 0;
   right: 0;
   color: var(--text-color);
+  vertical-align: top;
 }
+
+.status-widget .icon :global(svg)
+{ vertical-align: top;
+}
+
 </style>
