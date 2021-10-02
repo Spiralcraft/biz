@@ -25,7 +25,7 @@
   let modelComponent;
   let linkedTrackerModel
 
-  let active = "update";
+  export let active = "update";
   
   let tabs = 
   [ 
@@ -78,6 +78,18 @@
            }
          }
        ); 
+    }
+    else if (tracker)
+    {
+      // Refresh the tracker directly
+      biz.trackerView.showForPkey
+        (tracker.id
+        ,(data) =>
+          { 
+            console.log("Loaded linked tracker for component");
+            tracker=data;
+          }
+        );
     }
   }
   
@@ -137,7 +149,7 @@
       {#if active=="update"}
         <TrackerUpdateForm {contextInfo} {options} updated={trackerUpdated}/>
       {:else if active=="alerts"}
-        <TrackerAlertTab {tracker}/>
+        <TrackerAlertTab {tracker} updated={trackerUpdated}/>
       {:else if active=="log"}
         <TrackerLogTab {tracker}/>
       {/if}

@@ -48,6 +48,7 @@
 </script>
 
 {#if project}
+  <div class="fw-500">Alerts for all components:</div>
   <div class="alert-scroller d-block overflow-auto h-100 pt-1">
     {#each alerts as alert}
       <AlertCard {alert} title={alert.componentName?alert.componentName:"Main"}/>

@@ -93,9 +93,9 @@ export default function(app)
     bins=bins || 
       { d:[],
         w:[],
+        q:[],
         i:[],
         s:[],
-        q:[],
       };
       
     if (alerts && alerts.length>0)

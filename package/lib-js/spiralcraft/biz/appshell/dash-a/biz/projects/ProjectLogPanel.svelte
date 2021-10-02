@@ -69,6 +69,7 @@
 </script>
 
 {#if project}
+  <div class="fw-500">Log entries for all components:</div>
   <div class="log-scroller d-block overflow-auto h-100 pt-1">
     {#each entries as entry}
       <LogCard {entry} title={entry.componentName?entry.componentName:"Main"}/>

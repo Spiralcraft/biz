@@ -8,6 +8,7 @@
   import LabeledElement from '@vfs/app/layout/LabeledElement.svelte';
   export let create;
   export let embedded;
+  export let active="info";    
 
   const app=getContext("App");
   const InfoIcon = app.icons["info"];
@@ -16,7 +17,6 @@
   const EditIcon = app.icons["edit"];
   const JournalTextIcon = app.icons["journalText"];
   
-  let active="info";    
 
   const dataController = getContext("DataController");
   

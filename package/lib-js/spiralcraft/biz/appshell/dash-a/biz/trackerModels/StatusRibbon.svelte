@@ -52,6 +52,7 @@ const color = (component) =>
 .status-ribbon
 {
   width: var(--width);
+  border-radius: 4px;
 }
 
 .status-ribbon-segment

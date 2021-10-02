@@ -17,6 +17,7 @@
   const PlayCircleIcon = app.icons["playCircle"];
   const TrashIcon = app.icons["trash"];
   const XSquareIcon=app.icons["xSquare"];
+  const EditIcon=app.icons["edit"];
   
   const projectView=biz.projectView;
   const dataController=getContext("DataController");
@@ -44,6 +45,7 @@
   let status=noStatus;
 
   let trackerUpdateModal;
+  let modalActive;
   
   let scatter = (data) =>
   {
@@ -151,6 +153,7 @@
     
   function editAction()
   {
+    modalActive = "update";
     trackerUpdateModal.show
       ({ tracker: project.currentRun.tracker,
        }
@@ -192,19 +195,20 @@
         {#if trackerModel && trackerModel.description}
         <p>{trackerModel.description}</p> 
         {/if}
-        <h6>Status</h6>  
-
+        <div class="run-status-header d-flex flex-row">
+          <div class="fw-500 fs-6">Status</div>
+        </div>
         <div class="d-flex flex-row align-items-center mb-3 ps-2">
           <button type="button"
             class="status-button btn p-0"
             on:click|preventDefault={ editAction }
             >
-            <div class="d-inline-block">
-              <TrackerStatusWidget
-                status={status} 
-                classes="rounded-1"
-              />
-            </div>
+            <TrackerStatusWidget
+              status={status} 
+              classes="rounded-1"
+              >
+              <EditIcon size="1x" slot="icon"/>
+            </TrackerStatusWidget>
           </button>
           <span class="col9 col10-sm ms-3">{status.description}</span>
         </div>
@@ -230,7 +234,7 @@
     </a>
   </div>
   <TrackerDetailPanel contextInfo={ [{ label:"Project", text: project.name }] } 
-    {options} updated={trackerUpdated}
+    {options} updated={trackerUpdated} active={modalActive}
   />
 </Modal>
 
@@ -238,6 +242,13 @@
 .status-button,  .run-type-selector
 {
   font-size: var(--text-md);
+}
+
+.component-edit-icon
+{ 
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
 </style>

@@ -24,9 +24,9 @@
       {#if entry.alert}
         <div class="alert-icon me-1"
           class:unalert={entry.eventTag=="unalert"}
+          style="--alertColor: {biz.alerts.color(entry.alert.code)};"
           >
           <svelte:component 
-            class="{biz.alerts.colorClass(entry.alert.code)}" 
             this={biz.alerts.icon(entry.alert.code)} size={"1.5x"}
           />
         </div>
@@ -93,6 +93,10 @@
 {
   padding-left: 4px;
   border-left: 1px solid #CCCCCC;
+}
+
+.alert-icon
+{ color: var(--alertColor);
 }
 
 .alert-icon.unalert

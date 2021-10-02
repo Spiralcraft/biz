@@ -5,6 +5,7 @@
   const biz = getContext("biz");
   
   export let tracker;
+  export let updated = () => {};
   
   function trash(alert)
   { 
@@ -16,8 +17,17 @@
         {
           let index=tracker.alerts.findIndex( a => a.id==alert.id );
           tracker.alerts[index]=res;
+          if (tracker.activeAlerts)
+          {
+            index=tracker.activeAlerts.findIndex( a => a.id==alert.id );
+            
+            if (index>=0)
+            { tracker.activeAlerts.splice(index,1);
+            }
+          }
           console.log("Index: "+index+" = "+JSON.stringify(res));
           tracker=tracker;
+          updated(tracker);
         }
       );
   }
@@ -32,6 +42,3 @@
   </div>
 {/if}
 
-<style>
-
-</style>

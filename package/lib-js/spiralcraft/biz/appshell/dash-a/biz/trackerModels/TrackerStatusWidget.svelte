@@ -25,6 +25,9 @@
     on:click|preventDefault={() => { clickHandler(status) }}
     {...$$restProps}
     >
+    <div class="icon">
+      <slot name="icon"/>
+    </div>
     <div class="status-label d-block my-auto">
       {#if status && status.label}
         {status.label}
@@ -40,6 +43,9 @@
     on:click|preventDefault={(e) => { clickHandler(status) }}
     {...$$restProps}
     >
+    <div class="icon">
+      <slot name="icon"/>
+    </div>
     <div class="status-label d-block my-auto">
       {#if status && status.label}
         {status.label}
@@ -64,5 +70,15 @@
   padding-top: 0;
   padding-bottom: 0;
   font-size: var(--text-md);
+  position: relative;
+  border-radius: 4px;
+}
+
+.status-widget .icon
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--text-color);
 }
 </style>

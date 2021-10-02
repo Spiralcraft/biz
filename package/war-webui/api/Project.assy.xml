@@ -78,6 +78,7 @@
                          description:=..description,
                        }},
                        activeAlerts:=[@bizwf:TrackerAlert].@forEntity(.id)
+                         [.active]
                          .[*fn:Sort{
                             [*fn:Ordering{`[{'d','w','i','s','q'}].indexOf(.code.charAt(0))`,false,
                               [*fn:Ordering{`.activatedTime`,true}]

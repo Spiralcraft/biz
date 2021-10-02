@@ -23,8 +23,10 @@
   class:active={alert.active} class:inactive={!alert.active}
   >
   <div class="note-header d-flex flex-row">
-    <div class="alert-icon">
-      <svelte:component class="{biz.alerts.colorClass(alert.code)}" 
+    <div class="alert-icon"
+      style="--alertColor: {biz.alerts.color(alert.code)};"
+      >
+      <svelte:component  
         this={biz.alerts.icon(alert.code)} size={"1.5x"}
       />
     </div>
@@ -101,6 +103,10 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     color: #555555;
+  }
+  
+  .alert-icon
+  { color: var(--alertColor);
   }
 </style>
 

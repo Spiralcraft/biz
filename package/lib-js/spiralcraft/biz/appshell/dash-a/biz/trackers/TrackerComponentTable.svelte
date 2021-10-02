@@ -11,6 +11,8 @@
   const app=getContext("App");
   const biz=getContext("biz");
   
+  const EditIcon = app.icons.edit;
+  
   export let contextInfo=[];
   export let details;
   export let onChange= () => {};
@@ -21,15 +23,16 @@
   let editingTrackerModel;
   let editingTrackerModelComponent;
   let trackerUpdateModal;
+  let modalActive;
   
   const XSquareIcon=app.icons["xSquare"];
   
-  const editAction = (trackerComponent) =>
+  const editAction = (trackerComponent,focus) =>
   {
     return (e) => 
     { 
       console.log("Editing "+JSON.stringify(trackerComponent));
-      
+      modalActive = focus?focus:"update";
       trackerUpdateModal.show
         ({ trackerComponent: trackerComponent,
            updateStatus: updateStatus(trackerComponent),
@@ -102,39 +105,54 @@
       No components.
     </div>
   {:else}
-    <table class="table table-bordered h-100 overflow-auto">
+    <table class="component-table table table-bordered h-100 overflow-auto">
       <colgroup>
         <col span="1" width="175"/>
         <col span="1" width="124"/>
         <col span="1" width="40"/>
       </colgroup>
       {#each details as detail}
-          <tr on:click|preventDefault={editAction(detail)}>
+          <tr >
             <td>
-              {detail.name}
+              <a href="{'#'}"
+                on:click|preventDefault={editAction(detail,"log")}
+                >
+                {detail.name}
+              </a>
             </td>
             <td>
-              <TrackerStatusWidget 
-                status={ (detail.linkedTracker && detail.linkedTracker.status)
-                          ?detail.linkedTracker.status
-                          :{}
-                       }
-              />
+              <a href="{'#'}"
+                on:click|preventDefault={editAction(detail,"update")}
+                class="status-link"
+                >
+                <TrackerStatusWidget 
+                  status={ (detail.linkedTracker && detail.linkedTracker.status)
+                            ?detail.linkedTracker.status
+                            :{}
+                         }
+                  >
+                  <EditIcon size="1x" slot="icon"/>
+                </TrackerStatusWidget>
+              </a>
             </td>
             <td>
-              {#if detail.linkedTracker 
-                && detail.linkedTracker.activeAlerts
-                && detail.linkedTracker.activeAlerts.length>0
-                }
-                <AlertCountCluster 
-                  alertSet=
-                    {biz.alerts.sort
-                      (detail.linkedTracker.activeAlerts)
-                    }
-                  {biz}
-                  height="29px"
-                />
-              {/if}
+              <a href="{'#'}"
+                on:click|preventDefault={editAction(detail,"alerts")}
+                >
+                {#if detail.linkedTracker 
+                  && detail.linkedTracker.activeAlerts
+                  && detail.linkedTracker.activeAlerts.length>0
+                  }
+                  <AlertCountCluster 
+                    alertSet=
+                      {biz.alerts.sort
+                        (detail.linkedTracker.activeAlerts)
+                      }
+                    {biz}
+                    height="29px"
+                  />
+                {/if}
+              </a>
             </td>
           </tr>
         
@@ -154,9 +172,22 @@
       <XSquareIcon size="1.5x"/>
     </a>
   </div>
-  <TrackerDetailPanel {contextInfo} {options} {updated}/>
+  <TrackerDetailPanel {contextInfo} {options} {updated} active={modalActive}/>
 </Modal>
 
 <style>
 
+.component-table a 
+{ 
+  display: block;
+  padding: 0;
+  text-decoration: none;
+}
+
+.status-link svg
+{
+  position: relative;
+  top: 0;
+  left: 0;
+}
 </style>

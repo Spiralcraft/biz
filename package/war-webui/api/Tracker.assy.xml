@@ -37,6 +37,39 @@
                         id:=..id,
                         statusId:=..statusId,
                         status:=..status,
+                        alerts:=[@bizwf:TrackerAlert].@forEntity(.id)
+                         .[*fn:Sort{
+                            [*fn:Ordering{`.active`,true,
+                              [*fn:Ordering{`[{'d','w','i','s','q'}].indexOf(.code.charAt(0))`,false,
+                                [*fn:Ordering{`.activatedTime`,true}]
+                              }]
+                            }]
+                          }]#
+                          {{
+                            id:=..id,
+                            code:=..code,
+                            creatorId:=..creatorId,
+                            creator:=[@swm:User].@forId(..creatorId)
+                            {{
+                              commonName:=..commonName,
+                            }},
+                            deactivator:=..deactivatorId==null?null:
+                              [@swm:User].@forId(..deactivatorId)
+                              {{
+                                commonName:=..commonName,
+                              }},
+                            note:=[@bizwf:TrackerNote].@forId(..noteId)
+                              {{
+                                id:=..id,
+                                sourceType:=..sourceType,
+                                sourceText:=..sourceText,
+                              }},
+                            active:=..active,
+                            activatedTime:=..activatedTime,
+                            deactivatedTime:=..deactivatedTime,
+                          }},
+                        activeAlerts:=.alerts[.active],
+                        
                       }},
                     trackerModelComponentId:=..trackerModelComponentId,
                   }},
@@ -71,6 +104,8 @@
                     activatedTime:=..activatedTime,
                     deactivatedTime:=..deactivatedTime,
                   }},
+                activeAlerts:=.alerts[.active],
+                
               }}
             }
          

@@ -170,8 +170,16 @@
   
   const columns =
   [
-    {title:"Name",field:"name",widthGrow: 1,widthShrink: 1},
-    {title:"Customer",field:"customer.name",widthGrow: 1,widthShrink: 2},
+    {title:"Name",field:"name",widthGrow: 1,widthShrink: 1,
+      cellClick: (e,cell) => 
+        { cell.getTable().context.indexDetailView.focusRowCallout(cell.getRow(),"info") 
+        }
+    },
+    {title:"Customer",field:"customer.name",widthGrow: 1,widthShrink: 2,
+      cellClick: (e,cell) => 
+        { cell.getTable().context.indexDetailView.focusRowCallout(cell.getRow(),"info") 
+        }
+    },
     {title:"",minWidth:"24",width:"24",maxWidth:"24",
       formatter:expanderFormatter(), 
       headerSort: false, 
@@ -179,13 +187,23 @@
       cellTap: () => {},
     },
     {title:"Status",field:"currentRun",width:"124",mutator:statusMutator,
-      formatter:statusFormatter, headerSort:false 
+      formatter:statusFormatter, headerSort:false,
+      cellClick: (e,cell) => 
+        { cell.getTable().context.indexDetailView.focusRowCallout(cell.getRow(),"tracker") 
+        }
+       
     },
     {title:"Components",field:"currentRun",width:"124",mutator:statusMutator,
-      formatter:componentStatusFormatter, headerSort:false 
+      formatter:componentStatusFormatter, headerSort:false, 
+      cellClick: (e,cell) => 
+        { cell.getTable().context.indexDetailView.focusRowCallout(cell.getRow(),"tracker") 
+        }
     },
-    {title:"Alerts",field:"currentRun",width:"48",mutator:statusMutator,
-      formatter:alertsFormatter,headerSort:false
+    {title:"Alerts",field:"currentRun",width:"58",mutator:statusMutator,
+      formatter:alertsFormatter,headerSort:false,
+      cellClick: (e,cell) => 
+        { cell.getTable().context.indexDetailView.focusRowCallout(cell.getRow(),"alerts") 
+        }
     },
   ]
   const dataView=biz.projectView;
@@ -215,9 +233,10 @@
 </script>
 
 
-<AbstractDexRoute { ...props }>
+<AbstractDexRoute { ...props } let:calloutFocus>
   <ProjectDetailPanel slot="detail-callout"
     create={false}
     embedded={true}
+    active={calloutFocus}
   />
 </AbstractDexRoute>
