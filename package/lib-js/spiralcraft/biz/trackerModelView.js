@@ -6,6 +6,7 @@ export default makeview(
       ["name",
       ,"description"
       ,"order"
+      ,"statusOrder"
       ]
   }
   );

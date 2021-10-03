@@ -22,7 +22,12 @@
               {{ id:=..id,
                  name:=..name,
                  description:=..description??"",
-                 statusSet:=..statusSet,
+                 statusOrder:=..statusOrder,
+                 statusSet:=..statusSet
+                   {...statusOrder!=null
+                     ?.[*fn:Sort{`...statusOrder.indexOf(.id)`,false}]
+                     :.
+                   },
                  order:=..order,
                  components:=..components
                    {...order!=null
@@ -74,6 +79,7 @@
               name:=[result].data.name,
               description:=[result].data.description,
               order:=[result].data.order,
+              statusOrder:=[result].data.statusOrder,
             }
           </params>
           <result>
@@ -91,6 +97,7 @@
                        @{name=[p].name,
                          description=[p].description,
                          order=[p].order,
+                         statusOrder=[p].statusOrder,
                        }`
                      }].()
                    }

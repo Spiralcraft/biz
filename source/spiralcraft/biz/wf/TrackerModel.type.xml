@@ -30,6 +30,12 @@
       <type><String.array.type/>
       </type>
     </meta:Field>
+    <meta:Field>
+      <name>statusOrder
+      </name>
+      <type><String.array.type/>
+      </type>
+    </meta:Field>
     <meta:RelativeField>
       <name>components
       </name>
@@ -90,8 +96,14 @@
            components:=[p].orig.components
             .[*fn:Sort{`[p].orig.order.indexOf(.id)`,false}]
             #{ .clone(...id) },
-           statusSet:=[p].orig.statusSet#{ .clone(...id) },
-           clone:=..[*dt:Edit{ action:=`order=[x].components#{.id}`}].(),
+           statusSet:=[p].orig.statusSet
+            .[*fn:Sort{`[p].orig.statusOrder.indexOf(.id)`,false}]
+            #{ .clone(...id) },
+           clone:=..[*dt:Edit{
+                      :@{ order=[x].components#{.id},
+                          statusOrder=[x].statusSet#{.id},
+                        }
+                    }].(),
          }}.clone
       </x>
     </meta:TransactionMethod>

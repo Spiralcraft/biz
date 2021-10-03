@@ -28,6 +28,7 @@
     panelTitle,
     hSplitMd,
     hSplitLg,
+    hSplitXl,
   }
 </script>
 

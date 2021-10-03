@@ -62,15 +62,6 @@
   
   const columns = 
   [
-//    { title: "#", minWidth:"24",width:"24",maxWidth:"24", field: "id",
-//      mutator: (value,data) => 
-//        ( (master.order?master.order.indexOf(value):details.indexOf(data))
-//          +1
-//        ),
-//      headerSort: false,       
-//      hozAlign:"right",    
-//
-//    },
     { rowHandle:true, formatter: "handle", headerSort:false, frozen: true,
       width:"30", minWidth:"30", maxWidth:"30"
     },
