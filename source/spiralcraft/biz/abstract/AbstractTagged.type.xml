@@ -64,9 +64,7 @@
       </fieldList>
     </meta:Key>
     <meta:Key>
-      <fieldList>entityId
-      </fieldList>
-      <fieldList>tagId
+      <fieldList>entityId,tagId
       </fieldList>
       <unique>true
       </unique>
