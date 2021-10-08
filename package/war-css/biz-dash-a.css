@@ -13,6 +13,10 @@ body {
   font-size: .8125rem;
 }
 
+.fw-500
+{ font-weight: 500;
+}
+
 /*
  * Don't do this because it overrides local sizing prefs
 .feather {
@@ -30,6 +34,11 @@ body {
 .text-md
 {
   font-size: var(--text-md);
+}
+
+.transition-none
+{
+  transition: none;
 }
 
 /*
@@ -50,13 +59,6 @@ body {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
-/*
-@media (max-width: 767.98px) {
-  .sidebar {
-    top: 5rem;
-  }
-}
-*/
 
 .sidebar-sticky {
   position: relative;
@@ -94,16 +96,6 @@ body {
 /*
  * Navbar
  */
-
-/*
-.navbar-brand {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, .25);
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-}
-*/
 
 .navbar {
   min-height: var(--header-height);
@@ -182,6 +174,13 @@ body {
 {
   background: #C0DFFF;
 }
+
+.tabulator .tabulator-row.editing-row
+{
+  background: #FFFFFF;
+  border: 3px solid #C0DFFF;
+}
+
 .data-browser .tabulator-tableHolder
 {
   overflow-x: hidden;
