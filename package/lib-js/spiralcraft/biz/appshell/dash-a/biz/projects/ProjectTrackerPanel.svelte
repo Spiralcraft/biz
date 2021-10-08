@@ -244,11 +244,4 @@
   font-size: var(--text-md);
 }
 
-.component-edit-icon
-{ 
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
 </style>

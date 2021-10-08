@@ -21,13 +21,31 @@
   const validator=undefined;
   const dataView=biz.trackerModelComponentView;
   const cleanEdited = (values) => values;
-  
+  const cleanLoaded = (values) => 
+    {
+      if (!values.facetIdList)
+      { values.facetIdList=[];
+      }
+      return values;
+    };
+    
   export let create;
   export let embedded=false;
   
   export let trackerModelId;
+  export let onReset;
+  
   console.log("trackerModelId "+trackerModelId);
-  const initial = { trackerModelId: trackerModelId, id: "", name: "", linkedTrackerModelId:"", description:"", detailedDescription:""};
+  const initial = 
+    { trackerModelId: trackerModelId, 
+      id: "",
+      name: "",
+      linkedTrackerModelId:"", 
+      description:"", 
+      detailedDescription:"",
+      facetIdList:[],
+    };
+    
   const dataController = getContext("DataController");
 
   const defaultEditEnabled=true;
@@ -40,7 +58,9 @@
     create,
     embedded,
     cleanEdited,
-    defaultEditEnabled
+    defaultEditEnabled,
+    cleanLoaded,
+    onReset,
   }
   
   const key = dataController.key;
@@ -52,6 +72,9 @@
   const refreshTrackerModels 
     = trackerModelView.showAll( (data) => { trackerModels=data } );
 
+  let facets=[];
+  const refreshFacets = biz.facetView.showAll( (data) => { facets=data });
+  
 </script>
 
 <AbstractCRUDForm 
@@ -94,6 +117,22 @@
       label="Description"
       placeholder="Component description"
     />
+  </FormField>
+  
+  <FormField path="facetIdList">
+    <SelectInput
+      name="facetIdList"
+      label="Relevant Facets"
+      let:selected
+      on:focus={ refreshFacets }
+      multiple={true}
+      >
+      {#each facets as facet} 
+        <option selected={selected?(selected.indexOf(facet.id)>=0):false} value={facet.id}>{facet.name}
+        </option>
+      {/each}
+
+    </SelectInput>
   </FormField>
 
 </AbstractCRUDForm>

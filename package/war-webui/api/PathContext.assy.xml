@@ -5,6 +5,7 @@
   <filters>
     <rpc:Filter>
       <handlers>
+        <Facet/>
         <Customer/>
         <CustomerAccount/>
         <CustomerProject/>

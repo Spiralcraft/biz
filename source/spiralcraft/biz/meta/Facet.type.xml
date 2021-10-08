@@ -1,0 +1,46 @@
+<meta:Type
+  xmlns:meta="class:/spiralcraft/data/types/meta"
+  xmlns:ju="class:/java/util"
+  xmlns:time="class:/spiralcraft/time"
+  xmlns:dm="class:/spiralcraft/data/methods"
+  xmlns:biz="class:/spiralcraft/biz/meta"
+  xmlns:bizpm="class:/spiralcraft/biz/pm"
+  xmlns:dt="class:/spiralcraft/data/task"
+  xmlns:j="class:/java/lang/"
+  >
+  <description>
+    An aspect of an organization that serves as a general filter for data 
+      entities of interest to or relevant to that aspect. 
+    
+    Provides a way to show a subset of data from a particular perspective. 
+  </description>
+  
+  <archetype><biz:PrimaryEntity.type/>
+  </archetype>
+  
+  <fields>
+    <meta:Field>
+      <name>name
+      </name>
+      <description>Unique name for this facet
+      </description>
+      
+      <type><String.type/>
+      </type>
+      
+      <required>true
+      </required>
+    </meta:Field>
+
+  </fields>
+  
+  <keys>
+    <meta:Key>
+      <fieldList>name
+      </fieldList>
+      <unique>true
+      </unique>
+    </meta:Key>
+  </keys>
+  
+</meta:Type>

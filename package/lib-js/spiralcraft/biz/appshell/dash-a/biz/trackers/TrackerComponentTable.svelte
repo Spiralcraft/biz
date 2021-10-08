@@ -184,10 +184,4 @@
   text-decoration: none;
 }
 
-.status-link svg
-{
-  position: relative;
-  top: 0;
-  left: 0;
-}
 </style>

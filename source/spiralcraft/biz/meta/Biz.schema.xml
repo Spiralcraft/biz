@@ -11,6 +11,10 @@
       </type>
     </meta:Entity>
     <meta:Entity>
+      <type><bizm:Facet.type/>
+      </type>
+    </meta:Entity>
+    <meta:Entity>
       <type><bizm:CustomerAccount.type/>
       </type>
     </meta:Entity>

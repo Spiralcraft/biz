@@ -5,6 +5,8 @@
   import { EditIcon,PlusCircleIcon } from 'svelte-feather-icons';
   import TrackerStatusWidget from '@vfs/app/biz/trackerModels/TrackerStatusWidget.svelte';
   import cellFormatter from '@spiralcraft/svelte/tabulator/cellFormatter.js';
+  import Modal from '@spiralcraft/svelte/modal/Modal.svelte';
+  import TrackerStatusContainer from '@vfs/app/biz/trackerModels/TrackerStatusContainer.svelte';
   
 
   const app=getContext("App");
@@ -14,13 +16,56 @@
   export let master;
   export let fitContainer;
   export let onOrderChanged;
+
+  let selectedDetailId;
+  let addingDetail;
   
+  function detailUpdated(detail)
+  { 
+    if (detail && detail.id)
+    {
+      if (!addingDetail)
+      { details[details.findIndex( d => d.id==detail.id )]=detail;
+      }
+      else
+      { details.push(detail);
+      }
+    }
+    else
+    {
+      console.log("deleting "+selectedDetailId);
+      if (!addingDetail)
+      { 
+        const deletedIndex=details.findIndex( d => d.id==selectedDetailId );
+        console.log("Deleted index is "+deletedIndex);
+        if (deletedIndex>=0)
+        { details.splice(deletedIndex,1);
+        }
+      }
+    }
+    details=details;
+    selectedDetailId=null;
+    addingDetail=false;
+  }
+    
   const add = () => 
-    { app.nav("/trackerModels/"+master.id+"/status/-");
+    { // app.nav("/trackerModels/"+master.id+"/status/-");
+      selectedDetailId=null;
+      addingDetail=true;
+      trackerStatusModal.show
+        ({ 
+         }
+        );    
     };
   
   const edit = (id) =>
-    { app.nav("/trackerModels/"+master.id+"/status/"+id);    
+    { //app.nav("/trackerModels/"+master.id+"/status/"+id);    
+      selectedDetailId=id;
+      addingDetail=false;
+      trackerStatusModal.show
+        ({ 
+         }
+        );    
     };
   
 
@@ -108,8 +153,12 @@
   {
     movableRows: true,
     rowMoved,
+    reactiveData: false,
     
   };  
+  
+ let trackerStatusModal;
+
 </script>
 
 <InnerPanel title="Status Set" fitContainer={fitContainer}>
@@ -128,3 +177,10 @@
   {/if}
 </InnerPanel>
 
+<Modal bind:this={trackerStatusModal} let:options let:close>
+  <TrackerStatusContainer 
+    update={ (data) => { close(); detailUpdated(data);  } }
+    onFormReset={ close }
+    trackerModelId={master.id} id={selectedDetailId} {options}
+  />
+</Modal>

@@ -7,28 +7,23 @@
   xmlns:fn="class:/spiralcraft/lang/functions"
   xmlns:util="class:/spiralcraft/util"
   xmlns:biz="class:/spiralcraft/biz/meta/"
-  xmlns:bizwf="class:/spiralcraft/biz/wf/"
+  xmlns:st="class:/spiralcraft/text"
   >
   <debug>false
   </debug>
-  <name>trackerModelComponent
+  <name>facet
   </name>
   <contextX>
   [#api]
   {
-    type:~[@bizwf:TrackerModelComponent],
+    type:~[@biz:Facet],
     out:~[#{[api].type.@nil}]
             { [.]
-              {{ id:=..id,
-                 trackerModelId:=..trackerModelId,
-                 name:=..name,
-                 linkedTrackerModelId:=..linkedTrackerModelId,
-                 linkedTrackerModel:=..linkedTrackerModel,
-                 description:=..description,
-                 detailedDescription:=..detailedDescription,
-                 facetIdList:=..facetIdList,
+              {{
+                id:=..id,
+                name:=..name,
               }}
-            }
+           }
          
   }
   </contextX>
@@ -61,39 +56,27 @@
           <params>
             [#p]
             {
-              trackerModelId:=[result].data.trackerModelId,
               name:=[result].data.name,
-              linkedTrackerModelId:=[result].data.linkedTrackerModelId,
-              description:=[result].data.description,
-              detailedDescription:=[result].data.detailedDescription,
-              facetIdList:=[result].data.facetIdList,
             }
           </params>
           <result>
             ![rpc:Call].request.isPost()
-            ?[api].out([result].data)        
+            ?[api].out([result].data)           
             :@{[result].data
                  =[result].data
                   { [result].new
-                    ?.[*dt:Edit{ 
-                       :@{ trackerModelId=[p].trackerModelId,
-                           name=[p].name,
-                           linkedTrackerModelId=[p].linkedTrackerModelId,
-                           description=[p].description,
-                           detailedDescription=[p].detailedDescription,
-                           facetIdList=[p].facetIdList,
-                         }
+                    ?.[*dt:Edit{
+                       :@{ 
+                          name=[p].name,
+                       }
                      }].()
                     :.[*dt:Edit{
-                       :@{ name=[p].name,
-                           linkedTrackerModelId=[p].linkedTrackerModelId,
-                           description=[p].description,
-                           detailedDescription=[p].detailedDescription,                         
-                           facetIdList=[p].facetIdList,
-                         }
+                       :@{ 
+                          name=[p].name,
+                       }
                      }].()
                    }
-              ,[api].out([result].data)
+              ,[api].out([result].data) 
               }                
             
           </result>
@@ -104,8 +87,7 @@
           <name>.delete
           </name>
           <result>
-            @{ [result].data.[*dt:Edit{ action:=`@tuple.delete()` }].()
-             }
+            [result].data.[*dt:Delete].()
           </result>
         </rpc:JsonHandler>
       </handlers>

@@ -8,6 +8,7 @@ export default makeview(
        "linkedTrackerModelId",
        "description",
        "detailedDescription",
+       "facetIdList",
       ]
   }
   );

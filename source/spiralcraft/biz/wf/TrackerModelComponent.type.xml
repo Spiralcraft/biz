@@ -80,7 +80,14 @@
       </name>
       <type><String.type/>
       </type>
-    </meta:Field>    
+    </meta:Field>
+    
+    <meta:Field>
+      <name>facetIdList
+      </name>
+      <type><String.array.type/>
+      </type>
+    </meta:Field>
   </fields>
   
   <methods>
@@ -91,15 +98,19 @@
       </parameterTypes>
       <returnType><bizwf:TrackerModelComponent.type/>
       </returnType>
-      <contextX>[#p] { trackerModelId:[@j:String], orig:=[bizwf:TrackerModelComponent] }
+      <contextX>
+        [#p] 
+        { trackerModelId:[@j:String], 
+          orig:=[bizwf:TrackerModelComponent] 
+        }
       </contextX>
       <x>[*dt:Edit{[@bizwf:TrackerModelComponent], 
-            action:=
-            `@{ name=[p].orig.name,
+            :@{ name=[p].orig.name,
                 trackerModelId=[p].trackerModelId,
                 linkedTrackerModelId=[p].orig.linkedTrackerModelId,
+                description=[p].orig.description,
+                facetIdList=[p].orig.facetIdList,
              }
-            ` 
          }].()
       </x>
     </meta:TransactionMethod>
