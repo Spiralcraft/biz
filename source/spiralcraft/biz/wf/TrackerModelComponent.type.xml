@@ -83,7 +83,7 @@
     </meta:Field>
     
     <meta:Field>
-      <name>facetIdList
+      <name>perspectiveIdList
       </name>
       <type><String.array.type/>
       </type>
@@ -109,7 +109,7 @@
                 trackerModelId=[p].trackerModelId,
                 linkedTrackerModelId=[p].orig.linkedTrackerModelId,
                 description=[p].orig.description,
-                facetIdList=[p].orig.facetIdList,
+                perspectiveIdList=[p].orig.perspectiveIdList,
              }
          }].()
       </x>

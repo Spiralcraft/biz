@@ -11,12 +11,12 @@
   >
   <debug>false
   </debug>
-  <name>facet
+  <name>perspective
   </name>
   <contextX>
   [#api]
   {
-    type:~[@biz:Facet],
+    type:~[@biz:Perspective],
     out:~[#{[api].type.@nil}]
             { [.]
               {{

@@ -11,10 +11,10 @@
       editor: "input",
     },
   ]
-  const dataView=biz.facetView;
+  const dataView=biz.perspectiveView;
   
-  const activityTitle = "Facets Admin";
-  const panelTitle = "Facets";
+  const activityTitle = "Perspectives Admin";
+  const panelTitle = "Perspectives";
   const hSplitMd = 3;
   const hSplitLg = 3;
   const hSplitXl = 3;

@@ -22,7 +22,7 @@
     <meta:Field>
       <name>name
       </name>
-      <description>Unique name for this facet
+      <description>Unique name for this perspective
       </description>
       
       <type><String.type/>

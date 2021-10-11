@@ -17,7 +17,7 @@ import TrackerModelRoute from '@vfs/app/biz/trackerModels/TrackerModelRoute.svel
 import TrackerStatusRoute from '@vfs/app/biz/trackerModels/TrackerStatusRoute.svelte';
 import TrackerModelComponentRoute from '@vfs/app/biz/trackerModels/TrackerModelComponentRoute.svelte';
 
-import FacetDexRoute from '@vfs/app/biz/facets/FacetDexRoute.svelte';
+import PerspectiveDexRoute from '@vfs/app/biz/perspectives/PerspectiveDexRoute.svelte';
 
 import contactView from '@vfs/spiralcraft/biz/contactView.js';
 import contactNoteView from '@vfs/spiralcraft/biz/contactNoteView.js';
@@ -26,7 +26,7 @@ import contactTagView from '@vfs/spiralcraft/biz/contactTagView.js';
 import customerView from '@vfs/spiralcraft/biz/customerView.js';
 import customerAccountView from '@vfs/spiralcraft/biz/customerAccountView.js';
 import customerProjectView from '@vfs/spiralcraft/biz/customerProjectView.js';
-import facetView from '@vfs/spiralcraft/biz/facetView.js'
+import perspectiveView from '@vfs/spiralcraft/biz/perspectiveView.js'
 import salesOrderView from '@vfs/spiralcraft/biz/salesOrderView.js';
 import projectView from '@vfs/spiralcraft/biz/projectView.js';
 import trackerModelView from '@vfs/spiralcraft/biz/trackerModelView.js';
@@ -63,7 +63,7 @@ const views=
   customerView,
   customerAccountView,
   customerProjectView,
-  facetView,
+  perspectiveView,
   salesOrderView,
   projectView,
   trackerModelView,
@@ -130,8 +130,8 @@ export default AppModule(
         ,icon: "cart3"
       },
       {
-        path: "/facets"
-        ,component: FacetDexRoute
+        path: "/perspectives"
+        ,component: PerspectiveDexRoute
         ,authRequired: true
         ,restricted: true
         ,section: "main"

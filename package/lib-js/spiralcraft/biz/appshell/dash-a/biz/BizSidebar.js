@@ -7,7 +7,7 @@ const bizSidebar=SidebarMenu(
        SidebarMenuItem({ text:"Projects", path:"/projects"}),
        SidebarMenuItem({ text:"Customers", path:"/customers"}),
 //       SidebarMenuItem({ text:"Production", path:"/production"}),
-       SidebarMenuItem({ text:"Facets Admin", path:"/facets"}),
+       SidebarMenuItem({ text:"Perspectives", path:"/perspectives"}),
        SidebarMenuItem({ text:"Tracker Admin", path:"/trackerModels"}),
        SidebarMenuItem({ text:"Sales Orders", path:"/salesOrders"}),
        SidebarMenuItem({ text:"Contacts", path:"/contacts"}),

@@ -11,7 +11,7 @@
       </type>
     </meta:Entity>
     <meta:Entity>
-      <type><bizm:Facet.type/>
+      <type><bizm:Perspective.type/>
       </type>
     </meta:Entity>
     <meta:Entity>

@@ -26,7 +26,7 @@
                  linkedTrackerModel:=..linkedTrackerModel,
                  description:=..description,
                  detailedDescription:=..detailedDescription,
-                 facetIdList:=..facetIdList,
+                 perspectiveIdList:=..perspectiveIdList,
               }}
             }
          
@@ -66,7 +66,7 @@
               linkedTrackerModelId:=[result].data.linkedTrackerModelId,
               description:=[result].data.description,
               detailedDescription:=[result].data.detailedDescription,
-              facetIdList:=[result].data.facetIdList,
+              perspectiveIdList:=[result].data.perspectiveIdList,
             }
           </params>
           <result>
@@ -81,7 +81,7 @@
                            linkedTrackerModelId=[p].linkedTrackerModelId,
                            description=[p].description,
                            detailedDescription=[p].detailedDescription,
-                           facetIdList=[p].facetIdList,
+                           perspectiveIdList=[p].perspectiveIdList,
                          }
                      }].()
                     :.[*dt:Edit{
@@ -89,7 +89,7 @@
                            linkedTrackerModelId=[p].linkedTrackerModelId,
                            description=[p].description,
                            detailedDescription=[p].detailedDescription,                         
-                           facetIdList=[p].facetIdList,
+                           perspectiveIdList=[p].perspectiveIdList,
                          }
                      }].()
                    }

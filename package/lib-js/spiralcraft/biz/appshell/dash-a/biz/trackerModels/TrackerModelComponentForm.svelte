@@ -1,6 +1,7 @@
 <script>
   import { getContext } from "svelte";
   import AbstractCRUDForm from "@vfs/app/components/AbstractCRUDForm.svelte";
+  import Select from "@vfs/app/form/svelteSelect/Select.svelte";
   
   import 
     {
@@ -23,8 +24,8 @@
   const cleanEdited = (values) => values;
   const cleanLoaded = (values) => 
     {
-      if (!values.facetIdList)
-      { values.facetIdList=[];
+      if (!values.perspectiveIdList)
+      { values.perspectiveIdList=[];
       }
       return values;
     };
@@ -43,7 +44,7 @@
       linkedTrackerModelId:"", 
       description:"", 
       detailedDescription:"",
-      facetIdList:[],
+      perspectiveIdList:[],
     };
     
   const dataController = getContext("DataController");
@@ -72,8 +73,8 @@
   const refreshTrackerModels 
     = trackerModelView.showAll( (data) => { trackerModels=data } );
 
-  let facets=[];
-  const refreshFacets = biz.facetView.showAll( (data) => { facets=data });
+  let perspectives=[];
+  const refreshPerspectives = biz.perspectiveView.showAll( (data) => { perspectives=data });
   
 </script>
 
@@ -119,21 +120,15 @@
     />
   </FormField>
   
-  <FormField path="facetIdList">
-    <SelectInput
-      name="facetIdList"
-      label="Relevant Facets"
-      let:selected
-      on:focus={ refreshFacets }
-      multiple={true}
-      >
-      {#each facets as facet} 
-        <option selected={selected?(selected.indexOf(facet.id)>=0):false} value={facet.id}>{facet.name}
-        </option>
-      {/each}
-
-    </SelectInput>
+  <FormField path="perspectiveIdList">
+    <Select
+      name="perspectiveIdList"
+      label="Relevant Perspectives"
+      items={ perspectives.map(f => ({ value: f.id, label: f.name }) ) }
+      isMulti={true}
+    />
   </FormField>
+  
 
 </AbstractCRUDForm>
 

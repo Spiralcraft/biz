@@ -1,7 +1,7 @@
 import makeview from '@vfs/spiralcraft/data/genericCRUDView.js';
 
 export default makeview(
-    { apiEndpoint: "biz/facet/",
+    { apiEndpoint: "biz/perspective/",
       postFields: 
         [ 
           "name",
