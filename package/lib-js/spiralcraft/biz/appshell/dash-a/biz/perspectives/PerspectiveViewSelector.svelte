@@ -25,10 +25,10 @@
     value=v?v:[];
   }
   
-  onMount( () => { refreshPerspectives() });  
+  onMount( () => { refreshPerspectives(); });  
 
   let modal;
-  let iconEnabled;
+  let iconEnabled=biz.filters.perspective.enabled;
   
 </script>
 
