@@ -41,6 +41,7 @@ import trackerLogView from '@vfs/spiralcraft/biz/trackerLogView.js';
 import custom from '@vfs/app/spiralcraft-biz.custom.js';
 
 import alerts from '@vfs/spiralcraft/biz/alerts.js';
+import filters from '@vfs/spiralcraft/biz/filters.js';
 
 let app;
 const context =
@@ -52,6 +53,7 @@ const onInit = (ac) =>
 { 
   app=ac; 
   context.alerts = alerts(app);
+  context.filters = filters(app);
 }
 
 const views=

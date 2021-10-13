@@ -63,7 +63,7 @@ const componentStatusFormatter = (cell,formatterParams,onRendered) =>
   }
 };
 
-export default (row) =>
+export default (row,context) =>
 {
   if (!row.getTable().context
       || !row.getTable().context.indexDetailView.isDetailOpen(row)
@@ -77,7 +77,14 @@ export default (row) =>
     let tracker=run.tracker;
     if (tracker)
     {
-      let components=tracker.components;
+      
+      let components;
+      if (tracker.components)
+      {
+        components=tracker.components.filter
+          (c => context.biz.filters.perspective.filter(c.perspectiveIdList))
+      }
+      
       if (components && components.length>0)
       {
         var holderEl = document.createElement("div");

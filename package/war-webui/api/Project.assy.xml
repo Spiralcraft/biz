@@ -69,6 +69,7 @@
                                 
                               }},
                             trackerModelComponentId:=..trackerModelComponentId,
+                            perspectiveIdList:=..trackerModelComponent.perspectiveIdList,                            
                           }},                       
                        status:=..status
                        {{

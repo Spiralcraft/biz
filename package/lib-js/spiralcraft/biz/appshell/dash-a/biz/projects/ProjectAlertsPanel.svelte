@@ -26,6 +26,12 @@
       let components=tracker.components;
       if (components)
       {
+        if (components)
+        { 
+          components = components.filter(c => 
+            biz.filters.perspective.filter(c.perspectiveIdList)
+            );
+        }
         for (let comp of components)
         { 
           let subTracker=comp.linkedTracker;

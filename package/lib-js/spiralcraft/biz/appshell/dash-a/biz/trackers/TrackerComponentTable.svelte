@@ -105,7 +105,7 @@
       No components.
     </div>
   {:else}
-    <table class="component-table table table-bordered h-100 overflow-auto">
+    <table class="component-table table table-bordered overflow-auto">
       <colgroup>
         <col span="1" width="175"/>
         <col span="1" width="124"/>

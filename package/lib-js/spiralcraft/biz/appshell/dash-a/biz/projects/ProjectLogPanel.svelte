@@ -54,6 +54,12 @@
         
       let components=tracker.components;
       if (components)
+      { 
+        components = components.filter(c => 
+          biz.filters.perspective.filter(c.perspectiveIdList)
+          );
+      }
+      if (components)
       {
         for (let comp of components)
         { 

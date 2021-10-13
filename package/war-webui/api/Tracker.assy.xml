@@ -72,6 +72,7 @@
                         
                       }},
                     trackerModelComponentId:=..trackerModelComponentId,
+                    perspectiveIdList:=..trackerModelComponent.perspectiveIdList,                    
                   }},
                 alerts:=[@bizwf:TrackerAlert].@forEntity(.id)
                  .[*fn:Sort{

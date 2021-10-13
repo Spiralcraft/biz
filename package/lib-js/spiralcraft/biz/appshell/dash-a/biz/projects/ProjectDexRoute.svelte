@@ -8,7 +8,8 @@
   import ProjectDexRowDetail from '@vfs/app/biz/projects/ProjectDexRowDetail.svelte';
   import trackerTableRenderer from '@vfs/app/biz/projects/trackerTableRenderer.js';
   import AlertCountCluster from '@vfs/app/biz/trackers/AlertCountCluster.svelte';
-
+  import PerspectiveViewSelector from '@vfs/app/biz/perspectives/PerspectiveViewSelector.svelte';
+  
   const app=getContext("App");
   const biz=getContext("biz");
 
@@ -69,10 +70,13 @@
     {
       for (let comp of components)
       { 
-        let subTracker=comp.linkedTracker;
-        let compAlerts=subTracker?subTracker.activeAlerts:null;
-        if (compAlerts)
-        { biz.alerts.sort(compAlerts,alerts);
+        if (biz.filters.perspective.filter(comp.perspectiveIdList))
+        {
+          let subTracker=comp.linkedTracker;
+          let compAlerts=subTracker?subTracker.activeAlerts:null;
+          if (compAlerts)
+          { biz.alerts.sort(compAlerts,alerts);
+          }
         }
       }
     }
@@ -97,13 +101,18 @@
   {
     const statusColors = ["grey","green","yellow","red","blue"];
   
-    let run=cell.getRow().getData().currentRun;
-    let hasTracker=(run && run.tracker);
-    let hasComponents
+    const run=cell.getRow().getData().currentRun;
+    const hasTracker=(run && run.tracker);
+    const hasComponents
       =hasTracker 
         && run.tracker.components 
         && run.tracker.components.length>0;
 
+    const filteredComponents
+      =hasComponents
+        ?run.tracker.components.filter
+          (c => biz.filters.perspective.filter(c.perspectiveIdList))
+        :[];
     cell.getElement().style.paddingTop=0;
     cell.getElement().style.paddingBottom=0;
       
@@ -118,7 +127,7 @@
                 { size: "1x",
                   width: "8em", 
                   classes: "h-100",
-                  data: run.tracker.components,
+                  data: filteredComponents,
                 } 
              }
            );
@@ -214,7 +223,7 @@
 
   const formatRow = (row) =>
   {
-    trackerTableRenderer(row);    
+    trackerTableRenderer(row,{biz,app});    
   }
   
   const props = 
@@ -230,10 +239,16 @@
     hSplitLg: 7,
     hSplitMd: 7,
   }
+  
+  let refresh;
 </script>
 
 
-<AbstractDexRoute { ...props } let:calloutFocus>
+<AbstractDexRoute { ...props } let:calloutFocus bind:refresh>
+  <svelte:fragment slot="activity-controls">
+    <PerspectiveViewSelector filterSubmitted={refresh}/>
+  </svelte:fragment>
+
   <ProjectDetailPanel slot="detail-callout"
     create={false}
     embedded={true}

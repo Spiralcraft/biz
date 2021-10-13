@@ -214,7 +214,12 @@
         </div>
         <TrackerComponentTable 
           contextInfo={ [{ label:"Project", text: project.name }] }
-          details={project.currentRun.tracker.components}
+          details=
+            {project.currentRun.tracker.components
+              .filter(c => 
+                biz.filters.perspective.filter(c.perspectiveIdList)
+                )
+            }
           onChange={trackerComponentChanged}
         />
       {/if}
