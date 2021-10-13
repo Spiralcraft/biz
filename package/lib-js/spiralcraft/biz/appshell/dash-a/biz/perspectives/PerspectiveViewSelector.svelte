@@ -2,7 +2,7 @@
   import { getContext, onMount } from 'svelte';
   import MultiSelect from '@vfs/app/components/MultiSelect.svelte';
   import Modal from '@spiralcraft/svelte/modal/Modal.svelte'
-  import Switch from '@vfs/app/Components/Switch.svelte';
+  import Switch from '@vfs/app/components/Switch.svelte';
 
   const app = getContext("App");
   const biz = getContext("biz");
